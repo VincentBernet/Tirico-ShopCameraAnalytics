@@ -1,8 +1,6 @@
-* {
-	background-color: #1a1a1a;
-}
 header {
 	display: flex;
+	height: 10vh;
 	justify-content: space-between;
 	align-items: center;
 	padding: 30px;

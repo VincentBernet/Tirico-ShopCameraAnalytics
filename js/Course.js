@@ -5,15 +5,15 @@
 "use strict"; 
 
 
-
+/*
 // To initalise Variable use let :
 let Variable1;
 Variable1 = "Hi master";
 let Variable2 = 0;
-alert(Variable1 + "                                                                   " + 1000/Variable2);
-const Variable3 = 1, Variable4 = 2;
+//alert(Variable1 + "                                                                   " + 1000/Variable2);
+let Variable3 = 1, Variable4 = 2;
 
-/* There are two limitations on variable names in JavaScript:
+ There are two limitations on variable names in JavaScript:
 
 The name must contain only letters, digits, or the symbols $ and _.
 The first character must not be a digit. 
@@ -22,10 +22,13 @@ When the name contains multiple words, camelCase is commonly used. That is: word
 
 Case matters
 Variables named apple and AppLE are two different variables.
+ Programming languages that allow such things, such as JavaScript, are called “dynamically typed”, meaning that there exist data types, but variables are not bound to any of them.
 */ 
 
 let planeteName = "Terre";
+let isBoss = confirm("Are you the boss?");
 
-/* Programming languages that allow such things, such as JavaScript, are called “dynamically typed”, meaning that there exist data types, but variables are not bound to any of them.
+alert( 'Right your are the ' + isBoss +" Boss here !" ); // true if OK is pressed
 
-*/
+
+
