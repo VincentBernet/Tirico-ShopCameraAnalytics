@@ -1,5 +1,5 @@
 // Bernet Vincent Course 
-/* MultiLine Comment */
+/* MultiLine Comment 
 
 // We use the modern version of JS so let's specify it : 
 "use strict"; 
@@ -23,12 +23,14 @@ When the name contains multiple words, camelCase is commonly used. That is: word
 Case matters
 Variables named apple and AppLE are two different variables.
  Programming languages that allow such things, such as JavaScript, are called “dynamically typed”, meaning that there exist data types, but variables are not bound to any of them.
-*/ 
+
 
 let planeteName = "Terre";
 let isBoss = confirm("Are you the boss?");
 
-alert( 'Right your are the ' + isBoss +" Boss here !" ); // true if OK is pressed
+alert( 'Right your are the ' + isBoss +" Boss here !" ); // true if OK is pressed*/ 
+
+
 
 
 

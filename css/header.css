@@ -29,3 +29,23 @@ li > a {
 	height: auto;
 	padding: 0 15vmin;
 }
+
+#counter {
+	background: black;
+	color: #00cc00;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 32px;
+	line-height: 38px;
+	width: 134px;
+	padding: 0px;
+	border: 3px double gray;
+	margin: 0vh 0vh 0vh 6vh;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	box-shadow: 2px 2px 4px #888888;
+	-moz-box-shadow: 2px 2px 4px #888888;
+	-webkit-box-shadow: 2px 2px 4px #888888;
+}
+.digit {
+	display: inline;
+}
