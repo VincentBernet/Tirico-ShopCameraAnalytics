@@ -21,7 +21,7 @@ Retails is a dynamic environment, which is highly variable in terms of pricing, 
 
 
 ## Features
-On this application i implemetended multiples features such as :
+On this application we implemetended multiples features such as :
  - Login/Register/Logout possibility linked to our DataBase
  - Complete CRUD application
  - Posibility to read/edit/delete only the profile created your own userprofile. 
@@ -34,7 +34,7 @@ On this application i implemetended multiples features such as :
 ---
 ## Team
 
-> Whole application was made by me when i was getting a coursera specialisation on web developpment :
+> Whole application is made by 8 students during their cursus in software Engenering :
 
  <a href="https://github.com/VincentBernet.com" target="_blank">**FullStack**</a> |
 |:---:|
