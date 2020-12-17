@@ -38,8 +38,8 @@ On this application we implemetended multiples features such as :
 
  <a href="https://github.com/VincentBernet.com" target="_blank">**Front-Dev**</a> |  <a href="https://github.com/VincentBernet.com" target="_blank">**Front-Dev**</a> |
 |:---:| |:---:|
-| [![FVCproductions](https://avatars3.githubusercontent.com/u/54962581?s=300)](https://github.com/VincentBernet.com)    | | [![FVCproductions](https://avatars3.githubusercontent.com/u/54962581?s=300)](https://github.com/VincentBernet.com)    |
-| <a target="_blank" rel="noopener noreferrer" href="https://github.com/VincentBernet">`github.com/BernetProductions`</a> || <a target="_blank" rel="noopener noreferrer" href="https://github.com/VincentBernet">`github.com/BernetProductions`</a> |
+| [![FVCproductions](https://avatars3.githubusercontent.com/u/54962581?s=300)](https://github.com/VincentBernet.com)    |  [![FVCproductions](https://avatars3.githubusercontent.com/u/54962581?s=300)](https://github.com/VincentBernet.com)    |
+| <a target="_blank" rel="noopener noreferrer" href="https://github.com/VincentBernet">`github.com/BernetProductions`</a> | <a target="_blank" rel="noopener noreferrer" href="https://github.com/VincentBernet">`github.com/BernetProductions`</a> |
 
 
 
