@@ -34,9 +34,9 @@ On this application we implemetended multiples features such as :
 ---
 
 ## Contact
-- Don't hesitate to contact us on Github or on Linkedin, :
+- Don't hesitate to contact us on Github or on Linkedin :
 
-[![Linkedin](https://thelinkedinman.com/wp-content/uploads/2016/02/View-my-LinkedIn-profile-image-3-300x140.png)](https://www.linkedin.com/in/vincent-bernet-028a64193/)
+
 
 
 ---
