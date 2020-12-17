@@ -1,6 +1,6 @@
 # Tirici-ShopCameraAnalitics
 
-*** Presentation Speech ? ***
+*** Presentation Speech  ***
 
 <br/>
 It's way smoother in reality, just the gif had to have few fps to be hosted on github. 
