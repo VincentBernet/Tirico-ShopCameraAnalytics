@@ -18,14 +18,13 @@ Retails is a dynamic environment, which is highly variable in terms of pricing, 
 
 ## Installation
 
--- Dans le fichier DIR
-git init
-git remote add origin https://github.com/VincentBernet/Tirico-ShopCameraAnalitics
-git pull origin master
-npm install electron -g
-npm install axios -S
-npm install keytar
-npm install jwt-decode
+### Dans le fichier DIR
+- git init
+- git pull origin master
+- npm install electron -g
+- npm install axios -S
+- npm install keytar
+- npm install jwt-decode
 
 Pour lancer :
 npm start
