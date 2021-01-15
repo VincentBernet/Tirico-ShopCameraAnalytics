@@ -1,0 +1,28 @@
+{
+  "name": "Tirico-ShopCameraAnalitics",
+  "version": "1.0.0",
+  "description": "*** Presentation Speech  ***",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VincentBernet/Tirico-ShopCameraAnalitics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VincentBernet/Tirico-ShopCameraAnalitics/issues"
+  },
+  "homepage": "https://github.com/VincentBernet/Tirico-ShopCameraAnalitics#readme",
+  "devDependencies": {
+    "electron": "11.2.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "jwt-decode": "^3.1.2",
+    "keytar": "^7.3.0"
+  }
+}
