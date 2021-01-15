@@ -17,7 +17,7 @@ Retails is a dynamic environment, which is highly variable in terms of pricing, 
 ---
 
 ## Installation
-
+ ```
 ### Dans le fichier DIR
 - git init
 - git pull origin master
@@ -29,7 +29,7 @@ Retails is a dynamic environment, which is highly variable in terms of pricing, 
 Pour lancer :
 npm start
 
-
+ ```
 ## Features
 On this application we implemetended multiples features such as :
  - Login/Register/Logout to acces at your account and your own shops's analytics.
