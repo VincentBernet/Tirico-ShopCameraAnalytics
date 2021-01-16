@@ -1,8 +1,9 @@
 // Petit compteur aléatoire, juste pour test un peu de js
 
-var counterMax = 9999999;   
+
 var counterStart = "0000000"; 
 var counterValue = 0;  
+var VariableGlobal = 0;
 
 function counterGradient(id, level)
 {
@@ -49,7 +50,12 @@ function digitUpdate(rank)
 	digit = document.getElementById(id);
 
 	var od = new Number(digit.innerHTML);
-	var nd = od + Math.floor(Math.random() * 10);;
+	var nd = od + 1;
+	VariableGlobal = VariableGlobal + 1;
+	if (VariableGlobal > 15)
+	{
+		return;
+	}
 	if(nd > 9)
 	{
 		ret = true;
@@ -80,7 +86,7 @@ function counterUpdate()
 
    for(i = 2; i <= size; i++)
    {
-      if(flag)
+	  if(flag)
 	  	flag = digitUpdate(i);
    }
 }
@@ -94,11 +100,13 @@ function counterInit()
 
    for(i = 1; i <= size; i++)
    {
-      theString = buildDisplay(i) + theString;
+	  theString = buildDisplay(i) + theString;
    }
 
    var counter = document.getElementById("counter");
+   
    counter.innerHTML = theString;
 }
 
 window.onload=counterInit;
+

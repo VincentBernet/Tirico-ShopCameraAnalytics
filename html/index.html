@@ -10,11 +10,14 @@
 		/>
 		<link rel="stylesheet" href="../css/index.css" />
 		<link rel="stylesheet" href="../css/header.css" />
+
+		<!-- Script to count how many people are tracked in Csv file-->
+		<script src="../js/counter.js"></script>
 	
 	<body>
 		<!-- Identifiant : sebastien.friedberg@gmail.com Mdp : Azerty 123-->
 		<header>
-			<img onclick="counterID=setInterval(counterUpdate, 1000)" class="logo" src="../ressource/image/logo.png"/>
+			<img  onload="counterID=setInterval(counterUpdate, 100)" class="logo" src="../ressource/image/logo.png"/>
 			<ul class="nav_links">
 				<li><a href="index.html">Accueil</a></li>
 				<li><a href="Analyse.html" id="name">Analyse</a></li>
@@ -23,7 +26,7 @@
 			</ul>
 		</header>
 		<br><br><br>
-		<script src="../js/counter.js"></script>
+		
 		  <div id="counter" >0000000</div>
 		
 		<!-- Container flex comprenant et les boutons pour changer d'analyse et la rubrique-->
@@ -44,8 +47,6 @@
 		</div>
 		
 		
-		<!--<script src="../js/Course.js"></script>
-		-->
-		<script defer src="../js/index.js"></script>
+
 	</body>
 </html>
