@@ -17,9 +17,19 @@ Retails is a dynamic environment, which is highly variable in terms of pricing, 
 ---
 
 ## Installation
+ ```
+ Dans le fichier DIR
+ git init
+ git pull origin master
+ npm install electron -g
+ npm install axios -S
+ npm install keytar
+ npm install jwt-decode
 
+Pour lancer :
+npm start
 
-
+ ```
 ## Features
 On this application we implemetended multiples features such as :
  - Login/Register/Logout to acces at your account and your own shops's analytics.
