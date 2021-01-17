@@ -52,10 +52,11 @@ function digitUpdate(rank)
 	var od = new Number(digit.innerHTML);
 	var nd = od + 1;
 	VariableGlobal = VariableGlobal + 1;
+
 	if (VariableGlobal > 15)
 	{
 		return;
-	}
+	}	
 	if(nd > 9)
 	{
 		ret = true;
