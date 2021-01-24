@@ -31,6 +31,11 @@ Retails is a dynamic environment, which is highly variable in terms of pricing, 
  Pour lancer :
  - npm start
 
+Pour le python : 
+Install ANACONDA, puis exectuer sur le prompt d'anaconda les commandes suivantes :
+conda install panda                          (pour réaliser les graphes)
+conda install plotly                         (pour réaliser les graphes)
+conda install -c plotly plotly-orca          (pour save en png les graphes)
  ```
 ## Features
 On this application we implemetended multiples features such as :
