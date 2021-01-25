@@ -19,6 +19,13 @@
 	box-shadow: inset 5px 5px 18px #0a0a0a, inset -5px -5px 18px #2a2a2a;
 }
 
+#Graphe1 {
+	width: 93%;
+	height: 93%;
+	border-radius: 14px;
+	background: #1a1a1a;
+	margin: 2% 5% 5% 5%;
+}
 /* Bouton sélection Analytics */
 .button {
 	display: inline-flex;
