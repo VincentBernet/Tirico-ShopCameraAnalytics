@@ -58,7 +58,7 @@ function destroyAuthWin() {
 function createLogoutWindow() {
   const logoutWindow = new electron.remote.BrowserWindow({
     width: 400,
-    height: 650,
+    height: 850,
     show: true    
   })
 
