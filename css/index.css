@@ -19,7 +19,7 @@
 	box-shadow: inset 5px 5px 18px #0a0a0a, inset -5px -5px 18px #2a2a2a;
 }
 
-#Graphe1 {
+#Graphe {
 	width: 93%;
 	height: 93%;
 	border-radius: 14px;
@@ -61,7 +61,28 @@ a {
 	padding: 0 5px;
 }
 
-a#button-1:hover img {
+a#Analy-1:hover img {
+	width: 1vh;
+	opacity: 1;
+	transform: translateX(60px);
+}
+
+a#Analy-2:hover img {
+	width: 1vh;
+	opacity: 1;
+	transform: translateX(60px);
+}
+a#Analy-3:hover img {
+	width: 1vh;
+	opacity: 1;
+	transform: translateX(60px);
+}
+a#Analy-4:hover img {
+	width: 1vh;
+	opacity: 1;
+	transform: translateX(60px);
+}
+a#Analy-5:hover img {
 	width: 1vh;
 	opacity: 1;
 	transform: translateX(60px);
