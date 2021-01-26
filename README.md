@@ -18,13 +18,17 @@ Retails is a dynamic environment, which is highly variable in terms of pricing, 
 
 ## Installation
 
- Dans le fichier DIR : 
- ```
+ Dans le fichier d'installation : 
+```
 git pull https://github.com/VincentBernet/Tirico-ShopCameraAnalitics/
-Ou bien si l'application est déjà installé : 
+```
+Ou bien si l'application est déjà installé sur l'ordinateur : 
+```
 git pull origin master
- ```
- ```
+```
+ 
+ Pour ensuite installer tous les composants nécessaires à l'application :
+```
 cd Tirico-ShopCameraAnalitics
 npm install electron -g
 npm install axios -S
@@ -32,13 +36,13 @@ npm install keytar
 npm install jwt-decode
 ```
 
- Pour lancer :
- ```
- npm start
- ```
+Pour lancer l'application :
+```
+npm start
+```
  
 Pour le python (pas nécessaire actuellement, les graphes sont en locales) : 
-Install ANACONDA, puis exectuer sur le prompt d'anaconda les commandes suivantes :
+Install ANACONDA, puis éxécuter sur le prompt d'anaconda les commandes suivantes :
 ```
 conda install pandas                          (pour réaliser les graphes)
 conda install plotly                         (pour réaliser les graphes)
