@@ -11,10 +11,14 @@ function createWindow () {
     }
   })
   console.log("On a cree une fenetre de app process");
+
+
   var python = require('child_process').spawn('python', ['./code_python/graph.py']);
   python.stdout.on('data',function(data){
       console.log("data: ",data.toString('utf8'));
   });
+  
+
   win.loadFile('html/index.html');
 
   win.on("closed", () => {
