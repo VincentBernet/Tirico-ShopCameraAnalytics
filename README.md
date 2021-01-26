@@ -13,6 +13,7 @@ Retails is a dynamic environment, which is highly variable in terms of pricing, 
 - [Features](#features)
 - [Team](#team)
 - [Contact](#Contact)
+- [Licences](#Licences)
 
 ---
 
@@ -48,20 +49,20 @@ conda install pandas                          (pour réaliser les graphes)
 conda install plotly                         (pour réaliser les graphes)
 conda install -c plotly plotly-orca          (pour save en png les graphes)
 ```
-Licences
-```
+## Licences
+
 ## Features
 On this application we implemetended multiples features such as :
  - Login/Register/Logout to acces at your account and your own shops's analytics.
  - Multiple analytics such as heatmap, client flow etc .
  
----
+
 ## Team
 
 > This whole application is made by 8 students during their cursus in software Engenering at EFREI PARIS :
 
 
----
+
 
 ## Contact
 - Don't hesitate to contact us on Github or on Linkedin :
@@ -69,9 +70,7 @@ On this application we implemetended multiples features such as :
 
 
 
----
-
-## License
+## Licences
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
