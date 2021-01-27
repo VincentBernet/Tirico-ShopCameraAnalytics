@@ -11,8 +11,8 @@
 		<link rel="stylesheet" href="../css/index.css" />
 		<link rel="stylesheet" href="../css/header.css" />
 
-		<!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
-			The script loads “in the background”, and then runs when the DOM is fully built.-->
+        <!-- Script to count how many people are tracked in Csv file-->
+		<script src="../js/counter.js"></script>
 		<script defer src="../js/index.js"></script>
 	</head>
 
@@ -39,7 +39,7 @@
                 <br>
                 Sélectionnez le graphe que vous souhaitez modifier : 
                 <!--<form method="POST"> -->
-                    <select name="Graphe" id="Graph">
+                    <select id="Graph">
                         <option value="Afluence">Affluence Graphe</option>
                         <option value="HeatMap">HeatMap</option>
                         <option value="Graphe3">Graphe3</option>
@@ -75,32 +75,32 @@
                     print('Saving this anylitic on your machine, replace the last version if already existing')
                     fig.write_image(file='Affluence/Affluence.png', format='.png')</textarea>
                     <br><br>
-                <button type="submit"  id="RestaurerBtn">Restaurer les paramètres par défauts</button>
-                <button type="submit" id="ValidateBtn" style="color:white;">Valider</button>
+                <button   id="RestaurerBtn">Restaurer les paramètres par défauts</button>
+                <button  id="ValidateBtn" style="color:white;">Valider</button>
             <!--</form> -->
             </span>
 		</div>
         
         <!-- Script pour modifier le code source souhaiter selon le "select" sélectionner + Alert si le boutton restaurer est activé-->
 		<script>
-			const AffluenceBtn = document.getElementById('RestaurerBtn')
+			const AffluenceBtn = document.getElementById('RestaurerBtn');
 			AffluenceBtn.addEventListener('click', (event) => {
                 confirm("Attention vous vous apprêtez à restaurer tous les paramètres par défauts, graphes compris !\n Confirmer ?");
-			})
+            })
+            
             var graphSelection = document.getElementById("Graph");
             var graphSelected = graphSelection.value;
             const notification = {
             title: 'TIRICO Notification',
             body: 'Le Graphe' + graphSelected + ' a bien été modifié !'
-}
-            const ValidateBtn = document.getElementById('ValidateBtn')
+            }
+
+            const ValidateBtn = document.getElementById('ValidateBtn');
 			ValidateBtn.addEventListener('click', (event) => {
-                
-                const myNotification = new window.Notification(notification.title, notification)
+                const myNotification = new window.Notification(notification.title, notification);
 			})
-
-
-		</script>	
+        </script>	
+        
 		
 
 	</body>
