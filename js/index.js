@@ -9,14 +9,14 @@ const {BrowserWindow} = electron.remote
 
 
 const newWindowBtn = document.getElementById('name')
-
+/*
 newWindowBtn.addEventListener('click', (event) => {
   let win = new BrowserWindow({ width: 400, height: 320 })
 
   win.on('close', () => { win = null })
   win.loadURL(modalPath)
   win.show()
-})
+})*/
 
 const DeconnectBtn = document.getElementById('DECO')
 

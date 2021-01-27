@@ -14,7 +14,7 @@ y =df['time'].value_counts().values
 fig = px.bar(df, x , y, title='Affluence/heure',
             labels={
                      "y": "Nombre de badeaux",
-                     "x": "Horraire"
+                     "x": "Horaire"
                  },)
 fig.update_layout(
     plot_bgcolor="rgba(0,0,0,0)",

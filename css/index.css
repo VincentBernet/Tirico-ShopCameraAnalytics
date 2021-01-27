@@ -10,9 +10,16 @@
 
 .Container_graphe {
 	position: absolute;
+
 	width: 65%;
 	height: 60%;
 	margin: 0% 15% 0% 20%;
+
+	text-align: center;
+	color: white;
+	font-weight: 500;
+	font-size: large;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 	border-radius: 14px;
 	background: #1a1a1a;
@@ -86,4 +93,21 @@ a#Analy-5:hover img {
 	width: 1vh;
 	opacity: 1;
 	transform: translateX(60px);
+}
+
+#code_python {
+	color: white;
+}
+
+select {
+	margin: 0 0 0 55px;
+	text-align: center;
+	color: white;
+	font-weight: 500;
+	font-size: large;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#RestaurerBtn {
+	color: white;
 }
