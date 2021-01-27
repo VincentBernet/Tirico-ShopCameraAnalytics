@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Analyse Board</title>
+
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="script-src 'self' 'unsafe-inline';"
+		/>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/header.css" />
+
+		<!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
+			The script loads “in the background”, and then runs when the DOM is fully built.-->
+		<script defer src="../js/index.js"></script>
+	</head>
+
+	<body>
+		<!-- Identifiant : sebastien.friedberg@gmail.com Mdp : Azerty123-->
+		<header>
+			<img  onload="counterID=setInterval(counterUpdate, 100)" class="logo" src="../ressource/image/logo.png"/>
+			<ul class="nav_links">
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="analyse.html" id="NOTIFICATION">Analyse</a></li>
+				<li><a href="parametre.html">Paramètre</a></li>
+				<li><a href="#" id="DECO">Déconnexion</a></li>
+			</ul>
+		</header>
+		<br><br><br>
+
+
+		
+		<!-- Container flex comprenant et les boutons pour changer d'analyse et la rubrique-->
+		<div class="Option_Graphe_Container">
+
+			<!-- Container avec le graphe choisi (en format png) -->
+			<span class="Container_graphe"> 
+                <br>
+                <p id="Titre">Votre analyse journalière :</p>
+                <p id="DailyAdvice">
+                Lorem ipsum dolor sit amet, quem epicurei persecuti id duo. Elit adolescens te vel, usu eirmod timeam perpetua te, lorem timeam ceteros pri ut. Invenire ullamcorper his et, veniam tritani honestatis vis ei. Ius te adhuc verear democritum, eos viris exerci delenit id, wisi menandri mandamus cu vis. Postea explicari sed cu, delicata adolescens cu quo, eu tempor omittam lucilius usu.
+
+Et summo iudico efficiantur sed, duo adipisci delicatissimi an, est quas docendi in. At hinc bonorum insolens nam. Eu nec facilisi consetetur, melius commodo cum eu, eum dico equidem maiestatis id. Eu ignota possit corrumpit usu. Ubique laoreet mediocritatem id cum, facete expetendis persequeris his an. Sed ut tation erroribus persecuti.
+
+Harum graeco te sea. Pri cu rebum euismod dissentias, et soluta graeco temporibus sit, pro dolore primis persecuti cu. Sonet graeci partiendo sea at, sit at reque aeque omnium, per eu utroque torquatos. Scaevola expetendis efficiendi eu pri, blandit expetenda ius eu, dolore integre eum id.
+
+No has dicam veritus, pri justo soleat delenit an. Mel falli temporibus te, pro noster facete torquatos et, nec fabulas reprimique ad. Cum in persius dolores, ei affert denique invenire vim, adolescens definitionem sit ea. Vis ei possim doctus disputando, nobis reprimique et qui. Case doming vulputate ut mel, duo stet tractatos id. Est elit pertinacia ei.
+
+Eu pro quas liber, cibo atomorum tractatos quo ut. Ex mel cetero maiestatis. Movet placerat adolescens eam ea, id cum choro recusabo. Sit tamquam omnesque accommodare te, munere praesent democritum duo id. Ea mandamus vituperata sea, perpetua definiebas no mel, cu mea assum fastidii postulant.
+                <br></p>
+            <!--</form> -->
+            </span>
+		</div>
+        
+
+		
+
+	</body>
+</html>

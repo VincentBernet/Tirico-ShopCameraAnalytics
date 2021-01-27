@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Parameter Page</title>
+
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="script-src 'self' 'unsafe-inline';"
+		/>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/header.css" />
+
+		<!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
+			The script loads “in the background”, and then runs when the DOM is fully built.-->
+		<script defer src="../js/index.js"></script>
+	</head>
+
+	<body>
+		<!-- Identifiant : sebastien.friedberg@gmail.com Mdp : Azerty123-->
+		<header>
+			<img  onload="counterID=setInterval(counterUpdate, 100)" class="logo" src="../ressource/image/logo.png"/>
+			<ul class="nav_links">
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="analyse.html" id="NOTIFICATION">Analyse</a></li>
+				<li><a href="parametre.html">Paramètre</a></li>
+				<li><a href="#" id="DECO">Déconnexion</a></li>
+			</ul>
+		</header>
+		<br><br><br>
+
+
+		
+		<!-- Container flex comprenant et les boutons pour changer d'analyse et la rubrique-->
+		<div class="Option_Graphe_Container">
+
+			<!-- Container avec le graphe choisi (en format png) -->
+			<span class="Container_graphe"> 
+                <br>
+                Sélectionnez le graphe que vous souhaitez modifier : 
+                <!--<form method="POST"> -->
+                    <select name="Graphe" id="Graph">
+                        <option value="Afluence">Affluence Graphe</option>
+                        <option value="HeatMap">HeatMap</option>
+                        <option value="Graphe3">Graphe3</option>
+                        <option value="DailyAnalysis">Daily Analysis</option>
+                      </select>
+                
+                <br>
+                <br>
+                <textarea id="code_python" rows="30" cols="130">
+                    import pandas as pd
+                    df = pd.read_csv("../ressource/data/output.csv")
+                    from matplotlib import pyplot as plt
+                    import plotly.express as px<br><br>
+                    df['time'].unique()
+                    df['date'].unique()
+                    x =df['time'].value_counts().index
+                    y =df['time'].value_counts().values
+                    fig = px.bar(df, x , y, title='Affluence/heure',
+                                labels={
+                                         "y": "Nombre de badeaux",
+                                         "x": "Horraire"
+                                     },)
+                    fig.update_layout(
+                        plot_bgcolor="rgba(0,0,0,0)",
+                        paper_bgcolor="rgba(0,0,0,0)",
+                        font_family="Taoma",
+                        font_color="white",
+                        title_font_family="Taoma",
+                        title_font_color="white",
+                        title_font_size=30,
+                        legend_title_font_color="green")
+                    
+                    print('Saving this anylitic on your machine, replace the last version if already existing')
+                    fig.write_image(file='Affluence/Affluence.png', format='.png')</textarea>
+                    <br>
+                <button type="submit"  id="RestaurerBtn">Restaurer les paramètres par défauts</button>
+                <button type="submit" id="ValidateBtn" style="color:white;">Valider</button>
+            <!--</form> -->
+            </span>
+		</div>
+        
+        <!-- Script pour modifier le code source souhaiter selon le "select" sélectionner + Alert si le boutton restaurer est activé-->
+		<script>
+			const AffluenceBtn = document.getElementById('RestaurerBtn')
+			AffluenceBtn.addEventListener('click', (event) => {
+                confirm("Attention vous vous apprêtez à restaurer tous les paramètres par défauts, graphes compris !\n Confirmer ?");
+			})
+
+            const ValidateBtn = document.getElementById('ValidateBtn')
+			ValidateBtn.addEventListener('click', (event) => {
+                var graphSelection = document.getElementById("Graph");
+                var graphSelected = graphSelection.value;
+                alert("Votre graphique : " + graphSelected + " a bien été modifié !");
+			})
+
+
+		</script>	
+		
+
+	</body>
+</html>
