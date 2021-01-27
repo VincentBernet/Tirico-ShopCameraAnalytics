@@ -53,7 +53,7 @@ function digitUpdate(rank)
 	var nd = od + 1;
 	VariableGlobal = VariableGlobal + 1;
 
-	if (VariableGlobal > 170)
+	if (VariableGlobal > 60)
 	{
 		return;
 	}
