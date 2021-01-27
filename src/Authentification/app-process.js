@@ -4,8 +4,8 @@ const { maxHeaderSize } = require('http');
 
 function createWindow () {
   const win = new BrowserWindow({
-    width: maxHeaderSize,
-    height: maxHeaderSize,
+    width: 1920,
+    height: 1080,
     webPreferences: {
         nodeIntegration: true,
         enableRemoteModule: true

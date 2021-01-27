@@ -29,7 +29,7 @@ DeconnectBtn.addEventListener('click', (event) => {
 
 const notification = {
     title: 'TIRICO Notification',
-    body: 'TIRICO APPLICATION'
+    body: 'Your Daily Analysis is available !'
 }
 
 const NotifBtn = document.getElementById('NOTIFICATION')
