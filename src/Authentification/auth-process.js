@@ -61,9 +61,9 @@ function createLogoutWindow() {
     height: 850,
     show: true    
   })
-
+  
   logoutWindow.loadURL(authService.getLogOutUrl());
-
+  
   logoutWindow.on('ready-to-show', async () => {
     logoutWindow.close();
     await authService.logout();

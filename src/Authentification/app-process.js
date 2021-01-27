@@ -1,10 +1,11 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require('electron');
+const { maxHeaderSize } = require('http');
 
 
 function createWindow () {
   const win = new BrowserWindow({
-    width: 1500,
-    height: 800,
+    width: maxHeaderSize,
+    height: maxHeaderSize,
     webPreferences: {
         nodeIntegration: true,
         enableRemoteModule: true
