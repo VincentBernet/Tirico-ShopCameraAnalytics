@@ -37,6 +37,7 @@
 			<!-- Container avec le graphe choisi (en format png) -->
 			<span class="Container_graphe"> 
                 <br>
+                 
                 Sélectionnez le graphe que vous souhaitez modifier : 
                 <!--<form method="POST"> -->
                     <select id="Graph">
@@ -49,6 +50,8 @@
                 <br>
                 <br>
                 <textarea id="code_python" rows="30" cols="130">
+# Affluence Graphe Code
+
                     import pandas as pd
                     from matplotlib import pyplot as plt
                     import plotly.express as px
@@ -83,28 +86,36 @@
                         fig.write_image(file='Affluence.png', format='.png')
                         fig.show()</textarea>
                     <br><br>
+                <!-- Implenter un input pour choisir un fichier à importer -->
+                <input type="file">
                 <button   id="RestaurerBtn">Restaurer les paramètres par défauts</button>
                 <button  id="ValidateBtn" style="color:white;">Valider</button>
             <!--</form> -->
             </span>
 		</div>
         
-        <!-- Script pour modifier le code source souhaiter selon le "select" sélectionner + Alert si le boutton restaurer est activé-->
+        <!-- Script pour modifier le code source souhaiter selon le "select" sélectionner + Alert si le boutton restaurer ou valider est activé-->
 		<script>
 			const AffluenceBtn = document.getElementById('RestaurerBtn')
 			AffluenceBtn.addEventListener('click', (event) => {
-                confirm("Attention vous vous apprêtez à restaurer tous les paramètres par défauts, graphes compris !\n Confirmer ?")
+                confirm("Attention : Vous vous apprêtez à restaurer tous les paramètres par défauts, graphes compris !\n Confirmer ?")
             })
             
-            var graphSelection = document.getElementById("Graph")
-            var graphSelected = graphSelection.value
-
 
             const ValidateBtn = document.getElementById('ValidateBtn')
 			ValidateBtn.addEventListener('click', (event) => {
-                
-                const myNotification = new window.Notification('ValidateNotification.title', 'ValidateNotification.body');
-			})
+                var graphSelection = document.getElementById("Graph")
+                var name_graphSelected = graphSelection.value
+                alert("Le graphe d'"+name_graphSelected+" a bien été modifié")
+            })
+
+
+            const SelectBtn = document.getElementById('Graph')
+			SelectBtn.addEventListener('click', (event) => {
+                var graphSelection = document.getElementById("Graph")
+                var name_graphSelected = graphSelection.value
+                document.getElementById('code_python').value = '# '+ name_graphSelected +' Graphe Code \n';
+            })
         </script>	
         
 		
