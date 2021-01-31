@@ -31,6 +31,8 @@ git pull origin master
  Pour ensuite installer tous les composants nécessaires à l'application :
 ```
 cd Tirico-ShopCameraAnalitics
+npm init -y
+npm i --save-dev electron
 npm install electron -g
 npm install axios -S
 npm install keytar
