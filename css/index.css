@@ -34,7 +34,7 @@
 }
 #Titre {
 	text-decoration: underline;
-	text-align: justify;
+	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
 	width: 17em;
@@ -103,6 +103,12 @@ a#Analy-4:hover img {
 	transform: translateX(60px);
 }
 a#Analy-5:hover img {
+	width: 1vh;
+	opacity: 1;
+	transform: translateX(60px);
+}
+
+a#Reload:hover img {
 	width: 1vh;
 	opacity: 1;
 	transform: translateX(60px);

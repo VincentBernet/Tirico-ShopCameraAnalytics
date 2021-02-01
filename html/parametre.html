@@ -11,15 +11,15 @@
 		<link rel="stylesheet" href="../css/index.css" />
 		<link rel="stylesheet" href="../css/header.css" />
 
-        <!-- Script to count how many people are tracked in Csv file-->
-		<script src="../js/counter.js"></script>
+        <!-- Script assurant la déconnexion et d'autres fonctions -->
 		<script defer src="../js/index.js"></script>
 	</head>
 
 	<body>
-		<!-- Identifiant : sebastien.friedberg@gmail.com Mdp : Azerty123-->
+		<!-- Identifiant : sebastien.friedberg@gmail.com Mdp : Azerty123 or vincent.bernet@efrei.net Azerty123 -->
 		<header>
-			<img  onload="counterID=setInterval(counterUpdate, 100)" class="logo" src="../ressource/image/logo.png"/>
+			<!-- Logo -->
+			<img   class="logo" src="../ressource/image/logo.png"/>
 			<ul class="nav_links">
 				<li><a href="index.html">Accueil</a></li>
 				<li><a href="analyse.html" id="NOTIFICATION">Analyse</a></li>
@@ -114,7 +114,7 @@
 			SelectBtn.addEventListener('click', (event) => {
                 var graphSelection = document.getElementById("Graph")
                 var name_graphSelected = graphSelection.value
-                document.getElementById('code_python').value = '# '+ name_graphSelected +' Graphe Code \n';
+                document.getElementById('code_python').value = '# '+ name_graphSelected +' Graphe Code \n'
             })
         </script>	
         
