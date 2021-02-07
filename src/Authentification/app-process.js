@@ -25,20 +25,8 @@ function createWindow () {
   win.on("closed", () => {
       //win = null;
   });
-  //win.webContents.openDevTools()
-  //win.setMenu(null) 
-}
-/*
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
-})
 
-app.on('activate', () => {
-  //if (BrowserWindow.getAllWindows().length === 0) {
-  //   createWindow()
-  //}
-})*/
+}
+
 
 module.exports = createWindow;
