@@ -50,10 +50,9 @@ newWindowBtn.addEventListener('click', (event) => {
 const DeconnectBtn = document.getElementById('DECO')
 
 DeconnectBtn.addEventListener('click', (event) => {
-    logout()
-    console.log("deco");
+    //logout()
     createLogoutWindow();
-    electron.remote.getCurrentWindow().close();
+    //electron.remote.getCurrentWindow().close();
 })
 
 const notification = {

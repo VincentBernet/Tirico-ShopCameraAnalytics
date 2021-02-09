@@ -11,11 +11,11 @@ async function showWindow() {
   console.log("Demarrage de l'application !");
 
   try {
-    console.log("On essaye de se connecter avec le token de la connexion precedente");
+    console.log("-- Connexion --");
     await authService.refreshTokens();
     return createAppWindow();
   } catch (err) {
-    console.log("On a pas de token precedent donc on lance la page pour se connecter");
+    console.log("[Pas d'utilisateur trouve]");
     createAuthWindow();
   }
 }

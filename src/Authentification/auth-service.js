@@ -73,7 +73,7 @@ async function refreshTokens() {
 }
 
 async function loadTokens(callbackURL) {
-  console.log("On essaye de charger le token");
+  console.log("[Chargement du compte utilisateur]");
   const urlParts = url.parse(callbackURL, true);
   const query = urlParts.query;
 
@@ -112,7 +112,6 @@ async function loadTokens(callbackURL) {
 }
 
 async function logout() {
-  console.log("On se deconnecte");
   await keytar.deletePassword(keytarService, keytarAccount);
   accessToken = null;
   profile = null;

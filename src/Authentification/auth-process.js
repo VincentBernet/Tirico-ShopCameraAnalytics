@@ -3,7 +3,6 @@
 const {BrowserWindow} = require('electron');
 const authService = require('./auth-service');
 const createAppWindow = require('./app-process');
-const createWindow = require('./app-process');
 
 let win = null;
 
@@ -16,12 +15,12 @@ function createAuthWindow() {
     frame: false,
     webPreferences: {
         nodeIntegration: true,
-        enableRemoteModule: true
+        enableRemoteModule: true,
+        contextIsolation: false
     }
   });
 
   win.loadURL(authService.getAuthenticationURL());
-  console.log("On ouvre la page pour se connecter directemenet du site");
   const {session: {webRequest}} = win.webContents;
 
   const filter = {
@@ -32,15 +31,12 @@ function createAuthWindow() {
 
   webRequest.onBeforeRequest(filter, async ({url}) => {
     await authService.loadTokens(url);
-    // C'est bizarre que ça l'affiche avant de s'etre connecter
     createAppWindow();
-    console.log("OnBeforeRequest");
     return destroyAuthWin();
   });
 
   win.on('authenticated', () => {
-    console.log("On est authentifié ! ");
-    console.log("On détruit la fenêtre d'authentification et on affiche l'autre");
+    console.log("[Utilisateur deja authentifie sur cet ordinateur auparavant]");
     destroyAuthWin();
   });
 
@@ -56,10 +52,14 @@ function destroyAuthWin() {
 }
 
 function createLogoutWindow() {
-  const logoutWindow = new electron.remote.BrowserWindow({
-    width: 400,
-    height: 850,
-    show: true    
+  let logoutWindow = new electron.remote.BrowserWindow({
+    
+    show: false,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true,
+      contextIsolation: false
+    }   
   })
   
   logoutWindow.loadURL(authService.getLogOutUrl());
@@ -67,6 +67,7 @@ function createLogoutWindow() {
   logoutWindow.on('ready-to-show', async () => {
     logoutWindow.close();
     await authService.logout();
+    electron.remote.getCurrentWindow().close();
   });
  
 }
