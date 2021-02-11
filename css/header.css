@@ -25,6 +25,11 @@ li > a {
 	color: #e5e5e5;
 }
 
+li > a:hover {
+	font-size: 3.2vmin;
+	color: #bdbbed;
+}
+
 .logo {
 	cursor: pointer;
 	margin: 0 0 0 7%;
@@ -54,6 +59,7 @@ li > a {
 	-moz-box-shadow: 2px 2px 4px #888888;
 	-webkit-box-shadow: 2px 2px 4px #888888;
 }
+
 .digit {
 	display: inline;
 }
