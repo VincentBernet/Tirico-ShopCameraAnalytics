@@ -50,9 +50,7 @@ newWindowBtn.addEventListener('click', (event) => {
 const DeconnectBtn = document.getElementById('DECO')
 
 DeconnectBtn.addEventListener('click', (event) => {
-    //logout()
     createLogoutWindow();
-    //electron.remote.getCurrentWindow().close();
 })
 
 const notification = {
@@ -65,3 +63,13 @@ const NotifBtn = document.getElementById('NOTIFICATION')
 NotifBtn.addEventListener('click', (event) => {
     const myNotification = new window.Notification(notification.title, notification)
 })
+
+//ADDED barre des taches personnalisée
+const customTitlebar = require('custom-electron-titlebar');
+const { Color } = require('custom-electron-titlebar');
+const { remote } = require('electron');
+const { Menu, MenuItem } = remote;
+const url = require('url');
+new customTitlebar.Titlebar({
+	backgroundColor: customTitlebar.Color.fromHex('#212121'),
+});
