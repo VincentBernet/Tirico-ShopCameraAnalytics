@@ -6,11 +6,13 @@ function createWindow () {
   let win = new BrowserWindow({
     width: 1920,
     height: 1080,
+    frame: false,
     webPreferences: {
         nodeIntegration: true,
         enableRemoteModule: true,
-        contextIsolation: false
+        contextIsolation: false,
     }
+    
   })
   console.log("------ Creation de la fenetre principale ------");
 
@@ -22,7 +24,7 @@ function createWindow () {
   
 
   win.loadFile('html/index.html');
-
+  win.removeMenu();
   win.on("closed", () => {
       win = null;
   });

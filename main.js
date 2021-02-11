@@ -7,6 +7,7 @@ const createAppWindow = require('./src/Authentification/app-process');
 const authService = require('./src/Authentification/auth-service');
 
 
+
 async function showWindow() {
   console.log("Demarrage de l'application !");
 
