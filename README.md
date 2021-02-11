@@ -37,6 +37,7 @@ npm install electron -g
 npm install axios -S
 npm install keytar
 npm install jwt-decode
+npm i custom-electron-titlebar
 ```
 
 Pour lancer l'application :
