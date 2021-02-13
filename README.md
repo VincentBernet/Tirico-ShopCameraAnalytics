@@ -46,7 +46,7 @@ Pour lancer l'application :
 npm start
 ```
  
-Pour le python ~~(pas nécessaire actuellement, les graphes sont en locales)~~ 
+Pour le python ~~(pas nécessaire actuellement, les graphes sont en locales)~~  
 Installer pip ou anaconda pour installer plus facilement les librairies :
 ```
 pip install pandas                         (pour réaliser les graphes)
