@@ -17,7 +17,8 @@ function createAuthWindow() {
         nodeIntegration: true,
         enableRemoteModule: true,
         contextIsolation: false
-    }
+    },
+    icon: "ressource/image/logo.png",
   });
 
   win.loadURL(authService.getAuthenticationURL());

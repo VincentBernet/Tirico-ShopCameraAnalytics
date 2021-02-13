@@ -55,7 +55,8 @@ DeconnectBtn.addEventListener('click', (event) => {
 
 const notification = {
     title: 'TIRICO Notification',
-    body: 'Your Daily Analysis is available !'
+    body: 'Your Daily Analysis is available !',
+    icon: "../ressource/image/logo.png"
 }
 
 const NotifBtn = document.getElementById('NOTIFICATION')
@@ -71,8 +72,12 @@ const { remote } = require('electron');
 const { Menu, MenuItem } = remote;
 const url = require('url');
 new customTitlebar.Titlebar({
-	backgroundColor: customTitlebar.Color.fromHex('#212121'),
+	backgroundColor: customTitlebar.Color.fromHex('#1D1F27'),
+    
+    //icon: "../ressource/image/logo.png",
+    
 });
+
 
 
 

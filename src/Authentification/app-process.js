@@ -7,13 +7,14 @@ function createWindow () {
     width: 1920,
     height: 1080,
     frame: false,
+    title: "Tirico Inc.", 
     titleBarStyle: "hidden",
     webPreferences: {
         nodeIntegration: true,
         enableRemoteModule: true,
         contextIsolation: false,
     },
-    icon: "ressource/image/Logo_Tirico.png",
+    icon: "ressource/image/logo.png",
   })
   
 
