@@ -49,9 +49,10 @@ npm start
 Pour le python (pas nécessaire actuellement, les graphes sont en locales) : 
 Install ANACONDA, puis éxécuter sur le prompt d'anaconda les commandes suivantes :
 ```
-conda install pandas                          (pour réaliser les graphes)
-conda install plotly                         (pour réaliser les graphes)
-conda install -c plotly plotly-orca          (pour save en png les graphes)
+pip install pandas                          (pour réaliser les graphes)
+pip install plotly                         (pour réaliser les graphes)
+pip install -c plotly plotly-orca          (pour save en png les graphes)
+pip install seaborn
 ```
 ## Licences
 
