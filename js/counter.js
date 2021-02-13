@@ -1,13 +1,30 @@
-// Petit compteur aléatoire, juste pour test un peu de js
-
-
 var counterStart = "0000000"; 
 var counterValue = 0;  
-var VariableGlobal = 0;
+const {PythonShell} = require('python-shell');
+var compteur;
 
-function counterGradient(id, level)
+  // Appel Python du Compteur 
+  let pyshell2 = new PythonShell('code_python/Counter/AffluenceCounter.py');
+
+  pyshell2.send(JSON.stringify([" "]))
+
+  pyshell2.on('message', function(message) {
+    compteur= parseInt(message);
+    console.log("Compteur du nombre de personne total comptabilise dans le magasin : "+compteur);
+  })
+
+  pyshell2.end(function (err) {
+    if (err){
+      throw err;
+    };
+    console.log('Fin du script Python : "AffluenceCounter.py"');
+  });
+
+
+ function counterGradient(id, level)
 {
-	var digit = document.getElementById(id);
+	
+	var digit = document.getElementById("counter");
 	digit.style.opacity = level;
 	digit.style.MozOpacity = level;
 	digit.style.KhtmlOpacity = level;
@@ -15,31 +32,11 @@ function counterGradient(id, level)
 	return;
 }
 
-function counterFadeIn(id) 
-{
-	var level = 0;
-	while(level <= 1)
-	{
-		setTimeout( "counterGradient('" + id + "'," + level + ")", (level*1000)+10);
-		level += 0.01;
-	}
-}
 
-function counterFadeOut(id) 
-{
-	var level = 1;
-	while(level >= 0)
-	{
-		setTimeout( "counterGradient('" + id + "'," + level + ")", (level*1000)+10);	
-		level -= 0.01;
-	}
-}
 
 function counterEffect(id, nd)
 {
-	counterFadeOut(id);
-	digit.innerHTML = nd;
-	counterFadeIn(id);	
+	digit.innerHTML = nd;	
 }
 
 
@@ -48,12 +45,10 @@ function digitUpdate(rank)
 	var id = "digit" + new String(rank);
 	var ret = false;
 	digit = document.getElementById(id);
-
 	var od = new Number(digit.innerHTML);
 	var nd = od + 1;
-	VariableGlobal = VariableGlobal + 1;
 
-	if (VariableGlobal > compteur)
+	if (counterValue > compteur)
 	{
 		return;
 	}
@@ -110,5 +105,6 @@ function counterInit()
    counter.innerHTML = theString;
 }
 
-window.onload=counterInit;
 
+
+window.onload=counterInit;

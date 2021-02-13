@@ -11,13 +11,14 @@
 		<link rel="stylesheet" href="../css/index.css" />
 		<link rel="stylesheet" href="../css/header.css" />
 
-		<!-- Script to count how many people are tracked in Csv file-->
-		<script src="../js/counter.js"></script>
-
+		
+		
 
 		<!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
 			The script loads “in the background”, and then runs when the DOM is fully built.-->
 		<script defer src="../js/index.js"></script>
+		
+
 	</head>
 
 	<body>
@@ -26,7 +27,7 @@
 		<!-- Identifiant : sebastien.friedberg@gmail.com Mdp : Azerty123 or vincent.bernet@efrei.net Azerty123 -->
 		<header>
 			<!-- Logo + When it's load begin the counter -->
-			<img  onload="counterID=setInterval(counterUpdate, 100)" class="logo" src="../ressource/image/logo.png"/>
+			<img  class="logo" src="../ressource/image/logo.png"/>
 			<ul class="nav_links">
 				<li><a href="index.html">Accueil</a></li>
 				<li><a href="analyse.html" id="NOTIFICATION">Analyse</a></li>
@@ -38,6 +39,8 @@
 
 		  <div id="counter" >0000000</div>
 		
+		<!-- Script to count how many people are tracked in Csv file-->
+		<script src="../js/counter.js" > </script>
 		<!-- Container flex comprenant et les boutons pour changer d'analyse et la rubrique-->
 		<div class="Option_Graphe_Container">
 			<form method="POST">
@@ -50,14 +53,14 @@
 				<br><br>
 				<a id="Analy-4" class="button" href="#">Shopping<img id="arrow-hover" src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true"/></a>
 				<br><br>
-				<a id="Analy-5" class="button" href="404.html">Diagramme<img id="arrow-hover" src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true"/></a>
+				<a id="Analy-5" class="button" href="404.html">Diagramme<img id="arrow-hover" onload="counterID=setInterval(counterUpdate, 100)" src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true"/></a>
 			</form>
 			<!-- Container avec le graphe choisi (en format png) -->
-			<span class="Container_graphe"><img src="../code_python/Affluence/Affluence.png"  id="Graphe" /></span>
+			<span class="Container_graphe"><img  src="../code_python/Affluence/Affluence.png"  id="Graphe" /></span>
 		</div>
 		
 		<!-- Script pour modifier la source de l'image selon le bouton / graph sélectioné -->
-		<script>
+		<script >
 			const AffluenceBtn = document.getElementById('Analy-1')
 			AffluenceBtn.addEventListener('click', (event) => {
     		document.getElementById("Graphe").src = "../code_python/Affluence/Affluence.png";
@@ -83,6 +86,7 @@
     		document.getElementById("Graphe").src = "../ressource/image/404.png";
 			})
 		</script>		
+
 		
 
 	</body>

@@ -48,10 +48,12 @@ fig.update_layout(
 
 print("5]  Debug Creation du graph")
 sys.stdout.flush()
+
 #Pour assurer qu'orca est bien utilisé, est une solution potentiel mais ne fonctionne pas
 #call(['orca', 'graph', json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)])
 #print("6] Debug Tentative de call 'orca' pour save plus loins")
 #sys.stdout.flush()
-fig.write_image(file='Affluence.png', format='.png')
-print("7] Debug, figure to png")
-sys.stdout.flush()
+
+#fig.write_image(file='Affluence.png', format='.png')
+#print("7] Debug, figure to png")
+#sys.stdout.flush()

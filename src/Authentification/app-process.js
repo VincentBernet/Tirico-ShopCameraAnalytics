@@ -15,6 +15,7 @@ function createWindow () {
     },
     icon: "ressource/image/Logo_Tirico.png",
   })
+  
 
   console.log("------ Creation de la fenetre principale ------");
 
@@ -34,26 +35,28 @@ function createWindow () {
     console.log('Fin du script Python : "ex.py"');
   });
 
-
-    // Appel Python du Compteur 
-    let pyshell2 = new PythonShell('code_python/Counter/AffluenceCounter.py');
-
-    pyshell2.send(JSON.stringify([" "]))
   
-    pyshell2.on('message', function(message) {
-      console.log("Compteur du nombre de personne total comptabilise dans le magasin : "+message);
-      //A renvoyer vers le fichier counter.js
-      //compteur= parseInt(message);
-    })
-  
-    pyshell2.end(function (err) {
-      if (err){
-        throw err;
-      };
-      console.log('Fin du script Python : "AffluenceCounter.py"');
-    });
+  /*
+  // Appel Python du Compteur 
+  let pyshell2 = new PythonShell('code_python/Counter/AffluenceCounter.py');
 
+  pyshell2.send(JSON.stringify([" "]))
 
+  pyshell2.on('message', function(message) {
+    compteur= parseInt(message);
+    console.log("Compteur du nombre de personne total comptabilise dans le magasin : "+compteur);
+    //A renvoyer vers le fichier counter.js
+    //compteur= parseInt(message);
+  })
+
+  pyshell2.end(function (err) {
+    if (err){
+      throw err;
+    };
+    console.log('Fin du script Python : "AffluenceCounter.py"');
+  });
+
+*/
 
 
   /*
@@ -64,6 +67,7 @@ function createWindow () {
   
 
   win.loadFile('html/index.html');
+  win.webContents.openDevTools();
   //win.removeMenu();
   win.on("closed", () => {
       win = null;
