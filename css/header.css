@@ -27,7 +27,7 @@ li > a {
 
 li > a:hover {
 	font-size: 3.2vmin;
-	color: #bdbbed;
+	color: #00abe9;
 }
 
 .logo {
@@ -39,7 +39,6 @@ li > a:hover {
 	/*background-color: white;*/
 	transition: box-shadow 0.7s, transform 2s;
 }
-
 
 .logo:hover {
 	box-shadow: 0 0 2px 15px rgba(230, 233, 235, 0.5);
