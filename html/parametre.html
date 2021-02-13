@@ -38,7 +38,7 @@
                  
                 Sélectionnez le graphe que vous souhaitez modifier : 
                 <!--<form method="POST"> -->
-                    <select id="Graph">
+                    <select id="Graph_Selected">
                         <option value="Afluence">Affluence Graphe</option>
                         <option value="HeatMap">HeatMap</option>
                         <option value="Graphe3">Graphe3</option>
@@ -85,9 +85,9 @@
                         fig.show()</textarea>
                     <br><br>
                 <!-- Implenter un input pour choisir un fichier à importer -->
-                <input type="file">
-                <button   id="RestaurerBtn">Restaurer les paramètres par défauts</button>
-                <button  id="ValidateBtn" style="color:white;">Valider</button>
+                <input id="SelectFile" type="file">
+                <button   id="RestaurerBtn" style="color:red;">Restaurer les paramètres par défauts</button>
+                <button  id="ValidateBtn">Valider</button>
             <!--</form> -->
             </span>
 		</div>
@@ -102,17 +102,17 @@
 
             const ValidateBtn = document.getElementById('ValidateBtn')
 			ValidateBtn.addEventListener('click', (event) => {
-                var graphSelection = document.getElementById("Graph")
-                var name_graphSelected = graphSelection.value
-                alert("Le graphe d'"+name_graphSelected+" a bien été modifié")
+                var graphSelection = document.getElementById("Graph_Selected")
+                var Graph_Selected = graphSelection.value
+                alert("Le graphe d'"+Graph_Selected+" a bien été modifié")
             })
 
 
-            const SelectBtn = document.getElementById('Graph')
+            const SelectBtn = document.getElementById('Graph_Selected')
 			SelectBtn.addEventListener('click', (event) => {
-                var graphSelection = document.getElementById("Graph")
-                var name_graphSelected = graphSelection.value
-                document.getElementById('code_python').value = '# '+ name_graphSelected +' Graphe Code \n'
+                var graphSelection = document.getElementById("Graph_Selected")
+                var Graph_Selected = graphSelection.value
+                document.getElementById('code_python').value = '# '+ Graph_Selected +' Graphe Code \n'
             })
         </script>	
         

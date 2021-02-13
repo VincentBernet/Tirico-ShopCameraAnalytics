@@ -1,9 +1,6 @@
 const { app, BrowserWindow, Menu, MenuItem} = require('electron');
 const { maxHeaderSize } = require('http');
-<<<<<<< HEAD
 const {PythonShell} = require('python-shell');
-=======
->>>>>>> 4a4cef7536d3101fd652bf7eb8a5361d71f365e2
 
 function createWindow () {
   let win = new BrowserWindow({

@@ -1,13 +1,11 @@
 * {
-
 	/*
 		Enlever le commentaire en dessous pour remettre tout en noir : -> ->7
 		(mais ça enlevera la barre des taches personnalisé comme discord)
 	*/
-
 	/*background-color: #1a1a1a;*/
 }
-body{
+body {
 	background-color: #1a1a1a;
 }
 
@@ -48,12 +46,17 @@ body{
 	margin-right: auto;
 	width: 17em;
 }
+
 #Graphe {
 	width: auto;
 	height: 93%;
 	border-radius: 14px;
 	background: #1a1a1a;
 	margin: 2% 5% 5% 5%;
+}
+
+#Graph_Selected {
+	background: #1a1a1a;
 }
 
 /* Bouton sélection Analytics */
@@ -126,6 +129,7 @@ a#Reload:hover img {
 
 #code_python {
 	color: white;
+	background-color: #1a1a1a;
 }
 
 select {
@@ -137,6 +141,9 @@ select {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#RestaurerBtn {
+#RestaurerBtn,
+#ValidateBtn,
+#SelectFile {
 	color: white;
+	background-color: #1a1a1a;
 }
