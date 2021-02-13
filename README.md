@@ -38,6 +38,7 @@ npm install axios -S
 npm install keytar
 npm install jwt-decode
 npm i custom-electron-titlebar
+npm install --save python-shell
 ```
 
 Pour lancer l'application :
