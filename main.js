@@ -9,10 +9,10 @@ const authService = require('./src/Authentification/auth-service');
 
 
 async function showWindow() {
-  console.log("Demarrage de l'application !");
+  console.log("Tirico Inc.");
 
   try {
-    console.log("-- Connexion --");
+    console.log("|--------- Connexion Reussi                  ---------|");
     await authService.refreshTokens();
     return createAppWindow();
   } catch (err) {
