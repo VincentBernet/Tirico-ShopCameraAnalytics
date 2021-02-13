@@ -15,9 +15,10 @@ function createWindow () {
     },
     icon: "ressource/image/Logo_Tirico.png",
   })
+
   console.log("------ Creation de la fenetre principale ------");
 
-
+  // Appel Python du graphe d'affluence dernière ligne du script python plante
   let pyshell = new PythonShell('code_python/Affluence/ex.py');
 
   pyshell.send(JSON.stringify(["Nom d'utilisateur Inconnu "]))
@@ -30,8 +31,31 @@ function createWindow () {
     if (err){
       throw err;
     };
-    console.log('Fin du script Python');
+    console.log('Fin du script Python : "ex.py"');
   });
+
+
+    // Appel Python du Compteur 
+    let pyshell2 = new PythonShell('code_python/Counter/AffluenceCounter.py');
+
+    pyshell2.send(JSON.stringify([" "]))
+  
+    pyshell2.on('message', function(message) {
+      console.log("Compteur du nombre de personne total comptabilise dans le magasin : "+message);
+      //A renvoyer vers le fichier counter.js
+      //compteur= parseInt(message);
+    })
+  
+    pyshell2.end(function (err) {
+      if (err){
+        throw err;
+      };
+      console.log('Fin du script Python : "AffluenceCounter.py"');
+    });
+
+
+
+
   /*
   var python = require('child_process').spawn('python', ['./code_python/ex.py']);
   python.stdout.on('data',function(data){
