@@ -9,7 +9,7 @@
 */
 body {
 	/*background-color: #1a1a1a;*/
-	background-color: #15161A;
+	background-color: #15161a;
 }
 .nav_links {
 	position: absolute;
@@ -29,7 +29,7 @@ body {
 	background-color: #18181f;
 	height: 100%;
 	width: 16%;
-	box-sizing:initial;
+	box-sizing: initial;
 	overflow: visible;
 	position: absolute;
 	top: 0px;
@@ -37,8 +37,7 @@ body {
 	box-shadow: inset -5px 0px #15141a;
 }
 
-
-.Container_graphe {
+#Container_graphe {
 	position: absolute;
 
 	width: 65%;
@@ -109,7 +108,6 @@ a {
 	text-decoration: none;
 	letter-spacing: 1px;
 }
-
 
 #arrow-hover {
 	width: 1.5vh;
