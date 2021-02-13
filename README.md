@@ -46,13 +46,13 @@ Pour lancer l'application :
 npm start
 ```
  
-Pour le python (pas nécessaire actuellement, les graphes sont en locales) : 
-Install ANACONDA, puis éxécuter sur le prompt d'anaconda les commandes suivantes :
+Pour le python ~~(pas nécessaire actuellement, les graphes sont en locales)~~  
+Installer pip ou anaconda pour installer plus facilement les librairies :
 ```
-pip install pandas                          (pour réaliser les graphes)
+pip install pandas                         (pour réaliser les graphes)
 pip install plotly                         (pour réaliser les graphes)
 pip install -c plotly plotly-orca          (pour save en png les graphes)
-pip install seaborn
+pip install seaborn                        (pour réaliser la HeatMap)
 ```
 ## Licences
 
