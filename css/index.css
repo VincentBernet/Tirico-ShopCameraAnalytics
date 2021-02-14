@@ -30,7 +30,9 @@ body {
 	left: 0px;
 	box-shadow: inset -5px 0px #15141a;
 }
-
+.logoAndText {
+	margin-left: 25px;
+}
 #Container_graphe {
 	position: absolute;
 

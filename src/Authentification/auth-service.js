@@ -122,6 +122,11 @@ function getLogOutUrl() {
   return `https://${auth0Domain}/v2/logout`;
 }
 
+
+
+
+
+
 module.exports = {
   getAccessToken,
   getAuthenticationURL,

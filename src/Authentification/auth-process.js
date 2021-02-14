@@ -4,6 +4,8 @@ const {BrowserWindow} = require('electron');
 const authService = require('./auth-service');
 const createAppWindow = require('./app-process');
 
+//const {customTitlebar} = require('../../js/auth');
+
 let win = null;
 
 function createAuthWindow() {
@@ -23,6 +25,7 @@ function createAuthWindow() {
 
   win.loadURL(authService.getAuthenticationURL());
   const {session: {webRequest}} = win.webContents;
+
 
   const filter = {
     urls: [
@@ -54,7 +57,6 @@ function destroyAuthWin() {
 
 function createLogoutWindow() {
   let logoutWindow = new electron.remote.BrowserWindow({
-    
     show: false,
     webPreferences: {
       nodeIntegration: true,
@@ -72,6 +74,8 @@ function createLogoutWindow() {
   });
  
 }
+
+
 
 module.exports = {
   createAuthWindow,

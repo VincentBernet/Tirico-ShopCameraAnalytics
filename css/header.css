@@ -46,6 +46,10 @@ li > a:hover {
 }
 .logotext {
 	margin-left: 35px;
+	height: 50px;
+	width: 100px;
+	position: absolute;
+	margin-top: 25px;
 }
 
 #counter {
