@@ -23,10 +23,13 @@ li > a {
 	line-height: 3vmin;
 	text-decoration: none;
 	color: #e5e5e5;
+
+	transition: 350ms;
+	transition-property: color, letter-spacing;
 }
 
 li > a:hover {
-	font-size: 3.2vmin;
+	letter-spacing: 3px;
 	color: #00abe9;
 }
 
@@ -46,10 +49,9 @@ li > a:hover {
 }
 .logotext {
 	margin-left: 35px;
-	height: 50px;
-	width: 100px;
+	height: 100px;
+	width: 150px;
 	position: absolute;
-	margin-top: 25px;
 }
 
 #counter {

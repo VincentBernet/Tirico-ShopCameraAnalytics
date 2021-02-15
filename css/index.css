@@ -17,9 +17,6 @@ body {
 	flex-direction: row;
 }
 .bouton_gauche {
-	/*
-	 Added by Seb
-	*/
 	background-color: #18181f;
 	height: 100%;
 	width: 16%;
@@ -94,10 +91,23 @@ body {
 	overflow: hidden;
 
 	background-color: #00abe9;
+
+
+	transition-duration: 300ms;
+	transition-property: color, background-color;
+
+}
+.button:hover::before {
+	transform: scale(1.1);
+  	box-shadow: 0 0 15px #007acc;
 }
 .button:hover {
-	background-color: #008abd;
-	box-shadow: inset 5px 2px 5px #0a0a0a, inset -5px -2px 5px #2a2a2a;
+	background-color: #006488;
+	box-shadow: outset 5px 2px 5px #0a0a0a, outset -5px -2px 5px #2a2a2a;
+
+	color: #ffee10;
+  box-shadow: 0 0 5px #4100d8;
+  text-shadow: 0 0 5px #4100d8;
 }
 a {
 	color: #bfc0c0;

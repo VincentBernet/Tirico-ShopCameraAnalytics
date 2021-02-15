@@ -78,9 +78,3 @@ new customTitlebar.Titlebar({
     
 });
 
-
-
-
-
-
-
