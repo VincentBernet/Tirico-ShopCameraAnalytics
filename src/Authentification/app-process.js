@@ -20,8 +20,9 @@ function createWindow () {
 
   console.log("|--------- Creation de la fenetre principale ---------|");
   console.log("Nom d'utilisateur +" + " ????" + " : Chargement CSV correspondant");
+  console.log("-----------------------------------------------------");
   
-  // Appel Python du graphe d'affluence dernière ligne du script python plante
+  // Appel Python du graphe d'affluence dernière ligne du script python pour télécharger le graphe plante
   let pyshell = new PythonShell('code_python/Affluence/Affluence.py');
 
   pyshell.send(JSON.stringify(['Appel du script "Affluence.py"  ']))
@@ -40,7 +41,7 @@ function createWindow () {
   });
 
  
-  // Appel Python du graphe d'affluence dernière ligne du script python plante
+  // Appel Python : Code de la HeatMap, fonctionnel 
   let pyshell2 = new PythonShell('code_python/Density_Map/Density_Map.py');
 
   pyshell2.send(JSON.stringify(['Appel du script "Density_Map.py"']))
@@ -59,11 +60,23 @@ function createWindow () {
   });
 
 
-  /*
-  var python = require('child_process').spawn('python', ['./code_python/ex.py']);
-  python.stdout.on('data',function(data){
-      console.log("From Python: ", data.toString('utf8'));
-  });*/
+  // Appel Python du code de détection, génère un fichier Csv
+  let pyshell3 = new PythonShell('code_python/yolov4-deepsort/run_debug.py');
+
+  pyshell3.send(JSON.stringify(['Appel du script de detection "run_debug.py"']))
+
+  pyshell3.on('message', function(message) {
+    console.log(message);
+  })
+
+  pyshell3.end(function (err) {
+    if (err){
+      throw err;
+    };
+    console.log('Fin du script Python : "run_debug.py"');
+    console.log("-----------------------------------------------------");
+    console.log("")
+  });
   
 
   win.loadFile('html/index.html');
