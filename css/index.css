@@ -176,16 +176,16 @@ select {
 
 #logotext {
 	position: relative;
-	width: 80%;
+	width: 75%;
 	cursor: pointer;
 	margin: 0 0 0 7%;
 	border-radius: 50%;
 	padding: 10px 10px 10px 10px;
 	/*background-color: white;*/
-	transition: box-shadow 0.7s, transform 2s;
+	transition: box-shadow 0.7s, transform 3s;
 }
 
 #logotext:hover {
 	box-shadow: 0 0 2px 5px rgba(230, 233, 235, 0.5);
-	transform: rotate(360deg);
+	transform: rotateY(360deg);
 }
