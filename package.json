@@ -18,13 +18,13 @@
   },
   "homepage": "https://github.com/VincentBernet/Tirico-ShopCameraAnalitics#readme",
   "devDependencies": {
-    "electron": "11.2.0"
+    "electron": "^11.2.0"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "custom-electron-titlebar": "^3.2.6",
     "jwt-decode": "^3.1.2",
-    "keytar": "^7.3.0",
+    "keytar": "^7.4.0",
     "python-shell": "^2.0.3"
   }
 }

@@ -44,18 +44,12 @@ li > a:hover {
 }
 
 .logo:hover {
-	box-shadow: 0 0 2px 15px rgba(230, 233, 235, 0.5);
 	transform: rotate(360deg);
-}
-.logotext {
-	margin-left: 35px;
-	height: 100px;
-	width: 150px;
-	position: absolute;
 }
 
 #counter {
 	background: black;
+	position: relative;
 	color: #00cc00;
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 32px;
