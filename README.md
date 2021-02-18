@@ -19,18 +19,15 @@ Retails is a dynamic environment, which is highly variable in terms of pricing, 
 
 ## Installation
 
- Dans le fichier d'installation : 
+ Dans votre dossier d'installation, créez votre git et connectez le à ce repository : 
 ```
-git pull https://github.com/VincentBernet/Tirico-ShopCameraAnalitics/
-```
-Ou bien si l'application est déjà installé sur l'ordinateur : 
-```
+git init
+git remote add origin https://github.com/VincentBernet/Tirico-ShopCameraAnalitics
 git pull origin master
 ```
  
  Pour ensuite installer tous les composants nécessaires à l'application :
 ```
-cd Tirico-ShopCameraAnalitics
 npm init -y
 npm i --save-dev electron
 npm install electron -g
