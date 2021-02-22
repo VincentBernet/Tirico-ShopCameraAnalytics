@@ -39,7 +39,7 @@ flags.DEFINE_float('iou', 0.45, 'iou threshold')
 flags.DEFINE_float('score', 0.50, 'score threshold')
 flags.DEFINE_boolean('dont_show', False, 'dont show video output')
 flags.DEFINE_boolean('info', False, 'show detailed info of tracked objects')
-flags.DEFINE_boolean('count', False, 'count objects being tracked on screen')
+flags.DEFINE_boolean('count', True, 'count objects being tracked on screen')
 
 
 def main(_argv):
@@ -234,11 +234,11 @@ def main(_argv):
                 # initialize csv recorder
             with open('./outputs/output.csv', 'a', newline='') as f:
                 fieldnames = ['trackID', 'class', 'frame',
-                              'xmin', 'ymin', 'xmax', 'ymax', 'time', 'date']
+                              'xmin', 'ymin', 'xmax', 'ymax', 'time', 'date', 'count']
                 csvWriter = csv.DictWriter(f, fieldnames=fieldnames)
                 localtime = time.localtime(time.time())
                 csvWriter.writerow({'trackID': str(track.track_id), 'class': class_name, 'frame': frame_num, 'xmin': int(
-                    bbox[0]), 'ymin': int(bbox[1]), 'xmax': int(bbox[2]), 'ymax': int(bbox[3]), 'time' : time.strftime("%H:%M:%S",localtime), 'date' : time.strftime("%d|%b|%Y")})
+                    bbox[0]), 'ymin': int(bbox[1]), 'xmax': int(bbox[2]), 'ymax': int(bbox[3]), 'time' : time.strftime("%H:%M:%S",localtime), 'date' : time.strftime("%d|%b|%Y"), 'count': count})
 
         # calculate frames per second of running detections
         fps = 1.0 / (time.time() - start_time)
