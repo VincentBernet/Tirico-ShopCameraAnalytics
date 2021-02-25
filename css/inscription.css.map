@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACJ,8BAA8B;EAC9B,gBAAgB,EAAE,OAAO;CACzB;;AAED,AAAA,eAAe,CAAC;EACf,gBAAgB,EAAE,GAAG;EACrB,cAAc,EAAE,MAAM;CAKtB;;AAPD,AAGC,eAHc,CAGd,IAAI,CAAC;EACJ,gBAAgB,EAAE,OAAO;EACzB,MAAM,EAAE,IAAI;CACZ",
+    "sources": [
+        "inscription.scss"
+    ],
+    "names": [],
+    "file": "inscription.css"
+}

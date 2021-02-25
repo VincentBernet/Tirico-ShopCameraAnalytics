@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Inscription</title>
+
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="script-src 'self' 'unsafe-inline';"
+		/>
+		<link rel="stylesheet" href="../css/inscription.css" />
+		<link rel="stylesheet" href="../css/header.css" />
+
+        <!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
+		The script loads “in the background”, and then runs when the DOM is fully built.-->
+		<script defer src="../js/index.js"></script>
+    </head>
+    <body>
+		<header></header>
+        <span id="form_container">
+            <form id="form">
+                <input type="text" placeholder="Chiffre d'affaire annuel" required autocomplete="off"/>
+                <input type="text" placeholder="Superficie (en m²)" required/>
+                <input type="text" placeholder="Type de magasin" required/>
+                <select name="cars" id="cars">
+                    <option value="volvo">Alimentaire</option>
+                    <option value="saab">Vetement</option>
+                    <option value="mercedes">Sport</option>
+                    <option value="audi">Musée</option>
+                  </select>
+                <input type="text" placeholder="input1" required/>
+                <input type="reset"/>
+                <input type="submit" value="Création"/>
+            </form>
+        </span>
+
+
+
+        <footer></footer>
+    </body>
+</html>
