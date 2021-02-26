@@ -86,7 +86,7 @@ body {
 .container {
   background-color: var(--bodyColor);
   border-radius: 3px;
-  border: 5px solid #1a1a1a;
+  border: 5px solid #00abe9;
   max-width: 808px;
   margin: 0 auto;
   padding: 0 1.5rem 1rem;
@@ -96,6 +96,11 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .my-form h1 {
   margin-bottom: 1.5rem;
+}
+
+.my-form h2 {
+  margin-bottom: 1.5rem;
+  color: #00abe9;
 }
 
 .my-form li,

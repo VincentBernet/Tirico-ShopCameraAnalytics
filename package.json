@@ -25,6 +25,7 @@
     "custom-electron-titlebar": "^3.2.6",
     "jwt-decode": "^3.1.2",
     "keytar": "^7.4.0",
+    "mysql": "^2.18.1",
     "python-shell": "^2.0.3"
   }
 }

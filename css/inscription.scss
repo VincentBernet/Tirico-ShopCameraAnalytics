@@ -1,5 +1,6 @@
 $Black_Background: #15161a;
 $DarkBlue: #202b43;
+$ElectricBlue: #00abe9;
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
 /* RESET RULES
@@ -85,7 +86,7 @@ body {
 .container {
 	background-color: var(--bodyColor);
 	border-radius: 3px;
-	border: 5px solid #1a1a1a;
+	border: 5px solid $ElectricBlue;
 	max-width: 808px;
 	margin: 0 auto;
 	padding: 0 1.5rem 1rem;
@@ -97,6 +98,10 @@ body {
 	margin-bottom: 1.5rem;
 }
 
+.my-form h2 {
+	margin-bottom: 1.5rem;
+	color: $ElectricBlue;
+}
 .my-form li,
 .my-form .grid > *:not(:last-child) {
 	margin-bottom: 1.5rem;
