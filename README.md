@@ -36,6 +36,8 @@ npm install keytar
 npm install jwt-decode
 npm i custom-electron-titlebar
 npm install --save python-shell
+npm install mysql
+
 ```
 
 Pour lancer l'application :
