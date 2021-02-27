@@ -10,21 +10,15 @@
 		/>
 		<link rel="stylesheet" href="../css/inscription.css" />
 		<link rel="stylesheet" href="../css/header.css" />
-    <script>window.$ = window.jQuery = require('./jquery-2.1.4.js');</script>
         <!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
 		The script loads “in the background”, and then runs when the DOM is fully built.-->
 		<script defer src="../js/inscription.js"></script>
     </head>
     <body>
-        <script>
-            function Redirection_Validate() {
-                var Magasin_Name = document.getElementById("magasin").value;   
-                alert("Magasin "+ Magasin_Name +" : enregistré");
-            }
-        </script>
+
 		<header><div id="resultDiv"></div>
     </header>
-        <form class="my-form" onsubmit="Redirection_Validate()">
+        <form class="my-form" method="GET" onsubmit="form_submited">
             <div class="container">
               <h1>Première fois avec Tirico ?</h1> 
               <h2>Renseignez ces informations sur votre magasin afin que nous puissions booster vos ventes !</h2>
@@ -76,34 +70,19 @@
               </ul>
             </div>
           </form>
-
-
-          <script>
-            // Let's connect to the database :
-var mysql = require('mysql');
-
-var connection = mysql.createConnection({
-  host     : 'https://phpmyadmin.alwaysdata.com',
-  user     : 'pa8_acc',
-  password : '5wtE3Cx8W',
-  database : 'pa8_bdd'
-});
-connection.connect();
-
-var sql = 'SELECT `Email` FROM `Account`';
-
-connection.query(sql, function (error, results, fields) {
-  if (error) console.log(error.code);
-  else {
-      console.log(results);
-      $('#resultDiv').text(results[0].Email); //emp_name is column name in your database
-  }
- });
-
- connection.end();
-
-
-          </script>
+          <span>
+          <a href="#" class="hidenValidate">Rajouter un nouveau magasin</a>
+          <a href="index.html" class="hidenValidate">Valider</a>
+        </span>
+        <script>// Form has been submit, time to insert
+        function form_submited() {
+          alert("1 record inserted");
+          var Magasin_Name = document.getElementById("magasin").value;   
+          var sql = "INSERT INTO Local (Adresse, Nom, Taille, CapMax, NbCam,CAjour) VALUES ('Company Inc', '"+Magasin_Name+"','5','4','3','1')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+            alert("1 record inserted");
+        });} </script>
         <footer></footer>
     </body>
 </html>

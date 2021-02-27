@@ -21,12 +21,30 @@ checkbox.addEventListener("change", function() {
   }
 });
 
+// Connection to the DB
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "mysql-pa8.alwaysdata.net",
+  user: "pa8_acc",
+  password: "5wtE3Cx8W",
+  database: "pa8_bdd"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  /*
+  var Magasin_Name = document.getElementById("magasin").value;   
+  var sql = "INSERT INTO Local (Adresse, Nom, Taille, CapMax, NbCam,CAjour) VALUES ('Company Inc', '"+Magasin_Name+"','5','4','3','1')";
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+      alert("1 record inserted");
+});*/
+});
 
 
 
 
-
-
-
-
+    
 

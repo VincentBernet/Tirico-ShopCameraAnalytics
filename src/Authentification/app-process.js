@@ -18,21 +18,26 @@ function createWindow () {
   })
   
 
+
+
+
+
+  /*
   console.log("|--------- Creation de la fenetre principale ---------|");
   console.log("Nom d'utilisateur +" + " ????" + " : Chargement CSV correspondant");
   console.log("-----------------------------------------------------");
   
   // Appel Python du graphe d'affluence dernière ligne du script python pour télécharger le graphe plante
-  let pyshell = new PythonShell('code_python/Affluence/Affluence.py');
+  let pyshell1 = new PythonShell('code_python/Affluence/Affluence.py');
 
-  pyshell.send(JSON.stringify(['Appel du script "Affluence.py"  ']))
+  pyshell1.send(JSON.stringify(['Appel du script "Affluence.py"  ']))
 
-  pyshell.on('message', function(message) {
+  pyshell1.on('message', function(message) {
     console.log(message);
     
   })
 
-  pyshell.end(function (err) {
+  pyshell1.end(function (err) {
     if (err){
       throw err;
     };
@@ -76,7 +81,7 @@ function createWindow () {
     console.log('Fin du script Python : "run_debug.py"');
     console.log("-----------------------------------------------------");
     console.log("")
-  });
+  });*/
   
 
   //win.loadFile('html/index.html');
