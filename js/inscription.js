@@ -34,17 +34,26 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  /*
-  var Magasin_Name = document.getElementById("magasin").value;   
-  var sql = "INSERT INTO Local (Adresse, Nom, Taille, CapMax, NbCam,CAjour) VALUES ('Company Inc', '"+Magasin_Name+"','5','4','3','1')";
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      alert("1 record inserted");
-});*/
 });
 
 
+// Form has been submit, time to insert
+function form_submited() {
+  var Magasin_Name = document.getElementById("magasin_name").value;
+  var Magasin_Adresse = document.getElementById("magasin_adresse").value;
+  var Magasin_Taille = document.getElementById("magasin_taille").value;   
+  var Chiffre_Affaire = document.getElementById("chiffre_affaire").value;   
+  
 
+  var sql = "INSERT INTO Local (Adresse, Nom, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"', '"+Magasin_Name+"','"+Magasin_Taille+"','"+Magasin_Taille/10+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire+"');UPDATE Account SET First_registration=1 WHERE ID=10;";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    alert("Requete Valide : Insertion Database");
+});
+  document.getElementById("container").style.display ="none";
+  document.getElementById("container2").style.display ="block";
+
+}
 
     
 

@@ -12,11 +12,11 @@ async function showWindow() {
   console.log("Tirico Inc.");
 
   try {
-    console.log("|--------- Connexion Reussi                  ---------|");
+    console.log("|--------- Auth0 : Phase de connexion           ---------|");
     await authService.refreshTokens();
+    console.log("|--------- Tocken exist : Deja connecte         ---------|");
     return createAppWindow();
   } catch (err) {
-    console.log("[Pas d'utilisateur trouve]");
     createAuthWindow();
   }
 }

@@ -83,8 +83,9 @@ body {
 	margin: 1.5rem 0;
 }
 
-.container {
+#container {
 	background-color: var(--bodyColor);
+	display: block;
 	border-radius: 3px;
 	border: 5px solid $ElectricBlue;
 	max-width: 808px;
@@ -303,6 +304,48 @@ footer span {
 	}
 }
 
-.hidenValidate {
+#container2 {
+	background-color: var(--bodyColor);
 	display: none;
+	border-radius: 3px;
+	border: 5px solid $ElectricBlue;
+	max-width: 808px;
+	margin: 0 auto;
+	padding: 0 1.5rem 1rem;
+}
+
+/* FORM BTNS for redirection or reiteration
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.a_grid {
+	position: relative;
+	overflow: hidden;
+	transition: filter 0.2s;
+}
+
+a {
+	font-weight: bold;
+}
+
+a > * {
+	display: inline-block;
+	width: 100%;
+	transition: transform 0.4s ease-in-out;
+}
+
+a .back {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-110%, -50%);
+}
+
+a:enabled:hover .back,
+a:focus .back {
+	transform: translate(-50%, -50%);
+}
+
+a:enabled:hover .front,
+a:focus .front {
+	transform: translateX(110%);
 }

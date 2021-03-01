@@ -17,20 +17,48 @@ function createWindow () {
     icon: "ressource/image/logo.png",
   })
   
+  // Connection to the DB
+  var mysql = require('mysql');
+
+  var con = mysql.createConnection({
+    host: "mysql-pa8.alwaysdata.net",
+    user: "pa8_acc",
+    password: "5wtE3Cx8W",
+    database: "pa8_bdd"
+  });
+
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected to the following DB : mysql-pa8.alwaysdata.net");
+  });
+  var boolean;
+  var sql = "SELECT First_registration,Name FROM Account WHERE ID=10";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    else {
+      console.log("Welcome mister : "+result[0].Name);
+      if (result[0].First_registration==0)
+      {
+        boolean = false;
+        console.log("First Registration -> Create new Local");
+        win.loadFile('html/inscription.html');
+      }
+      if (result[0].First_registration==1)
+      {
+        boolean = true;
+        console.log("Already registrer -> Go to index.html");
+        win.loadFile('html/index.html');
+      }
+    }
+  });
 
 
-
-
-
-  /*
-  console.log("|--------- Creation de la fenetre principale ---------|");
-  console.log("Nom d'utilisateur +" + " ????" + " : Chargement CSV correspondant");
-  console.log("-----------------------------------------------------");
   
+
   // Appel Python du graphe d'affluence dernière ligne du script python pour télécharger le graphe plante
   let pyshell1 = new PythonShell('code_python/Affluence/Affluence.py');
 
-  pyshell1.send(JSON.stringify(['Appel du script "Affluence.py"  ']))
+  pyshell1.send(JSON.stringify(['Appel du script "Affluence.py"']))
 
   pyshell1.on('message', function(message) {
     console.log(message);
@@ -68,7 +96,7 @@ function createWindow () {
   // Appel Python du code de détection, génère un fichier Csv
   let pyshell3 = new PythonShell('code_python/yolov4-deepsort/run_debug.py');
 
-  pyshell3.send(JSON.stringify(['Appel du script de detection "run_debug.py"']))
+  pyshell3.send(JSON.stringify(['\n-----------------------------------------------------\nAppel du script de detection "run_debug.py"']))
 
   pyshell3.on('message', function(message) {
     console.log(message);
@@ -80,14 +108,11 @@ function createWindow () {
     };
     console.log('Fin du script Python : "run_debug.py"');
     console.log("-----------------------------------------------------");
-    console.log("")
-  });*/
+  });
   
 
-  //win.loadFile('html/index.html');
-  win.loadFile('html/inscription.html');
 
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
   //win.removeMenu();
   win.on("closed", () => {
       win = null;
