@@ -41,18 +41,18 @@ con.connect(function(err) {
 function form_submited() {
   var Magasin_Name = document.getElementById("magasin_name").value;
   var Magasin_Adresse = document.getElementById("magasin_adresse").value;
-  var Magasin_Taille = document.getElementById("magasin_taille").value;   
-  var Chiffre_Affaire = document.getElementById("chiffre_affaire").value;   
+  var Magasin_Taille = document.getElementById("magasin_taille").value;
+  var Magasin_Type = document.getElementById("magasin_type").value;     
+  var Chiffre_Affaire = document.getElementById("chiffre_affaire").value;
+   
   
-
-  var sql = "INSERT INTO Local (Adresse, Nom, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"', '"+Magasin_Name+"','"+Magasin_Taille+"','"+Magasin_Taille/10+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire+"');UPDATE Account SET First_registration=1 WHERE ID=10;";
+  var sql = "INSERT INTO Local (Adresse, Nom, Type, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"','"+Magasin_Type+"', '"+Magasin_Name+"','"+Magasin_Taille+"','"+Magasin_Taille/10+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire+"');UPDATE Account SET First_registration=1 WHERE ID=10;";
   con.query(sql, function (err, result) {
     if (err) throw err;
     alert("Requete Valide : Insertion Database");
 });
   document.getElementById("container").style.display ="none";
   document.getElementById("container2").style.display ="block";
-
 }
 
     
