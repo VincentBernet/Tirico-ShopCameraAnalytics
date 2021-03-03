@@ -32,7 +32,7 @@ function createWindow () {
     console.log("Connected to the following DB : mysql-pa8.alwaysdata.net");
   });
   var boolean;
-  var sql = "SELECT First_registration,Name FROM Account WHERE ID=10";
+  var sql = "SELECT First_registration,Name FROM Account WHERE ID=1";
   con.query(sql, function (err, result) {
     if (err) throw err;
     else {

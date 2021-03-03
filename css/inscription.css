@@ -351,45 +351,4 @@ footer span {
 
 /* FORM BTNS for redirection or reiteration
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.a_grid {
-  position: relative;
-  overflow: hidden;
-  -webkit-transition: -webkit-filter 0.2s;
-  transition: -webkit-filter 0.2s;
-  transition: filter 0.2s;
-  transition: filter 0.2s, -webkit-filter 0.2s;
-}
-
-a {
-  font-weight: bold;
-}
-
-a > * {
-  display: inline-block;
-  width: 100%;
-  -webkit-transition: -webkit-transform 0.4s ease-in-out;
-  transition: -webkit-transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
-}
-
-a .back {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-110%, -50%);
-          transform: translate(-110%, -50%);
-}
-
-a:enabled:hover .back,
-a:focus .back {
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-a:enabled:hover .front,
-a:focus .front {
-  -webkit-transform: translateX(110%);
-          transform: translateX(110%);
-}
 /*# sourceMappingURL=inscription.css.map */

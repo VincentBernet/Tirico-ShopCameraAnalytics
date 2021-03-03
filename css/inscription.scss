@@ -317,35 +317,5 @@ footer span {
 /* FORM BTNS for redirection or reiteration
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.a_grid {
-	position: relative;
-	overflow: hidden;
-	transition: filter 0.2s;
-}
-
-a {
-	font-weight: bold;
-}
-
-a > * {
-	display: inline-block;
-	width: 100%;
-	transition: transform 0.4s ease-in-out;
-}
-
-a .back {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-110%, -50%);
-}
-
-a:enabled:hover .back,
-a:focus .back {
-	transform: translate(-50%, -50%);
-}
-
-a:enabled:hover .front,
-a:focus .front {
-	transform: translateX(110%);
+.redirection {
 }
