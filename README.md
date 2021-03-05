@@ -37,6 +37,7 @@ npm install jwt-decode
 npm i custom-electron-titlebar
 npm install --save python-shell
 npm install mysql
+npm install chart.js --save
 
 ```
 
