@@ -32,7 +32,10 @@ win.on('close', function (event) {
     tray = createTray();
     console.log("Minimized with the tray");
   }
+  else
+  {
   win = null;
+  }
 });
 
 
