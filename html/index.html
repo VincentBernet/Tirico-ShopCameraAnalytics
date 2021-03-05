@@ -17,7 +17,8 @@
 		<!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
 			The script loads “in the background”, and then runs when the DOM is fully built.-->
 		<script defer src="../js/index.js"></script>
-		
+        <script src="../node_modules/chart.js/dist/Chart.js"></script>
+		<script type="text/javascript" src="../js/Graph.js"></script>
 
 	</head>
 
@@ -41,8 +42,6 @@
 			<div class = "bouton_gauche">
 				<form method="POST">
 					<br><br><br>
-					
-					
 						<a href="index.html">
 							<img id="logotext"  src="../ressource/image/Logo_bleu.png"/>
 						</a>
@@ -65,9 +64,9 @@
 			</div>
 			<!-- Container avec le graphe choisi (en format png) -->
 			<span id="Container_graphe">
-				<iframe src="https://snapshot.raintank.io/dashboard-solo/snapshot/y7zwi2bZ7FcoTlB93WN7yWO4aMiz3pZb?from=1493369923321&to=1493377123321&panelId=4" width="1250" height="650" frameborder="0"></iframe>
+				<canvas id="Vente_Graph"></canvas>
+				
 			</span>
-			
 			
 		</div>
 		
@@ -97,9 +96,15 @@
 			Analy5Btn.addEventListener('click', (event) => {
     			document.getElementById("Container_graphe").innerHTML='<img  src="../code_python/Affluence/Affluence.png"  id="Graphe" />';
 			})*/
+
 		</script>		
 
 		
 
 	</body>
 </html>
+
+
+<script>
+	MakeGraphGreatAgain();
+</script>

@@ -1,6 +1,7 @@
-const { app, BrowserWindow, Menu, MenuItem} = require('electron');
+const { app, BrowserWindow, Menu, MenuItem, Tray} = require('electron');
 const { maxHeaderSize } = require('http');
 const {PythonShell} = require('python-shell');
+
 
 function createWindow () {
   let win = new BrowserWindow({
@@ -13,10 +14,73 @@ function createWindow () {
         nodeIntegration: true,
         enableRemoteModule: true,
         contextIsolation: false,
+      
     },
     icon: "ressource/image/logo.png",
+    
   })
-  
+  win.webContents.openDevTools();
+
+  let ForceQuit = false;
+
+  let tray = null;
+win.on('close', function (event) {
+  if (ForceQuit == false)
+  {
+    event.preventDefault();
+    win.hide();
+    tray = createTray();
+    console.log("Minimized with the tray");
+  }
+  win = null;
+});
+
+
+function createTray() {
+  let appIcon = new Tray("ressource/image/logo.png");
+  const contextMenu = Menu.buildFromTemplate([
+      {
+          label: 'Show', click: function () {
+            
+              win.show();
+              tray.destroy();
+          }
+      },
+      {
+          label: 'Exit', click: function () {
+              ForceQuit = true;
+              app.isQuiting = true;
+              app.quit();
+          }
+      }
+  ]);
+  appIcon.on('double-click', function (event) {
+      win.show();
+      tray.destroy();
+  });
+  appIcon.setToolTip('Tray Tutorial');
+  appIcon.setContextMenu(contextMenu);
+  return appIcon;
+}
+
+  var contextMenu = Menu.buildFromTemplate([
+    { label: 'Show App', click:  function(){
+        win.show();
+        tray.destroy();
+    } },
+    { label: 'Quit', click:  function(){
+        ForceQuit = true;
+        application.isQuiting = true;
+        application.quit();
+    } }
+]);
+
+
+
+
+
+
+
   // Connection to the DB
   var mysql = require('mysql');
 
