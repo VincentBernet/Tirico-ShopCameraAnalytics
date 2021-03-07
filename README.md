@@ -28,16 +28,7 @@ git pull origin master
  
  Pour ensuite installer tous les composants nécessaires à l'application :
 ```
-npm init -y
-npm i --save-dev electron
-npm install electron -g
-npm install axios -S
-npm install keytar
-npm install jwt-decode
-npm i custom-electron-titlebar
-npm install --save python-shell
-npm install mysql
-npm install chart.js --save
+npm install
 
 ```
 
@@ -50,7 +41,10 @@ Pour le python ~~(pas nécessaire actuellement, les graphes sont en locales)~~
 Installer pip ou anaconda pour installer plus facilement les librairies :
 
 ```
-npm install
+pip install pandas                         (pour réaliser les graphes)
+pip install plotly                         (pour réaliser les graphes)
+pip install -c plotly plotly-orca          (pour save en png les graphes)
+pip install seaborn                        (pour réaliser la HeatMap)
 ```
 
 ## Licences
