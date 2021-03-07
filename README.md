@@ -53,15 +53,6 @@ Installer pip ou anaconda pour installer plus facilement les librairies :
 npm install
 ```
 
-
-
-```
-INUTILE
-/*pip install pandas                         (pour réaliser les graphes)
-pip install plotly                         (pour réaliser les graphes)
-pip install -c plotly plotly-orca          (pour save en png les graphes)
-pip install seaborn                        (pour réaliser la HeatMap)*/
-```
 ## Licences
 
 ## Features
