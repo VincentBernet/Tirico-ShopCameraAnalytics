@@ -29,12 +29,21 @@ function ConnectToDatabase() {
 }
 
 
+var ctx;
+var data;
+var options;
+var config;
+var graph;
 
 
 function MakeGraphGreatAgain() {
-    var ctx = document.getElementById('Vente_Graph').getContext('2d')
 
-        var data = {
+    if (graph != null)
+        graph.destroy();
+
+    ctx = document.getElementById('Vente_Graph').getContext('2d')
+
+        data = {
             labels: ['Janvier', 'Février', 'Mars', 'Avril'],
             datasets: [{
                 backgroundColor: 'rgb(144, 12, 63)',
@@ -49,26 +58,144 @@ function MakeGraphGreatAgain() {
             }]
         }
 
-        var options = {
+        options = {
             title: {
                 display: true,
                 text: 'Ventes par produits'
             },
             animation: {
-                duration: 1000,
+                //duration: 1000,
                 easing: 'easeInQuad'
             }
         }
 
-        var config = {
+        config = {
             type : 'line',
             data: data,
             options: options
         }
-        var graph1 = new Chart(ctx, config)
+        graph = new Chart(ctx, config)
 }
 
 
 
 
+function MakeBar()
+{
+    graph.destroy();
 
+    ctx = document.getElementById('graph2').getContext('2d')
+
+    data = {
+        labels: ['Janvier', 'Février', 'label 3', 'label 4'],
+        datasets: [{
+            backgroundColor: 'rgb(110, 110, 211)',
+            hoverBackgroundColor: '#000000',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [30, 150, 15, 40, 20]
+
+        },
+        {
+            data: [60, 40, 30, 50],
+            backgroundColor: 'rgb(144, 12, 63)',
+            hoverBackgroundColor: '#000000',
+        }]
+    }
+
+    options = {
+        title: {
+            display: true,
+            text: 'Ventes par secteur'
+        },
+        animation: {
+            //duration: 1000,
+            easing: 'easeInQuad'
+        }
+    }
+    graph = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+}
+
+
+function MakeAraignee() 
+{
+    graph.destroy();
+
+    ctx = document.getElementById('graph4').getContext('2d')
+
+    data = {
+       labels: ['Red', 'Février', 'Marss'],
+       datasets: [{
+           backgroundColor: 'rgb(110, 205, 211)',
+           data: [30, 30, 25]
+       }]
+   }
+
+   options = {
+        title: {
+            display: true,
+            text: 'Ventes par secteur'
+        },
+        animation: {
+            //duration: 1000,
+            easing: 'easeInQuad'
+        },
+        scale: {
+            ticks: {
+                suggestedMin: 15,
+                suggestedMax: 50
+            }
+        }
+    }
+
+   graph = new Chart(ctx, {
+   type: 'radar',
+   data: data,
+   options: options
+   });
+
+}
+
+function MakeCercle() {
+    
+    graph.destroy();
+
+    ctx = document.getElementById('graph3').getContext('2d')
+
+
+    data = {
+        labels: ['Red', 'Février', 'Marss'],
+        datasets: [{
+            backgroundColor: 'rgb(144, 12, 63)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [30, 150, 15, 40, 20]
+
+        }]
+    }
+
+    options = {
+        title: {
+            display: true,
+            text: 'Ventes par secteur'
+        },
+        animation: {
+            //duration: 1000,
+            easing: 'easeInQuad'
+        }
+    }
+
+    graph = new Chart(ctx, {
+    type: 'doughnut',
+    data: data,
+    options: options
+});
+}
+
+function updateGraph() {
+    if (graph != null)
+        graph.update();
+}
