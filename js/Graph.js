@@ -1,4 +1,34 @@
 var Chart = require('chart.js');
+var values = null;
+
+function ConnectToDatabase() {
+    var mysql = require('mysql');
+
+    var con = mysql.createConnection({
+        host: "mysql-pa8.alwaysdata.net",
+        user: "pa8_acc",
+        password: "5wtE3Cx8W",
+        database: "pa8_bdd"
+    });
+
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected to the following DB : mysql-pa8.alwaysdata.net");
+    });
+    
+    var sql = "SELECT AccID, LocID FROM AccToLoc";
+    con.query(sql, function (err, result) {
+        
+        if (err) throw err;
+        else {
+            console.log("Welcome mister : "+result[0].Name);
+            values = result;
+            MakeGraphGreatAgain();
+        }
+    });
+}
+
+
 
 
 function MakeGraphGreatAgain() {
@@ -14,7 +44,7 @@ function MakeGraphGreatAgain() {
             },
             {
                 backgroundColor: 'rgb(110, 110, 211)',
-                data: [60, 40, 30, 50],
+                data: [values[0].AccID, values[0].LocID, values[1].AccID, values[1].LocID],
                 label: "Alimentaire"
             }]
         }
@@ -37,3 +67,8 @@ function MakeGraphGreatAgain() {
         }
         var graph1 = new Chart(ctx, config)
 }
+
+
+
+
+

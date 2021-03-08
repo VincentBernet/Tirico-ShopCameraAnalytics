@@ -16,12 +16,12 @@ function createWindow () {
         contextIsolation: false,
       
     },
-    icon: "ressource/image/logo.png",
-    
+    icon: "ressource/image/ml.png"
   })
   win.webContents.openDevTools();
 
-  let ForceQuit = false;
+  // Mettre a false pour l'avoir dans le tray
+  let ForceQuit = true;
 
   let tray = null;
 win.on('close', function (event) {
