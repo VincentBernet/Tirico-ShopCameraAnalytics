@@ -6,9 +6,9 @@ function createWindow () {
   let win = new BrowserWindow({
     width: 1920,
     height: 1080,
-    frame: true,
+    frame: false,
     title: "Tirico Inc.", 
-    titleBarStyle: "",
+    titleBarStyle: "hidden",
     webPreferences: {
         nodeIntegration: true,
         enableRemoteModule: true,

@@ -108,13 +108,13 @@ function createTray() {
       {
         boolean = false;
         console.log("First Registration -> Create new Local");
-        win.loadFile('html/inscription.html');
+        win.loadFile('html/inscription_loc.html');
       }
       if (result[0].First_registration==1)
       {
         boolean = true;
         console.log("Already registrer -> Go to index.html");
-        win.loadFile('html/index.html');
+        win.loadFile('html/connexion.html');
       }
     }
   });
