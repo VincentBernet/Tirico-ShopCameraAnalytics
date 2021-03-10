@@ -42,19 +42,28 @@ function form_submited() {
   var Account_Email = document.getElementById("account_email").value;
   var Account_Password = document.getElementById("account_password").value;
   
-  var Account_ID = 1;
-  var LocID = 0; 
-  var inter = 1;
   // Sucession de querry à exécuter
   //var sql1 = "SELECT * FROM 'Account' WHERE Email='"+Account_Email+"' AND Pass='"+Account_Password+"'"; 
-  var sql1 = "SELECT Name FROM `Account` WHERE Email='"+Account_Email+"' AND Pass='"+Account_Password+"'";
-  con.query(sql1, function (err1, result1) {
-    if (err1) alert(err1);
+  var sql0 = "SELECT Name, First_Server_Use, ID FROM `Account` WHERE Email='"+Account_Email+"' AND Pass='"+Account_Password+"'";
+  con.query(sql0, function (err0, result0) {
+    if (err0) alert(err0);
     else {
         try {
-            result1[0].Name;
+            result0[0].Name;
             alert("Connexion Validé");
-            window.location.href="server.html";
+            if (result0[0].First_Server_Use==0)
+            {
+              alert("Installation de l'environnement nécessaire à la détection, cela peut prendre quelque minutes")
+              var sql1 = "UPDATE Account SET First_Server_Use=1 WHERE ID='"+result0[0].ID+"';";
+                con.query(sql1, function (err1, result1) {
+                  if (err1) alert(err1);
+                  else {
+                    alert("L'installation est bientôt terminé, elle ne seras plus nécessaire à votre prochaine utilisation ")
+                  }
+                });
+              window.location.href="server.html";
+            }
+            else window.location.href="server.html";
         }
         catch {
             alert("Connexion Refusé");

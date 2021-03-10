@@ -50,7 +50,7 @@ function form_submited() {
   con.query(sql1, function (err1, result1) {
     if (err1) alert(err1);
     else {
-        alert("Requete Valide : Insert Effectué");
+        alert("Compte créé !");
         window.location.href="index.html";
     }
   });

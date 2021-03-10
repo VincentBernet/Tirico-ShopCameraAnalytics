@@ -9,6 +9,10 @@ new customTitlebar.Titlebar({
     //icon: "../ressource/image/logo.png",
 });
 
+// We take back the paramater of the ID, we parse it cleany first
+const urlData = window.location.search;
+const urlParams = new URLSearchParams(urlData);
+const Account_ID = urlParams.get('ID');
 
 // Code for the Form
 const checkbox = document.querySelector('.my-form input[type="checkbox"]');
@@ -44,8 +48,8 @@ function form_submited() {
   var Magasin_Taille = document.getElementById("magasin_taille").value;
   var Magasin_Type = document.getElementById("magasin_type").value;     
   var Chiffre_Affaire = document.getElementById("chiffre_affaire").value;
-  var Account_ID = 1;
   var LocID = 0; 
+  alert(Account_ID);
 
   // Sucession de querry à exécuter
   var sql1 = "INSERT INTO Local (Adresse, Nom, Type, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"','"+Magasin_Name+"', '"+Magasin_Type+"','"+Magasin_Taille+"','"+Magasin_Taille/10+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire+"')";

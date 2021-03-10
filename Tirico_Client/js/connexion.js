@@ -47,7 +47,7 @@ function form_submited() {
   var inter = 1;
   // Sucession de querry à exécuter
   //var sql1 = "SELECT * FROM 'Account' WHERE Email='"+Account_Email+"' AND Pass='"+Account_Password+"'"; 
-  var sql0 = "SELECT Name, First_registration FROM `Account` WHERE Email='"+Account_Email+"' AND Pass='"+Account_Password+"'";
+  var sql0 = "SELECT ID,Name, First_registration FROM `Account` WHERE Email='"+Account_Email+"' AND Pass='"+Account_Password+"'";
   con.query(sql0, function (err0, result0) {
     if (err0) alert(err0);
     else {
@@ -59,7 +59,7 @@ function form_submited() {
                 {
                   boolean = false;
                   console.log("First Registration -> Create new Local");
-                  window.location.href="inscription_loc.html";
+                  window.location.href="inscription_loc.html?ID="+result0[0].ID+"";
                 }
             if (result0[0].First_registration==1)
                 {
