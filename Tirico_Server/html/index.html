@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Server-Connexion</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="inscription.css" />
+    <!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
+		The script loads “in the background”, and then runs when the DOM is fully built.-->
+	<script defer src="inscription.js"></script>
+</head>
+<body>
+    <header><div id="resultDiv"></div>
+    </header>
+        <form class="my-form"  onsubmit="form_submited();return false">
+            <div id="container">
+              <h1>Connexion</h1> 
+              <h2></h2>
+              <ul>
+                <li>
+                    <input type="text" id="magasin_name"required placeholder="Identifiant">
+                </li>    
+                <li>
+                    <input type="text" id="magasin_name"required placeholder="Mot de Passe">
+                </li> 
+                <li>
+                    <input type="checkbox" id="terms">
+                    <label for="terms">Je certifie avoir lu et approuvé les <a href="404.html">conditions d'utilisation dû au respect de la loi RGPD</a></label>
+                </li>
+                <div class="grid grid-3">
+                    <div class="required-msg">Champs Obligatoires</div>
+                    <button class="btn-grid" type="submit" disabled>
+                      <span class="back">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
+                      </span>
+                      <span class="front">Valider</span>
+                    </button>
+                    <button class="btn-grid" type="reset" disabled>
+                      <span class="back">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
+                      </span>
+                      <span class="front">Réinitialiser</span>
+                    </button> 
+                  </div>
+              </ul>
+            </div>
+          </form>
+        <footer></footer>
+    </body>
+</html>
