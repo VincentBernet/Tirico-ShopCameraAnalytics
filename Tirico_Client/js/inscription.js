@@ -4,10 +4,6 @@ const { Color } = require('custom-electron-titlebar');
 const { remote } = require('electron');
 const { Menu, MenuItem } = remote;
 const url = require('url');
-new customTitlebar.Titlebar({
-	backgroundColor: customTitlebar.Color.fromHex('#1D1F27'),
-    //icon: "../ressource/image/logo.png",
-});
 
 
 // Code for the Form

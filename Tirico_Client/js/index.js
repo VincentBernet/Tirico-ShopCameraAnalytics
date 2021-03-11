@@ -1,16 +1,17 @@
 const { Console } = require('console')
 const electron = require('electron')
+const customTitlebar = require('custom-electron-titlebar');
+const { Color } = require('custom-electron-titlebar');
 const path = require('path');
-const { createLogoutWindow } = require('../src/Authentification/auth-process');
-const { logout } = require('../src/Authentification/auth-service');
 const {BrowserWindow} = electron.remote
 
 //ADDED barre des taches personnalisée
-const customTitlebar = require('custom-electron-titlebar');
-const { Color } = require('custom-electron-titlebar');
+
 const { remote } = require('electron');
 const { Menu, MenuItem } = remote;
 const url = require('url');
+
+
 new customTitlebar.Titlebar({
 	backgroundColor: customTitlebar.Color.fromHex('#1D1F27'),
     //icon: "../ressource/image/logo.png",
@@ -18,7 +19,6 @@ new customTitlebar.Titlebar({
 
 const DeconnectBtn = document.getElementById('DECO')
 DeconnectBtn.addEventListener('click', (event) => {
-    createLogoutWindow();
 })
 
 const notification = {
