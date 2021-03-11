@@ -3,7 +3,6 @@ const electron = require('electron')
 const customTitlebar = require('custom-electron-titlebar');
 const { Color } = require('custom-electron-titlebar');
 const path = require('path');
-const { createLogoutWindow } = require('../src/Authentification/auth-process');
 const {BrowserWindow} = electron.remote
 
 //ADDED barre des taches personnalisée

@@ -78,8 +78,6 @@ function MakeGraphGreatAgain() {
 }
 
 
-
-
 function MakeBar()
 {
     graph.destroy();

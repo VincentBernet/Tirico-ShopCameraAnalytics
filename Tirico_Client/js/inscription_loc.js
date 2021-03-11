@@ -68,7 +68,7 @@ function form_submited() {
               if (err3) alert(err3);
               else {
                 alert("Le magasin "+Magasin_Name+" a été créée !");
-                var sql4 = "UPDATE Account SET First_registration=1 WHERE ID=1;";
+                var sql4 = "UPDATE Account SET First_registration=1 WHERE ID='"+Account_ID+"';";
                 con.query(sql4, function (err4, result4) {
                   if (err4) alert(err4);
                   else {
