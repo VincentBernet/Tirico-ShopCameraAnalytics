@@ -1,19 +1,15 @@
 // main/auth-process.js
 
-const {BrowserWindow} = require('electron');
-const authService = require('./auth-service');
+const {BrowserWindow, Menu, MenuItem} = require('electron');
 const createAppWindow = require('./app-process');
-
-//const {customTitlebar} = require('../../js/auth');
-
 let win = null;
 
 function createAuthWindow() {
   destroyAuthWin();
 
   win = new BrowserWindow({
-    width: 400,
-    height: 600,
+    width: 1920,
+    height: 1080,
     frame: false,
     webPreferences: {
         nodeIntegration: true,
@@ -23,27 +19,7 @@ function createAuthWindow() {
     icon: "ressource/image/logo.png",
   });
 
-  win.loadURL(authService.getAuthenticationURL());
-  const {session: {webRequest}} = win.webContents;
-
-
-  const filter = {
-    urls: [
-      'http://localhost/callback*'
-    ]
-  };
-
-  webRequest.onBeforeRequest(filter, async ({url}) => {
-    await authService.loadTokens(url);
-    createAppWindow();
-    return destroyAuthWin();
-  });
-
-  win.on('authenticated', () => {
-    console.log("[Utilisateur deja authentifie sur cet ordinateur auparavant]");
-    destroyAuthWin();
-  });
-
+  
   win.on('closed', () => {
     win = null;
   });
@@ -55,29 +31,63 @@ function destroyAuthWin() {
   win = null;
 }
 
-function createLogoutWindow() {
-  let logoutWindow = new electron.remote.BrowserWindow({
-    show: false,
-    webPreferences: {
-      nodeIntegration: true,
-      enableRemoteModule: true,
-      contextIsolation: false
-    }   
-  })
-  
-  logoutWindow.loadURL(authService.getLogOutUrl());
-  
-  logoutWindow.on('ready-to-show', async () => {
-    logoutWindow.close();
-    await authService.logout();
-    electron.remote.getCurrentWindow().close();
+
+
+var mysql = require('mysql');
+
+  var con = mysql.createConnection({
+    host: "mysql-pa8.alwaysdata.net",
+    user: "pa8_acc",
+    password: "5wtE3Cx8W",
+    database: "pa8_bdd"
   });
- 
-}
+
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected to the following DB : mysql-pa8.alwaysdata.net");
+  });
+  var boolean;
+  var sql = "SELECT First_registration,Name FROM Account WHERE ID=1";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    else {
+      console.log("Welcome mister : "+ result[0].Name);
+      if (result[0].First_registration==0)
+      {
+        boolean = false;
+        console.log("First Registration -> Create new Local");
+        win.loadFile('html/inscription_loc.html');
+      }
+      if (result[0].First_registration==1)
+      {
+        boolean = true;
+        console.log("Already registrer -> Go to index.html");
+        win.loadFile('html/connexion.html');
+      }
+    }
+  });
+
+
+
+  var menu = new Menu();
+  menu.append(new MenuItem({
+      label: 'Tirico Inc.',
+      submenu: [
+          {
+              label: 'Equipe'
+          },
+          {
+              type: 'separator'
+          },
+          {
+              label: 'Efrei'
+          }
+      ]
+  }));
+  Menu.setApplicationMenu(menu);
 
 
 
 module.exports = {
-  createAuthWindow,
-  createLogoutWindow,
+  createAuthWindow
 };

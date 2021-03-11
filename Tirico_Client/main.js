@@ -4,21 +4,13 @@ const {app} = require('electron');
 
 const {createAuthWindow} = require('./src/Authentification/auth-process');
 const createAppWindow = require('./src/Authentification/app-process');
-const authService = require('./src/Authentification/auth-service');
 
 
+function showWindow() {
+    console.log("Tirico Inc.");
 
-async function showWindow() {
-  console.log("Tirico Inc.");
-
-  try {
-    console.log("|--------- Auth0 : Phase de connexion           ---------|");
-    await authService.refreshTokens();
-    console.log("|--------- Tocken exist : Deja connecte         ---------|");
-    return createAppWindow();
-  } catch (err) {
+    console.log("|--------- On cree la fenetre de connexion         ---------|");
     createAuthWindow();
-  }
 }
 
 // This method will be called when Electron has finished
