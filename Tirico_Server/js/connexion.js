@@ -58,10 +58,11 @@ function form_submited() {
                 con.query(sql1, function (err1, result1) {
                   if (err1) alert(err1);
                   else {
-                    alert("L'installation est bientôt terminé, elle ne seras plus nécessaire à votre prochaine utilisation ")
+                    installation();
+                    alert("L'installation est terminé, elle ne seras plus nécessaire à votre prochaine utilisation ");
+                    window.location.href="server.html";
                   }
                 });
-              window.location.href="server.html";
             }
             else window.location.href="server.html";
         }
@@ -73,5 +74,26 @@ function form_submited() {
   });
 }
 
+function installation() {
+const {PythonShell} = require('python-shell');
+
+
+// Appel Python du code de détection, génère un fichier Csv
+let pyshell0 = new PythonShell('code_python/yolov4-deepsort/first_run_debug.py');
+
+pyshell0.send(JSON.stringify(['\n-----------------------------------------------------\nAppel du script d\'installation "first_run_debug.py"']))
+
+pyshell0.on('message', function(message) {
+  console.log(message);
+})
+
+pyshell0.end(function (err) {
+  if (err){
+    throw err;
+  };
+  console.log('Fin du script Python : "first_run_debug.py"');
+  console.log("-----------------------------------------------------");
+});
+}
     
 
