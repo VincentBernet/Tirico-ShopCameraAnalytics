@@ -48,7 +48,7 @@ const notification = {
 const NotifBtn = document.getElementById('NOTIFICATION')
 
 NotifBtn.addEventListener('click', (event) => {
-    const myNotification2 = new window.Notification(notification.title, notification);
+    const myNotification = new window.Notification(notification.title, notification);
 })
 
 
