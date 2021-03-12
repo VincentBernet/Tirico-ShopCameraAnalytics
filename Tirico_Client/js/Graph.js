@@ -1,6 +1,12 @@
 var Chart = require('chart.js');
 var values = null;
 
+// We take back the paramater of the ID, we parse it cleany first
+const urlData = window.location.search;
+const urlParams = new URLSearchParams(urlData);
+const Account_ID = urlParams.get('Name');
+
+
 function ConnectToDatabase() {
     var mysql = require('mysql');
 
@@ -13,7 +19,6 @@ function ConnectToDatabase() {
 
     con.connect(function(err) {
         if (err) throw err;
-        console.log("Connected to the following DB : mysql-pa8.alwaysdata.net");
     });
     
     var sql = "SELECT AccID, LocID FROM AccToLoc";
@@ -21,7 +26,7 @@ function ConnectToDatabase() {
         
         if (err) throw err;
         else {
-            console.log("Welcome mister : "+result[0].Name);
+            console.log("Welcome mister : "+Account_ID);
             values = result;
             MakeGraphGreatAgain();
         }
@@ -44,7 +49,7 @@ function MakeGraphGreatAgain() {
     ctx = document.getElementById('Vente_Graph').getContext('2d')
 
         data = {
-            labels: ['Janvier', 'Février', 'Mars', 'Avril'],
+            labels: ['Janvier', 'Février', 'Mars', 'Avril','Mai'],
             datasets: [{
                 backgroundColor: 'rgb(144, 12, 63)',
                 borderColor: '#00000',
@@ -61,7 +66,14 @@ function MakeGraphGreatAgain() {
         options = {
             title: {
                 display: true,
-                text: 'Ventes par produits'
+                position: 'top',
+                fontSize: '15',
+                fontFamily: 'Tahoma',
+                fontColor: '#FFFFFF',
+                fontStyle:'bold',
+                padding: '0',
+                lineHeight: '1.5',
+                text: 'Evolution Mensuel'
             },
             animation: {
                 //duration: 1000,
@@ -104,7 +116,14 @@ function MakeBar()
     options = {
         title: {
             display: true,
-            text: 'Ventes par secteur'
+            position: 'top',
+            fontSize: '15',
+            fontFamily: 'Tahoma',
+            fontColor: '#FFFFFF',
+            fontStyle:'bold',
+            padding: '0',
+            lineHeight: '1.5',
+            text: 'Random'
         },
         animation: {
             //duration: 1000,
@@ -134,10 +153,17 @@ function MakeAraignee()
    }
 
    options = {
-        title: {
-            display: true,
-            text: 'Ventes par secteur'
-        },
+    title: {
+        display: true,
+        position: 'top',
+        fontSize: '15',
+        fontFamily: 'Tahoma',
+        fontColor: '#FFFFFF',
+        fontStyle:'bold',
+        padding: '0',
+        lineHeight: '1.5',
+        text: 'Random'
+    },
         animation: {
             //duration: 1000,
             easing: 'easeInQuad'
@@ -166,11 +192,11 @@ function MakeCercle() {
 
 
     data = {
-        labels: ['Red', 'Février', 'Marss'],
+        labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
         datasets: [{
-            backgroundColor: 'rgb(144, 12, 63)',
+            backgroundColor: '#00abe9',
             borderColor: 'rgb(255, 99, 132)',
-            data: [30, 150, 15, 40, 20]
+            data: [30, 40, 60, 30, 70, 120, 0]
 
         }]
     }
@@ -178,7 +204,14 @@ function MakeCercle() {
     options = {
         title: {
             display: true,
-            text: 'Ventes par secteur'
+            position: 'top',
+            fontSize: '15',
+            fontFamily: 'Tahoma',
+            fontColor: '#FFFFFF',
+            fontStyle:'bold',
+            padding: '0',
+            lineHeight: '1.5',
+            text: 'Affluence Semaine : Magasin de '+'Sergy'+''
         },
         animation: {
             //duration: 1000,

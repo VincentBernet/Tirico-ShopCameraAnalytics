@@ -19,6 +19,7 @@ new customTitlebar.Titlebar({
 
 const DeconnectBtn = document.getElementById('DECO')
 DeconnectBtn.addEventListener('click', (event) => {
+    window.location.href="connexion.html";
 })
 
 const notification = {
