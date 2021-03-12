@@ -19,6 +19,8 @@ function ConnectToDatabase() {
 
     con.connect(function(err) {
         if (err) throw err;
+        else console.log("Welcome mister : "+Account_ID);
+
     });
     
     var sql = "SELECT AccID, LocID FROM AccToLoc";
@@ -26,7 +28,7 @@ function ConnectToDatabase() {
         
         if (err) throw err;
         else {
-            console.log("Welcome mister : "+Account_ID);
+            //alert(result[10].AccID);
             values = result;
             MakeGraphGreatAgain();
         }
@@ -211,7 +213,7 @@ function MakeCercle() {
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: 'Affluence Semaine : Magasin de '+'Sergy'+''
+            text: 'Affluence Semaine : Magasin de '+''+''
         },
         animation: {
             //duration: 1000,

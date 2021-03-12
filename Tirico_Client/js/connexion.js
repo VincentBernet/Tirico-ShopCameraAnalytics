@@ -10,6 +10,11 @@ new customTitlebar.Titlebar({
     //icon: "../ressource/image/logo.png",
 });
 
+const notification = {
+  title: 'TIRICO Notification',
+  body: 'Your Daily Analysis is available !',
+  icon: "../ressource/image/logo.png"
+}
 
 // Code for the Form
 const checkbox = document.querySelector('.my-form input[type="checkbox"]');
