@@ -108,7 +108,7 @@ function MakeBar()
     graph.destroy();
 
     ctx = document.getElementById('graph2').getContext('2d')
-
+    //
     data = {
         labels: [values[0].DateTime, values[1].DateTime, values[2].DateTime, values[3].DateTime, values[4].DateTime, values[5].DateTime, values[6].DateTime, values[7].DateTime, values[8].DateTime, values[9].DateTime, values[10].DateTime],
         datasets: [{
