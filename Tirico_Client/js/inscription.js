@@ -17,6 +17,11 @@ checkbox.addEventListener("change", function() {
   }
 });
 
+
+document.getElementById("redirect_Connex").addEventListener("click", function() {
+  window.location.href="connexion.html";
+});
+
 // Connection to the DB
 var mysql = require('mysql');
 

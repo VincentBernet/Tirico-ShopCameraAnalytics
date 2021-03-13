@@ -12,9 +12,11 @@ const { Menu, MenuItem } = remote;
 const url = require('url');
 
 // We take back the paramater of the ID, we parse it cleany first
-const urlDataIndex = window.location.search;
-const urlParamsIndex = new URLSearchParams(urlDataIndex);
-const Account_Name = urlParamsIndex.get('Name');
+// We take back the paramater of the ID, we parse it cleany first
+const urlData = window.location.search;
+const urlParams = new URLSearchParams(urlData);
+const Account_ID = urlParams.get('ID');
+const Account_Name = urlParams.get('Name');
 
 
 new customTitlebar.Titlebar({

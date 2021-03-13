@@ -189,3 +189,13 @@ select {
 	box-shadow: 0 0 2px 5px rgba(230, 233, 235, 0.5);
 	transform: rotateY(360deg);
 }
+
+#time_button button {
+	width: 5em;
+	font-size: 0.8em;
+}
+
+#time_button {
+	position: absolute;
+	right: 5%;
+}

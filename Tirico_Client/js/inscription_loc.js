@@ -4,6 +4,7 @@ const { Color } = require('custom-electron-titlebar');
 const { remote } = require('electron');
 const { Menu, MenuItem } = remote;
 const url = require('url');
+
 new customTitlebar.Titlebar({
 	backgroundColor: customTitlebar.Color.fromHex('#1D1F27'),
     //icon: "../ressource/image/logo.png",
@@ -13,6 +14,16 @@ new customTitlebar.Titlebar({
 const urlData = window.location.search;
 const urlParams = new URLSearchParams(urlData);
 const Account_ID = urlParams.get('ID');
+const Account_Name = urlParams.get('Name');
+
+// Redirection Index ou Inscript
+document.getElementById("redirect_Index").addEventListener("click", function() {
+  window.location.href="index.html?Name="+Account_Name+"&ID="+Account_ID+"";
+});
+
+document.getElementById("redirect_Inscri_Loc").addEventListener("click", function() {
+  window.location.href="inscription_loc.html?Name="+Account_Name+"&ID="+Account_ID+"";
+});
 
 // Code for the Form
 const checkbox = document.querySelector('.my-form input[type="checkbox"]');
@@ -37,7 +48,7 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("Connected mister : "+Account_Name+"");
 });
 
 
@@ -49,7 +60,6 @@ function form_submited() {
   var Magasin_Type = document.getElementById("magasin_type").value;     
   var Chiffre_Affaire = document.getElementById("chiffre_affaire").value;
   var LocID = 0; 
-  alert(Account_ID);
 
   // Sucession de querry à exécuter
   var sql1 = "INSERT INTO Local (Adresse, Nom, Type, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"','"+Magasin_Name+"', '"+Magasin_Type+"','"+Magasin_Taille+"','"+Magasin_Taille/10+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire/365+"')";
@@ -57,7 +67,7 @@ function form_submited() {
     if (err1) alert(err1);
     else {
         alert("Requete Valide : Insert Effectué");
-        var sql2 = "SELECT ID FROM Local WHERE Adresse='"+Magasin_Adresse+"' AND Nom='"+Magasin_Name+"' AND Type='"+Magasin_Type+"' AND Taille='"+Magasin_Taille+"' AND CAjour='"+Chiffre_Affaire+"';";
+        var sql2 = "SELECT ID FROM Local WHERE Adresse='"+Magasin_Adresse+"' AND Nom='"+Magasin_Name+"' AND Type='"+Magasin_Type+"' AND Taille='"+Magasin_Taille+"';";
         con.query(sql2, function (err2, result2) {
           if (err2) alert(err2);
           else {

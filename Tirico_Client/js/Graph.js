@@ -1,10 +1,7 @@
 var Chart = require('chart.js');
 var values = null;
 
-// We take back the paramater of the ID, we parse it cleany first
-const urlData = window.location.search;
-const urlParams = new URLSearchParams(urlData);
-const Account_ID = urlParams.get('Name');
+
 
 var con;
 
@@ -21,7 +18,7 @@ function ConnectToDatabase() {
 
     con.connect(function(err) {
         if (err) throw err;
-        else console.log("Welcome mister : "+Account_ID);
+        else console.log("Welcome mister : "+Account_Name);
 
     });
     

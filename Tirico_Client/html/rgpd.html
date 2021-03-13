@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RGPD</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="../css/inscription.css" />
+    <!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
+		The script loads “in the background”, and then runs when the DOM is fully built.-->
+
+</head>
+
+<body>
+    <header><div id="resultDiv"></div>
+    </header>
+        <form class="my-form"  onsubmit="form_submited();return false">
+            <div id="container">
+              <h1>RGPD</h1> 
+              <h2>Règlement général sur la protection des données (RGPD)</h2>
+              <ul>
+                <li>
+                    <iframe width="100%" height="418" src="https://www.youtube.com/embed/iMD3pWAFXEY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </li>
+                <div class="grid grid-3">
+                    <button class="btn-grid" id="redirect_Connex" type="button">
+                      <span class="back">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
+                      </span>
+                      <span class="front">Retour Connexion</span>
+                    </button> 
+                  </div>
+              </ul>
+            </div>
+          </form>
+        <footer></footer>
+        <script>
+            document.getElementById("redirect_Connex").addEventListener("click", function() {
+                window.location.href="connexion.html";
+            });
+        </script>
+    </body>
+</html>

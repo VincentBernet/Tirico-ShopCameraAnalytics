@@ -45,6 +45,7 @@
 						</a>
 
 					<br><br><br><br>
+					<div id="locaux"></div>
 					<div id="counter" >0000000</div>
 						<!-- Script to count how many people are tracked in Csv file-->
 						<script src="../js/counter.js" > </script> <!-- Attention pour éviter l'erreur innerHTML of null il faut mettre ce script après l'id counter et avant le onload juste en dessus -->
@@ -66,6 +67,11 @@
 			</div>
 			<!-- Container avec le graphe choisi (en format png) -->
 			<span id="Container_graphe">
+				<br>
+				<div id="time_button"> 
+					<input class="button_time" type="date" value="2021-03-13"/> <button class="button_time">Weekly</button> <button class="button_time">Monthly</button>
+				</div>
+				
 				<canvas id="Vente_Graph"></canvas>
 			</span>
 			
@@ -77,7 +83,7 @@
 			const AffluenceBtn = document.getElementById('Analy-1')
 			AffluenceBtn.addEventListener('click', (event) => {
 				//document.getElementById("Container_graphe").innerHTML='<iframe src="https://snapshot.raintank.io/dashboard-solo/snapshot/y7zwi2bZ7FcoTlB93WN7yWO4aMiz3pZb?from=1493369923321&to=1493377123321&panelId=4" width="1250" height="650" frameborder="0"></iframe>';
-				document.getElementById("Container_graphe").innerHTML='<canvas id="Vente_Graph"></canvas>';
+				document.getElementById("Container_graphe").innerHTML='<br><div id="time_button"><button>Daily</button><button>Weekly</button><button>Monthly</button></div><canvas id="Vente_Graph"></canvas>';
 				Graphique.id = "Vente_Graph";
 				ConnectToDatabase();
 			})
@@ -90,13 +96,13 @@
 
 			const Analy3Btn = document.getElementById('Analy-3')
 			Analy3Btn.addEventListener('click', (event) => {
-				document.getElementById("Container_graphe").innerHTML='<canvas id="graph3"></canvas>';
+				document.getElementById("Container_graphe").innerHTML='<br><canvas id="graph3"></canvas>';
 				MakeCercle();
 			})
 
 			const Analy4Btn = document.getElementById('Analy-4')
 			Analy4Btn.addEventListener('click', (event) => {
-				document.getElementById("Container_graphe").innerHTML='<canvas id="graph4"></canvas>';
+				document.getElementById("Container_graphe").innerHTML='<br><canvas id="graph4"></canvas>';
 				MakeAraignee();
 			})
 
