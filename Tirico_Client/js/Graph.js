@@ -6,11 +6,13 @@ const urlData = window.location.search;
 const urlParams = new URLSearchParams(urlData);
 const Account_ID = urlParams.get('Name');
 
+var con;
+
 
 function ConnectToDatabase() {
     var mysql = require('mysql');
 
-    var con = mysql.createConnection({
+    con = mysql.createConnection({
         host: "mysql-pa8.alwaysdata.net",
         user: "pa8_acc",
         password: "5wtE3Cx8W",
@@ -91,7 +93,19 @@ function MakeGraphGreatAgain() {
         graph = new Chart(ctx, config)
 }
 
-
+function RetrieveAffluence()
+{
+    var sql = "SELECT DateTime, NombreDePassage FROM Stats";
+    con.query(sql, function (err, result) {
+        
+        if (err) throw err;
+        else {
+            //alert(result[10].AccID);
+            values = result;
+            MakeBar();
+        }
+    });
+}
 function MakeBar()
 {
     graph.destroy();
@@ -99,19 +113,14 @@ function MakeBar()
     ctx = document.getElementById('graph2').getContext('2d')
 
     data = {
-        labels: ['Janvier', 'Février', 'label 3', 'label 4'],
+        labels: [values[0].DateTime, values[1].DateTime, values[2].DateTime, values[3].DateTime, values[4].DateTime, values[5].DateTime, values[6].DateTime, values[7].DateTime, values[8].DateTime, values[9].DateTime, values[10].DateTime],
         datasets: [{
             backgroundColor: 'rgb(110, 110, 211)',
-            hoverBackgroundColor: '#000000',
+            hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             borderColor: 'rgb(255, 99, 132)',
-            data: [30, 150, 15, 40, 20]
-
-        },
-        {
-            data: [60, 40, 30, 50],
-            backgroundColor: 'rgb(144, 12, 63)',
-            hoverBackgroundColor: '#000000',
+            label: "Affluence/heure",
+            data: [values[0].NombreDePassage, values[1].NombreDePassage, values[2].NombreDePassage, values[3].NombreDePassage, values[4].NombreDePassage, values[5].NombreDePassage, values[6].NombreDePassage, values[7].NombreDePassage, values[8].NombreDePassage, values[9].NombreDePassage, values[10].NombreDePassage]
         }]
     }
 

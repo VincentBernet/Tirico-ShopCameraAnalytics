@@ -73,13 +73,13 @@ function form_submited() {
                 {
                   boolean = false;
                   console.log("First Registration -> Create new Local");
-                  window.location.href="inscription_loc.html?ID="+result0[0].ID+"";
+                  window.location.href="inscription_loc.html?ID="+result0[0].ID+ "";
                 }
             if (result0[0].First_registration==1)
                 {
                   boolean = true;
                   console.log("Already registrer -> Go to index.html");
-                  window.location.href="index.html?Name="+result0[0].Name+"";
+                  window.location.href="index.html?Name="+result0[0].Name+ "";
                 }
         }
         catch {
