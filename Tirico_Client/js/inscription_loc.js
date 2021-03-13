@@ -14,6 +14,16 @@ new customTitlebar.Titlebar({
 const urlData = window.location.search;
 const urlParams = new URLSearchParams(urlData);
 const Account_ID = urlParams.get('ID');
+const Account_Name = urlParams.get('Name');
+
+// Redirection Index ou Inscript
+document.getElementById("redirect_Index").addEventListener("click", function() {
+  window.location.href="index.html?Name="+Account_Name+"&ID="+Account_ID+"";
+});
+
+document.getElementById("redirect_Inscri_Loc").addEventListener("click", function() {
+  window.location.href="inscription_loc.html?Name="+Account_Name+"&ID="+Account_ID+"";
+});
 
 // Code for the Form
 const checkbox = document.querySelector('.my-form input[type="checkbox"]');
@@ -38,7 +48,7 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("Connected mister : "+Account_Name+"");
 });
 
 
