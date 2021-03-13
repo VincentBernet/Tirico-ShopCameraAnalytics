@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<title>Inscription</title>
+		<title>Local-Inscription</title>
 
 		<meta
 			http-equiv="Content-Security-Policy"
@@ -43,7 +43,13 @@
                 </li>    
                 <li><div class="grid grid-2">
                     <input type="text" id="magasin_adresse" placeholder="Adresse Magasin" required>  
-                    <input type="email" placeholder="Email">
+                    <select id="formule">
+                      <option selected disabled>-- Formule de Paiement --</option>
+                      <option>Abonnement 1 ans</option>
+                      <option>Abonnement 2 ans</option>
+                      <option>Abonnement 3 ans</option>
+                      <option>Abonnement 4 ans</option>
+                    </select>
                   </div></li>    
                 <li>
                     <textarea placeholder="Information Complémentaire"></textarea>

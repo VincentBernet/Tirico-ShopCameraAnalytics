@@ -14,6 +14,12 @@ new customTitlebar.Titlebar({
 
 //var msg = require('./database');
 //console.log(msg);
+const notification = {
+  title: 'TIRICO Notification',
+  body: 'Your Daily Analysis is available !',
+  icon: "../ressource/image/logo.png"
+}
+
 // Code for the Form
 const checkbox = document.querySelector('.my-form input[type="checkbox"]');
 const btns = document.querySelectorAll(".my-form button");
@@ -73,7 +79,7 @@ function form_submited() {
                 {
                   boolean = true;
                   console.log("Already registrer -> Go to index.html");
-                  window.location.href="index.html";
+                  window.location.href="index.html?Name="+result0[0].Name+"";
                 }
         }
         catch {
