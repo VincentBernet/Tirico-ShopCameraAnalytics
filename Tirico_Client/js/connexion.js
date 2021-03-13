@@ -5,12 +5,15 @@ const { remote } = require('electron');
 const { Menu, MenuItem } = remote;
 const url = require('url');
 
+//let posts = require('./database');
+
 new customTitlebar.Titlebar({
 	backgroundColor: customTitlebar.Color.fromHex('#1D1F27'),
     //icon: "../ressource/image/logo.png",
 });
 
-
+//var msg = require('./database');
+//console.log(msg);
 // Code for the Form
 const checkbox = document.querySelector('.my-form input[type="checkbox"]');
 const btns = document.querySelectorAll(".my-form button");
@@ -21,6 +24,10 @@ checkbox.addEventListener("change", function() {
     checked ? (btn.disabled = false) : (btn.disabled = true);
   }
 });
+/*
+let post = posts.POST;
+let data1 = new data("salut a toi jeune aventurier");
+*/
 
 // Connection to the DB
 var mysql = require('mysql');
@@ -76,6 +83,3 @@ function form_submited() {
     }
   });
 }
-
-    
-
