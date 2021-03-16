@@ -6,6 +6,7 @@ var values = null;
 var con;
 
 
+
 function ConnectToDatabase() {
     var mysql = require('mysql');
 
@@ -40,6 +41,109 @@ var data;
 var options;
 var config;
 var graph;
+
+
+/*
+
+ARCHITECTURE
+
+
+*/
+
+
+// Appeler cette fonction à chaque fois qu'on appuie un bouton : TODAY, WEEKLY, MONTHLY
+function RetrieveDatas(lapsOfTime)
+{
+    switch (lapsOfTime) {
+        case 'Today':
+            Affluence_Today();
+            Ventes_Today();
+            Time_Today();
+            break;
+        case 'Weekly':
+            Affluence_Weekly();
+            Ventes_Weekly();
+            Time_Weekly();
+            break;
+        case 'Monthly':
+            Affluence_Monthly();
+            Ventes_Monthly();
+            Time_Monthly();
+            break;
+        default:
+            console.log('Sorry there is an error');
+    }
+}
+
+function Affluence_Today() 
+{
+    // SELECT DANS LA DATABASE : STRING
+    // CON QUERY
+    // - RESULT
+
+
+    // L'ID (la fenetre ou affiché sera toujours la même donc même ID pour les 3).
+    // On fait le graphe : on aura 12 parametres à mettre vu que c'est de 8h à 20h.
+}
+function Affluence_Weekly() 
+{
+
+}
+function Affluence_Monthly() 
+{
+
+}
+
+function Ventes_Today()
+{
+
+}
+function Ventes_Weekly()
+{
+
+}
+function Ventes_Monthly()
+{
+
+}
+
+function Time_Today()
+{
+
+}
+function Time_Weekly()
+{
+
+}
+function Time_Monthly()
+{
+
+}
+
+function RetrieveAllDatas() {
+    // On doit récupérer toutes les données
+    // results[0].DateTime.getHours() == 11h
+    // results[0].NombreDePassage == 52
+    // ...
+    // results[12]...
+
+    // ça fait 12 lignes à faire pour les jours de 8h à 20h
+    // 4 lignes pour les semaines.
+    // 12 pour les mois.
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function MakeGraphGreatAgain() {

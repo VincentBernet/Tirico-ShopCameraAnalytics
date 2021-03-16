@@ -34,13 +34,14 @@ function createMainWindow() {
   });
 
   
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
 
   win.on('closed', () => {
     win = null;
   });
 
-  win.loadFile('html/connexion.html');
+  //win.loadFile('html/connexion.html');
+  win.loadFile('html/index.html');
 }
 
 
