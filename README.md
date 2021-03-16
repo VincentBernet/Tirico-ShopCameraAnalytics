@@ -30,6 +30,7 @@ git pull origin master
  Pour ensuite installer tous les composants nécessaires à l'application :
 ```
 npm install
+lancer le script first_run
 ```
 
 Pour lancer l'application :
