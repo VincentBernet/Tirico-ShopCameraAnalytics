@@ -30,7 +30,7 @@ git pull origin master
  Pour ensuite installer tous les composants nécessaires à l'application :
 ```
 npm install
-lancer le script first_run
+Installer dans Tirico_Server/code_python/data le fichier suivant : https://drive.google.com/open?id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT (yolov4.weights)
 ```
 
 Pour lancer l'application :
