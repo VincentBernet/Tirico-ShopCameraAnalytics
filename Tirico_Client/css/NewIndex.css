@@ -1,0 +1,57 @@
+body {
+	background-color: #15161a;
+}
+
+
+.nav_links {
+	position: absolute;
+	top: 60px;
+	left: 350px;
+}
+
+.Option_Graphe_Container {
+	height: 45vh;
+	display: flex;
+	flex-direction: row;
+    margin-top: 5vh;
+}
+
+#time_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+#Container_graphe {
+	position: flex;
+
+	width: 45%;
+
+	margin-left: auto;
+
+	color: white;
+	font-weight: 500;
+	font-size: large;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+	border-radius: 5px;
+	background: #1a1a1a;
+	box-shadow: inset 5px 5px 18px #0a0a0a, inset -5px -5px 18px #2a2a2a;
+}
+
+#Containe_Affluence {
+    position: flex;
+
+	width: 45%;
+	margin-left: auto;
+    margin-right: auto;
+
+	color: white;
+	font-weight: 500;
+	font-size: large;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+	border-radius: 5px;
+	background: #1a1a1a;
+	box-shadow: inset 5px 5px 18px #0a0a0a, inset -5px -5px 18px #2a2a2a;
+}

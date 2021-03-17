@@ -210,7 +210,7 @@ function RetrieveAffluence()
 function MakeBar()
 {
     graph.destroy();
-
+    console.log("yeess");
     ctx = document.getElementById('graph2').getContext('2d')
     //
     data = {
@@ -224,7 +224,7 @@ function MakeBar()
             data: [values[0].NombreDePassage, values[1].NombreDePassage, values[2].NombreDePassage, values[3].NombreDePassage, values[4].NombreDePassage, values[5].NombreDePassage, values[6].NombreDePassage, values[7].NombreDePassage, values[8].NombreDePassage, values[9].NombreDePassage, values[10].NombreDePassage]
         }]
     }
-
+    console.log("ddd");
     options = {
         title: {
             display: true,

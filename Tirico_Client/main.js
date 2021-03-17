@@ -41,7 +41,7 @@ function createMainWindow() {
   });
 
   //win.loadFile('html/connexion.html');
-  win.loadFile('html/index.html');
+  win.loadFile('html/NewIndex.html');
 }
 
 
