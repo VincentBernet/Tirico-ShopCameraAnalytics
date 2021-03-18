@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Server-Inscription</title>
+    <title>Account-Inscription</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <link rel="stylesheet" href="../css/inscription.css" />
     <!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
@@ -25,7 +25,7 @@
                 </li> 
                 <li>
                     <input type="checkbox" id="terms">
-                    <label for="terms">Je certifie avoir lu et approuvé les <a href="404.html">conditions d'utilisation dû au respect de la loi RGPD</a></label>
+                    <label for="terms">Je certifie avoir lu et approuvé les <a href="rgpd.html">conditions d'utilisation dû au respect de la loi RGPD</a></label>
                 </li>
                 <div class="grid grid-3">
                     <div class="required-msg">Champs Obligatoires</div>
@@ -35,11 +35,11 @@
                       </span>
                       <span class="front">Valider</span>
                     </button>
-                    <button class="btn-grid" type="reset" disabled>
+                    <button class="btn-grid" id="redirect_Connex" type="button" disabled>
                       <span class="back">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
                       </span>
-                      <span class="front">Réinitialiser</span>
+                      <span class="front">Retour Connexion</span>
                     </button> 
                   </div>
               </ul>

@@ -59,8 +59,9 @@ function form_submited() {
                   if (err1) alert(err1);
                   else {
                     installation();
+                    setTimeout(() => { 
                     alert("L'installation est terminé, elle ne seras plus nécessaire à votre prochaine utilisation ");
-                    window.location.href="server.html";
+                    window.location.href="server.html";}, 10000);
                   }
                 });
             }
