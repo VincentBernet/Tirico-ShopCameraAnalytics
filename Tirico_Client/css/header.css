@@ -4,8 +4,6 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 30px;
-	width: fit-content;
-	height: fit-content;
 }
 
 .nav_links {

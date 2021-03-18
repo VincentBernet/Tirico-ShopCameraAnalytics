@@ -2,13 +2,6 @@ body {
 	background-color: #15161a;
 }
 
-
-.nav_links {
-	position: absolute;
-	top: 60px;
-	left: 350px;
-}
-
 .Option_Graphe_Container {
 	height: 45vh;
 	display: flex;
