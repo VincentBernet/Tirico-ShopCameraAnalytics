@@ -20,162 +20,113 @@
 	</head>
 
 	<body>
-		<header>
-			<div class="PremiereLigne">
-				<img  class="logo" src="../ressource/image/kk.png"/>
-				<img  class="logoTitre" src="../ressource/image/tirico.png"/>
-			</div>
-			<ul class="nav_links">
-				<li><a href="index.html" class="btn">Accueil</a></li>
-				<li><a href="analyse.html" id="NOTIFICATION">Analyse</a></li>
-				<li><a href="parametre.html">Paramètre</a></li>
-				<li><a href="#" id="DECO">Déconnexion</a></li>
-			</ul>
-		</header>
 		<br><br><br>
 
-
-		<!-- MENU SIDEBAR-->
-		<aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="#">
-                    <img src="../ressource/image/tirico.png" alt="Cool Admin" />
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-                        <li>
-                            <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
-                        </li>
-                        <li>
-                            <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>UI Elements</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="button.html">Button</a>
-                                </li>
-                                <li>
-                                    <a href="badge.html">Badges</a>
-                                </li>
-                                <li>
-                                    <a href="tab.html">Tabs</a>
-                                </li>
-                                <li>
-                                    <a href="card.html">Cards</a>
-                                </li>
-                                <li>
-                                    <a href="alert.html">Alerts</a>
-                                </li>
-                                <li>
-                                    <a href="progress-bar.html">Progress Bars</a>
-                                </li>
-                                <li>
-                                    <a href="modal.html">Modals</a>
-                                </li>
-                                <li>
-                                    <a href="switch.html">Switchs</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grids</a>
-                                </li>
-                                <li>
-                                    <a href="fontawesome.html">Fontawesome Icon</a>
-                                </li>
-                                <li>
-                                    <a href="typo.html">Typography</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-        <!-- END MENU SIDEBAR-->
-
-
-
-
-
-
-
-
-
-
-
-
-		<div id="time_button"> 
-			<input class="button_time" type="date" value="2021-03-13"/> <button class="button_time">Weekly</button> <button class="button_time">Monthly</button>
-		</div>
 		<!-- Container flex comprenant et les boutons pour changer d'analyse et la rubrique-->
 		<div class="Option_Graphe_Container">
-			<!-- Container avec le graphe choisi (en format png) -->
-			<span id="Container_graphe">
-				<canvas id="Vente_Graph"></canvas>
-			</span>
-			<span id="Containe_Affluence">
-				<canvas id="Vente_Graph"></canvas>
-			</span>
+			<div class = "bouton_gauche">
+				<form method="POST">
+					<br>
+						<a href="index.html">
+							<img id="logotext"  src="../ressource/image/Logo_bleu.png"/>
+						</a>
+					<br><br><br><br>
+					<div id="locaux">
+                              <input type="radio" id="kraken" name="monster">
+                              <div class="kraken">Locaux 1</div><br/>
+                          
+                              <input type="radio" id="sasquatch" name="monster">
+                              <div class="kraken">Locaux 2</div><br/>
+                          
+                              <input type="radio" id="mothman" name="monster">
+                              <div class="kraken">Locaux 3</div>
+                    </div>
+						<!-- Script to count how many people are tracked in Csv file-->
+						<script src="../js/counter.js" > </script> <!-- Attention pour éviter l'erreur innerHTML of null il faut mettre ce script après l'id counter et avant le onload juste en dessus -->
+					<br><br>
+					<a id="Analy-1" class="button" href="#">Test 1<img id="arrow-hover" src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true"/></a>
+					<br>
+					<a id="Analy-2" class="button" href="#">Test 2<img id="arrow-hover" src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true"/></a>
+					<br>
+					<a id="Analy-3" class="button" href="#">Test 3<img id="arrow-hover" src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true"/></a>
+					<br>
+					<a id="Analy-4" class="button" href="#">Test 4<img id="arrow-hover" src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true"/></a>
+					<br>
+					<a id="Analy-5" class="button" href="#">Affluence<img id="arrow-hover" src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true"/></a>
+					<br>
+					<a id="Analy-6" class="button" href="#">Temps Moyen<img id="arrow-hover" src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true"/></a>
+					<br>
+					<a id="Analy-7" class="button" href="#">HeatMap<img id="arrow-hover" src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-paper-plane-1-120.png?raw=true"/></a>
+				</form>
+			</div>
 		</div>
-		<div class="Option_Graphe_Container">
-			<!-- Container avec le graphe choisi (en format png) -->
-			<span id="Container_graphe">
-				<canvas id="Vente_Graph"></canvas>
-			</span>
-			<span id="Containe_Affluence">
-				<canvas id="Vente_Graph"></canvas>
-			</span>
-		</div>
+        <div class="Workspace">
+            <div class="Espace">
+                    <span id="Container_graphe">
+                        <canvas id="Vente_Graph"></canvas>
+                    </span>
+                    <span id="Container_graphe">
+                        <canvas id="Vente_Graph"></canvas>
+                    </span>
+                </div>
+                <div class="Espace">
+                    <span id="Container_graphe">
+                        <canvas id="Vente_Graph"></canvas>
+                    </span>
+                    <span id="Container_graphe">
+                        <canvas id="Vente_Graph"></canvas>
+                    </span>
+                </div>
+            </div>
+        </div>
+		<!-- Script pour modifier la source de l'image selon le bouton / graph sélectioné -->
+		<script >
+			const Graphique = document.getElementById('Vente_Graph');
+
+			const AffluenceBtn = document.getElementById('Analy-1')
+			AffluenceBtn.addEventListener('click', (event) => {
+				//document.getElementById("Container_graphe").innerHTML='<iframe src="https://snapshot.raintank.io/dashboard-solo/snapshot/y7zwi2bZ7FcoTlB93WN7yWO4aMiz3pZb?from=1493369923321&to=1493377123321&panelId=4" width="1250" height="650" frameborder="0"></iframe>';
+				document.getElementById("Container_graphe").innerHTML='<br><div id="time_button"><button>Daily</button><button>Weekly</button><button>Monthly</button></div><canvas id="Vente_Graph"></canvas>';
+				Graphique.id = "Vente_Graph";
+				ConnectToDatabase();
+			})
+
+			const HeatMapBtn = document.getElementById('Analy-2')
+			HeatMapBtn.addEventListener('click', (event) => {
+				document.getElementById("Container_graphe").innerHTML='<canvas id="graph2"></canvas>';
+				RetrieveAffluence();
+			})
+
+			const Analy3Btn = document.getElementById('Analy-3')
+			Analy3Btn.addEventListener('click', (event) => {
+				document.getElementById("Container_graphe").innerHTML='<br><canvas id="graph3"></canvas>';
+				MakeCercle();
+			})
+
+			const Analy4Btn = document.getElementById('Analy-4')
+			Analy4Btn.addEventListener('click', (event) => {
+				document.getElementById("Container_graphe").innerHTML='<br><canvas id="graph4"></canvas>';
+				MakeAraignee();
+			})
+
+			const Analy5Btn = document.getElementById('Analy-5')
+			Analy5Btn.addEventListener('click', (event) => {
+				document.getElementById("Container_graphe").innerHTML='<img  src="../code_python/Affluence/Affluence.png"  id="Graphe" />';
+			})
+
+			const Analy6Btn = document.getElementById('Analy-6')
+			Analy6Btn.addEventListener('click', (event) => {
+				document.getElementById("Container_graphe").innerHTML='<img  src="../code_python/Dwell_Time/TrackeurDuree.png"  id="Graphe" />';
+			})
+
+			const Analy7Btn = document.getElementById('Analy-7')
+			Analy7Btn.addEventListener('click', (event) => {
+				document.getElementById("Container_graphe").innerHTML='<img  src="../code_python/Density_Map/HeatMap.png"  id="Graphe" />';
+				
+			})
+
+
+		</script>
 	</body>
 </html>
 
