@@ -223,3 +223,92 @@ select {
 	font-size:small;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+
+
+.toolbar {
+	display: flex;
+	flex-direction: row;
+	margin-top: -20px;
+}
+ .toolbar .btn {
+	 display: block;
+	 font-weight: 700;
+	 position: relative;
+	 padding: 13px 25px;
+	 background-color: rgba(255, 255, 255, .9);
+	 text-decoration: none;
+	 color: #333;
+	 border-radius: 50px;
+	 margin-top: -50px;
+	 margin-left: 50px;
+	 border: 1px solid white;
+	 box-shadow: 0px 2px 0px #02679e;
+	 transition: all 0.2s;
+	 z-index: 1;
+	 outline: none;
+	 -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+ .toolbar .btn:hover {
+	 transform: translateY(-5px);
+	 padding: calc(13px * 1.2) calc(25px * 1.2);
+	 padding-right: calc(22px);
+	 background-color: rgba(255, 255, 255, 1);
+	 border: none;
+	 box-shadow: 0px 5px 10px #0271ae;
+}
+ .toolbar .btn:hover > span:before {
+	 animation: none;
+}
+ .toolbar .btn:active {
+	 transform: translateY(0px);
+	 padding: calc(13px * 0.95) calc(25px * 0.95);
+	 box-shadow: inset 0px 2px 1px #02679e;
+}
+ .toolbar .btn_transparent {
+	 border: 0px;
+	 border-radius: 0px;
+	 padding: 13px 25px;
+	 background-color: rgba(255, 255, 255, 0);
+	 color: #fff;
+	 box-shadow: none;
+}
+ .toolbar .btn_transparent:hover {
+	 box-shadow: none;
+	 background-color: inherit;
+}
+ .toolbar .btn_live {
+	 padding-right: 22px;
+}
+ span.live-icon {
+	 display: inline-block;
+	 top: calc(50% - 5px);
+	 background-color: red;
+	 width: 10px;
+	 height: 10px;
+	 margin-left: 20px;
+	 border: 1px solid rgba(0, 0, 0, .1);
+	 border-radius: 50%;
+	 z-index: 1;
+}
+ span.live-icon:before {
+	 content: '';
+	 display: block;
+	 position: absolute;
+	 background-color: rgba(255, 0, 0, .6);
+	 width: 10px;
+	 height: 10px;
+	 border-radius: 50%;
+	 animation: live 2s ease-in-out infinite;
+	 z-index: -1;
+}
+ @keyframes live {
+	 0% {
+		 transform: scale(1, 1);
+	}
+	 100% {
+		 transform: scale(3.5, 3.5);
+		 background-color: rgba(255, 0, 0, 0);
+	}
+}

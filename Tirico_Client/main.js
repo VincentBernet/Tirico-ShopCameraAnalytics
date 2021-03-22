@@ -44,10 +44,6 @@ function createMainWindow() {
   win.loadFile('html/NewIndex.html');
 }
 
-
-
-
-
   var menu = new Menu();
   menu.append(new MenuItem({
       label: 'Tirico Inc.',
