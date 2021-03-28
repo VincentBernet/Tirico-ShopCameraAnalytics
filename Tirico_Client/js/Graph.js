@@ -238,14 +238,11 @@ function MakeBar()
     });
 }
 
-
-
 function MakeCercle() {
     
     var graph3;
 
     ctx = document.getElementById('graph3').getContext('2d')
-
 
     data = {
         labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
