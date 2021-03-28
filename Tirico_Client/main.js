@@ -30,11 +30,12 @@ function createMainWindow() {
         enableRemoteModule: true,
         contextIsolation: false
     },
-    icon: "ressource/image/logo.png",
+    icon: "ressource/image/ml.png",
   });
 
   
   //win.webContents.openDevTools();
+  win.resizable = false;
 
   win.on('closed', () => {
     win = null;

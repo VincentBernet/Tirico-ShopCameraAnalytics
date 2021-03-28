@@ -24,10 +24,10 @@ new customTitlebar.Titlebar({
     //icon: "../ressource/image/logo.png",
 });
 
-const DeconnectBtn = document.getElementById('DECO')
+/*const DeconnectBtn = document.getElementById('DECO')
 DeconnectBtn.addEventListener('click', (event) => {
     window.location.href="connexion.html";
-})
+})*/
 /*
 const messageAccueil= {
     title: 'TIRICO Notification',
@@ -50,9 +50,9 @@ const notification = {
 
 const NotifBtn = document.getElementById('NOTIFICATION')
 
-NotifBtn.addEventListener('click', (event) => {
+/*NotifBtn.addEventListener('click', (event) => {
     const myNotification = new window.Notification(notification.title, notification);
-})
+})*/
 
 
 
