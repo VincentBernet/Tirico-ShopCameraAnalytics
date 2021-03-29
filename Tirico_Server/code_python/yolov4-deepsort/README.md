@@ -32,7 +32,7 @@ It will install dependencies with pip and save the model before starting the act
 ```bash
 python run_debug.py
 ```
-# Editing parameters and presets
+## Editing key parameters and presets
 If you want to modify settings modify the following line in run_debug.py :
 ```bash
 os.system('python ./code_python/yolov4-deepsort/object_tracker.py --video 0 --output ./outputs/webcam.avi --model yolov4 --info')
