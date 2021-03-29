@@ -1,7 +1,10 @@
 
 Object tracking implemented with YOLOv4, DeepSort, and TensorFlow. YOLOv4 is a state of the art algorithm that uses deep convolutional neural networks to perform object detections. We can take the output of YOLOv4 feed these object detections into Deep SORT (Simple Online and Realtime Tracking with a Deep Association Metric) in order to create a highly accurate object tracker.
 
-
+- [Requirement](#Getting-Started)
+- [Downloading Official YOLOv4 Pre-trained Weights](#Downloading-Official-YOLOv4-Pre-trained-Weights)
+- [Running the Tracker](Running-the-Tracker-with-YOLOv4)
+- [Editing key parameters and presets](#Editing-key-parameters-and-presets)
 
 # Getting Started
 To get started, you need pyhon 3 and pip 19.0 at least installed and added to your system path.
