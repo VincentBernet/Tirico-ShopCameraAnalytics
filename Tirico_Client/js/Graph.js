@@ -133,65 +133,52 @@ function RetrieveAllDatas() {
 }
 
 
+function MakeLineGraph() {
 
+    var graph1;
 
+    ctx = document.getElementById('Vente').getContext('2d')
 
-
-
-
-
-
-
-
-
-
-
-function MakeGraphGreatAgain() {
-
-    if (graph != null)
-        graph.destroy();
-
-    ctx = document.getElementById('Vente_Graph').getContext('2d')
-
-        data = {
-            labels: ['Janvier', 'Février', 'Mars', 'Avril','Mai'],
-            datasets: [{
-                backgroundColor: 'rgb(144, 12, 63)',
-                borderColor: '#00000',
-                data: [10, 20, 30, 40, 20],
-                label: "Technologique"
-            },
-            {
-                backgroundColor: 'rgb(110, 110, 211)',
-                data: [values[0].AccID, values[0].LocID, values[1].AccID, values[1].LocID],
-                label: "Alimentaire"
-            }]
+    data = {
+        labels: ['Janvier', 'Février', 'Mars', 'Avril','Mai'],
+        datasets: [{
+            backgroundColor: 'rgba(45, 154, 224, 0.35)',
+            borderColor: '#2d9ae0',
+            data: [10, 50, 40, 25, 20],
+            label: "Technologique"
+        },
+        {
+            backgroundColor: 'rgba(114, 112, 180, 0.35)',
+            borderColor: '7270b4',
+            data: [40, 30, 70, 60, 54],
+            label: "Alimentaire"
+        }]
+    };
+    console.log("1");
+    options = {
+        title: {
+            display: true,
+            position: 'top',
+            fontSize: '15',
+            fontFamily: 'Tahoma',
+            fontColor: '#FFFFFF',
+            fontStyle:'bold',
+            padding: '0',
+            lineHeight: '1.5',
+            text: 'Evolution Mensuel'
+        },
+        animation: {
+            duration: 1000,
+            easing: 'easeInQuad'
         }
+    };
 
-        options = {
-            title: {
-                display: true,
-                position: 'top',
-                fontSize: '15',
-                fontFamily: 'Tahoma',
-                fontColor: '#FFFFFF',
-                fontStyle:'bold',
-                padding: '0',
-                lineHeight: '1.5',
-                text: 'Evolution Mensuel'
-            },
-            animation: {
-                //duration: 1000,
-                easing: 'easeInQuad'
-            }
-        }
-
-        config = {
-            type : 'line',
-            data: data,
-            options: options
-        }
-        graph = new Chart(ctx, config)
+    graph1 = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options : options
+    });
+    console.log("2");
 }
 
 function RetrieveAffluence()
@@ -209,21 +196,23 @@ function RetrieveAffluence()
 }
 function MakeBar()
 {
-    graph.destroy();
+    var graph2;
     console.log("yeess");
     ctx = document.getElementById('graph2').getContext('2d')
     //
     data = {
-        labels: [values[0].DateTime, values[1].DateTime, values[2].DateTime, values[3].DateTime, values[4].DateTime, values[5].DateTime, values[6].DateTime, values[7].DateTime, values[8].DateTime, values[9].DateTime, values[10].DateTime],
+        //labels: [values[0].DateTime, values[1].DateTime, values[2].DateTime, values[3].DateTime, values[4].DateTime, values[5].DateTime, values[6].DateTime, values[7].DateTime, values[8].DateTime, values[9].DateTime, values[10].DateTime],
+        labels: ['8h', '9h', '10h', '11h', '12h', '13h', '14h', '15h', '16h', '17h', '18h'],
         datasets: [{
-            backgroundColor: 'rgb(110, 110, 211)',
+            backgroundColor: '#2d9ae0',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             borderColor: 'rgb(255, 99, 132)',
             label: "Affluence/heure",
-            data: [values[0].NombreDePassage, values[1].NombreDePassage, values[2].NombreDePassage, values[3].NombreDePassage, values[4].NombreDePassage, values[5].NombreDePassage, values[6].NombreDePassage, values[7].NombreDePassage, values[8].NombreDePassage, values[9].NombreDePassage, values[10].NombreDePassage]
+            //data: [values[0].NombreDePassage, values[1].NombreDePassage, values[2].NombreDePassage, values[3].NombreDePassage, values[4].NombreDePassage, values[5].NombreDePassage, values[6].NombreDePassage, values[7].NombreDePassage, values[8].NombreDePassage, values[9].NombreDePassage, values[10].NombreDePassage]
+            data: [5, 4, 8, 15, 5, 23, 34, 56, 44, 40, 35]
         }]
-    }
+    };
     console.log("ddd");
     options = {
         title: {
@@ -235,81 +224,32 @@ function MakeBar()
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: 'Random'
+            text: 'Affluence'
         },
         animation: {
-            //duration: 1000,
+            duration: 1000,
             easing: 'easeInQuad'
         }
-    }
-    graph = new Chart(ctx, {
+    };
+    graph2 = new Chart(ctx, {
         type: 'bar',
         data: data,
         options: options
     });
 }
 
-
-function MakeAraignee() 
-{
-    graph.destroy();
-
-    ctx = document.getElementById('graph4').getContext('2d')
-
-    data = {
-       labels: ['Red', 'Février', 'Marss'],
-       datasets: [{
-           backgroundColor: 'rgb(110, 205, 211)',
-           data: [30, 30, 25]
-       }]
-   }
-
-   options = {
-    title: {
-        display: true,
-        position: 'top',
-        fontSize: '15',
-        fontFamily: 'Tahoma',
-        fontColor: '#FFFFFF',
-        fontStyle:'bold',
-        padding: '0',
-        lineHeight: '1.5',
-        text: 'Random'
-    },
-        animation: {
-            //duration: 1000,
-            easing: 'easeInQuad'
-        },
-        scale: {
-            ticks: {
-                suggestedMin: 15,
-                suggestedMax: 50
-            }
-        }
-    }
-
-   graph = new Chart(ctx, {
-   type: 'radar',
-   data: data,
-   options: options
-   });
-
-}
-
 function MakeCercle() {
     
-    graph.destroy();
+    var graph3;
 
     ctx = document.getElementById('graph3').getContext('2d')
-
 
     data = {
         labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
         datasets: [{
-            backgroundColor: '#00abe9',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: '#2d9ae0',
+            borderColor: '#0000',
             data: [30, 40, 60, 30, 70, 120, 0]
-
         }]
     }
 
@@ -323,20 +263,69 @@ function MakeCercle() {
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: 'Affluence Semaine : Magasin de '+''+''
+            text: 'Affluence par Semaine : Magasin de '+''+''
         },
         animation: {
-            //duration: 1000,
+            duration: 1000,
             easing: 'easeInQuad'
         }
     }
 
-    graph = new Chart(ctx, {
+    graph3 = new Chart(ctx, {
     type: 'doughnut',
     data: data,
     options: options
 });
 }
+
+
+function MakeAraignee() 
+{
+    var graph4;
+
+    ctx = document.getElementById('graph4').getContext('2d')
+
+    data = {
+        lable: 'salut',
+    labels: ['Red', 'Février', 'Marss'],
+    datasets: [{
+        backgroundColor: '#2d9ae0',
+        data: [30, 30, 25]
+    }]
+}
+
+    options = {
+        title: {
+            display: true,
+            position: 'top',
+            fontSize: '15',
+            fontFamily: 'Tahoma',
+            fontColor: '#FFFFFF',
+            fontStyle:'bold',
+            padding: '0',
+            lineHeight: '1.5',
+            text: 'Ventes par mois'
+        },
+            animation: {
+                duration: 1000,
+                easing: 'easeInQuad'
+            },
+            scale: {
+                ticks: {
+                    suggestedMin: 15,
+                    suggestedMax: 35
+                }
+            }
+        }
+
+    graph4 = new Chart(ctx, {
+        type: 'radar',
+        data: data,
+        options: options
+    });
+
+}
+
 
 function updateGraph() {
     if (graph != null)

@@ -1,6 +1,7 @@
 body {
 	/*background-color: #15161a;*/
 	background-color: #15161a;
+	font-family: 'Raleway', sans-serif;
 }
 .nav_links {
 	position: absolute;
@@ -27,8 +28,6 @@ body {
 .Workspace {
 	padding-left: 15%;
 	padding-top: 2%;
-	width: 75%;
-	height: 75%;
 }
 .Espace {
 	height: 40vh;
@@ -37,11 +36,14 @@ body {
 	flex-direction: row;
 }
 
+.Espace #Container_graphe {
+	padding-top: 30px;
+}
+
 #Container_graphe {
 	position: flex;
 	width: 45%;
-	
-	margin-left: auto;
+	margin-left: 3%;
 	background: #1a1a1a;
 	box-shadow: inset 5px 5px 18px #0a0a0a, inset -5px -5px 18px #2a2a2a;
 }
@@ -86,9 +88,9 @@ body {
 .button {
 	display: inline-flex;
 	height: 4vh;
-	width: 15vh;
+	width: 20vh;
 	border: 2px solid #423e69;
-	margin: 2vh 2vh 2vh 6vh;
+	margin: 2vh 2vh 2vh 4vh;
 	color: #000000;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -97,11 +99,10 @@ body {
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-
 	background-color: #00abe9;
 
 	transition-duration: 300ms;
-	transition-property: color, background-color;
+	transition-property: color, background-color, letter-spacing;
 }
 .button:hover::before {
 	transform: scale(1.1);
@@ -114,11 +115,30 @@ body {
 	color: #ffee10;
 	box-shadow: 0 0 5px #4100d8;
 	text-shadow: 0 0 5px #4100d8;
+	letter-spacing: 6px;
 }
 a {
 	color: #bfc0c0;
 	text-decoration: none;
 	letter-spacing: 1px;
+}
+
+
+#time_button {
+	align-items: center;
+	justify-content: center;
+	padding-left: 5%;
+	
+}
+#time_button button {
+	width: 7em;
+	height: 3em;
+	font-size: 0.8em;
+	background-color: #00abe9;
+	cursor: pointer;
+}
+#time_button button a {
+	font-family: 'Raleway', sans-serif;
 }
 
 #arrow-hover {
@@ -193,22 +213,11 @@ select {
 	cursor: pointer;
 	margin: 0 0 0 7%;
 	padding: 10px 10px 10px 10px;
-	/*background-color: white;*/
 	transition: box-shadow 0.7s, transform 3s;
 }
 
 #logotext:hover {
 	transform: rotateY(360deg);
-}
-
-#time_button button {
-	width: 5em;
-	font-size: 0.8em;
-}
-
-#time_button {
-	position: absolute;
-	right: 5%;
 }
 
 #locaux {
@@ -221,16 +230,11 @@ select {
 	color: white;
 	font-weight: 200;
 	font-size:small;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-
-
 
 .toolbar {
 	display: flex;
 	flex-direction: row;
-	margin-top: -20px;
 }
  .toolbar .btn {
 	 display: block;
@@ -241,8 +245,6 @@ select {
 	 text-decoration: none;
 	 color: #333;
 	 border-radius: 50px;
-	 margin-top: -50px;
-	 margin-left: 50px;
 	 border: 1px solid white;
 	 box-shadow: 0px 2px 0px #02679e;
 	 transition: all 0.2s;
@@ -311,4 +313,12 @@ select {
 		 transform: scale(3.5, 3.5);
 		 background-color: rgba(255, 0, 0, 0);
 	}
+}
+.Component_Utilisateur {
+	margin-left : 90px;
+	margin-top: -70px;
+}
+.Component_Utilisateur1 {
+	margin-left: 40px;
+	margin-top: -70px;
 }
