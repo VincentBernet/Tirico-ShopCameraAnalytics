@@ -34,7 +34,7 @@ function createMainWindow() {
   });
 
   
-  //win.webContents.openDevTools();
+  win.webContents.openDevTools();
   win.resizable = false;
 
   win.on('closed', () => {
@@ -42,7 +42,7 @@ function createMainWindow() {
   });
 
   //win.loadFile('html/connexion.html');
-  win.loadFile('html/NewIndex.html');
+  win.loadFile('html/connexion.html');
 }
 
   var menu = new Menu();
