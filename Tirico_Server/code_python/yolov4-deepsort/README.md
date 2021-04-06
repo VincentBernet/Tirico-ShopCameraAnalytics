@@ -1,3 +1,4 @@
+# Be carefull, this program is not meant to be run in standalone mode, the client call this subprogram, it will not work by itself, you have to correct the path if you want to run it alone
 
 Object tracking implemented with YOLOv4, DeepSort, and TensorFlow. YOLOv4 is a state of the art algorithm that uses deep convolutional neural networks to perform object detections. We can take the output of YOLOv4 feed these object detections into Deep SORT (Simple Online and Realtime Tracking with a Deep Association Metric) in order to create a highly accurate object tracker.
 
