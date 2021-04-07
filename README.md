@@ -61,13 +61,16 @@ On this application we implemetended multiples features such as :
 
 ## Team
 
-> This whole application is made by 8 students during their cursus in software Engenering at EFREI PARIS :
+> This whole application is made by 7 students during their cursus in software Engenering at EFREI PARIS :
+> -Jean Hecke & Louis Gailhac & Serge Nicolas Excoffier
+> -Hélène Boersma & Emeline Bagoris
+> -Sébastien Fried & Vincent Bernet
 
 
 
 
 ## Contact
-- Don't hesitate to contact us on Github or on Linkedin :
+- Don't hesitate to contact us on Github or on Linkedin
 
 
 
