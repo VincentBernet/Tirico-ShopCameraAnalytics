@@ -61,10 +61,10 @@ On this application we implemetended multiples features such as :
 
 ## Team
 
-> This whole application is made by 7 students during their cursus in software Engenering at EFREI PARIS :
-> -Jean Hecke & Louis Gailhac & Serge Nicolas Excoffier
-> -Hélène Boersma & Emeline Bagoris
-> -Sébastien Fried & Vincent Bernet
+> This whole application is made by 7 students during their cursus in software Engenering at EFREI PARIS : <br>
+ -Jean Hecke & Louis Gailhac & Serge Nicolas Excoffier
+ -Hélène Boersma & Emeline Bagoris
+ -Sébastien Fried & Vincent Bernet
 
 
 
