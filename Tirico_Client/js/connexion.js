@@ -79,7 +79,7 @@ function form_submited() {
                 {
                   boolean = true;
                   console.log("Already registrer -> Go to index.html");
-                  window.location.href="index.html?Name="+result0[0].Name+"&ID="+result0[0].ID+"";
+                  window.location.href="NewIndex.html?Name="+result0[0].Name+"&ID="+result0[0].ID+"";
                 }
         }
         catch {

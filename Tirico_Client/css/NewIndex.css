@@ -123,11 +123,25 @@ a {
 	letter-spacing: 1px;
 }
 
+#refresh_button {
+	align-items: center;
+	justify-content: center;
+	padding-left: 2%;
+	margin-top: -50px;
+}
+#refresh_button button {
+	width: 7em;
+	height: 3em;
+	font-size: 0.8em;
+	background-color: #00abe9;
+	cursor: pointer;
+}
 
 #time_button {
 	align-items: center;
 	justify-content: center;
-	padding-left: 5%;
+	padding-left: 10%;
+	margin-top: -50px;
 	
 }
 #time_button button {

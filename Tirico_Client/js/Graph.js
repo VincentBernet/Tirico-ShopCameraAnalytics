@@ -14,23 +14,24 @@ function ConnectToDatabase() {
         host: "mysql-pa8.alwaysdata.net",
         user: "pa8_acc",
         password: "5wtE3Cx8W",
-        database: "pa8_bdd"
+        database: "pa8_bddv2"
     });
 
     con.connect(function(err) {
         if (err) throw err;
-        else console.log("Welcome mister : "+Account_Name);
+        else console.log("Welcome mister : "+ Account_Name);
 
     });
     
-    var sql = "SELECT AccID, LocID FROM AccToLoc";
+    var sql = "SELECT IdAcc, IdLoc FROM AccToLoc";
     con.query(sql, function (err, result) {
         
         if (err) throw err;
         else {
             //alert(result[10].AccID);
             values = result;
-            MakeGraphGreatAgain();
+            //MakeGraphGreatAgain();
+            Affluence_Today();
         }
     });
 }
@@ -52,10 +53,11 @@ ARCHITECTURE
 
 
 // Appeler cette fonction à chaque fois qu'on appuie un bouton : TODAY, WEEKLY, MONTHLY
-function RetrieveDatas(lapsOfTime)
+function RetrieveDatas(select)
 {
-    switch (lapsOfTime) {
+    switch (select) {
         case 'Today':
+            select_Affluence = '';
             Affluence_Today();
             Ventes_Today();
             Time_Today();
@@ -75,12 +77,26 @@ function RetrieveDatas(lapsOfTime)
     }
 }
 
+
+
 function Affluence_Today() 
 {
     // SELECT DANS LA DATABASE : STRING
     // CON QUERY
     // - RESULT
 
+    var sql = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '2020-06-29 00:00:00' AND '2020-06-29 10:00:00'";
+    con.query(sql, function (err, result) {
+        
+        if (err) throw err;
+        else {
+            //alert(result[10].AccID);
+            values = result;
+            console.log("Nombre : " + values[0].NombreDePassage);
+            console.log("Nombre : " + values[1].NombreDePassage);
+            console.log("Nombre : " + values[2].NombreDePassage);
+        }
+    });
 
     // L'ID (la fenetre ou affiché sera toujours la même donc même ID pour les 3).
     // On fait le graphe : on aura 12 parametres à mettre vu que c'est de 8h à 20h.
