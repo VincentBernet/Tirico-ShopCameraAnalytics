@@ -18,6 +18,9 @@ import tensorflow as tf
 import time
 import csv
 import os
+from kafka import KafkaProducer
+import json
+
 # comment out below line to enable tensorflow logging outputs
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 physical_devices = tf.config.experimental.list_physical_devices('GPU')
@@ -51,12 +54,18 @@ def main(_argv):
     # initialize deep sort
     model_filename = 'model_data/mars-small128.pb'
     encoder = gdet.create_box_encoder(model_filename, batch_size=1)
+
     # calculate cosine distance metric
     metric = nn_matching.NearestNeighborDistanceMetric(
         "cosine", max_cosine_distance, nn_budget)
+
     # initialize tracker
     tracker = Tracker(metric)
 
+    # initializa kafka producer
+    producer = KafkaProducer(bootstrap_servers="localhost:9092", value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+    oldCount = 0
+    
     # load configuration for object detector
     config = ConfigProto()
     config.gpu_options.allow_growth = True
@@ -239,6 +248,16 @@ def main(_argv):
                 localtime = time.localtime(time.time())
                 csvWriter.writerow({'trackID': str(track.track_id), 'class': class_name, 'frame': frame_num, 'xmin': int(
                     bbox[0]), 'ymin': int(bbox[1]), 'xmax': int(bbox[2]), 'ymax': int(bbox[3]), 'time' : time.strftime("%H:%M:%S",localtime), 'date' : time.strftime("%d|%b|%Y"), 'count': count})
+
+            # Sends kafka messages
+            if(oldCount != count):
+                message = {'trackID': str(track.track_id), 'frame': frame_num, 'time' : time.strftime("%H:%M:%S",localtime), 'date' : time.strftime("%d|%b|%Y"), 'count': count} 
+                #json_dump = json.dumps(message)
+                #stations = json.loads(response.read().decode())
+                producer.send('store-capacity', message)
+                #producer.send('store-capacity', b'capacity changed')
+                print("Produced a message with count : ", count)
+            oldCount = count
 
         # calculate frames per second of running detections
         fps = 1.0 / (time.time() - start_time)
