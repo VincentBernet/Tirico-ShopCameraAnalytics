@@ -1,4 +1,3 @@
-
 const {app, BrowserWindow, Menu, MenuItem} = require('electron');
 
 // This method will be called when Electron has finished
@@ -34,7 +33,7 @@ function createMainWindow() {
   });
 
   
-  //win.webContents.openDevTools();
+  win.webContents.openDevTools();
   win.resizable = false;
 
   win.on('closed', () => {
@@ -42,7 +41,7 @@ function createMainWindow() {
   });
 
   //win.loadFile('html/connexion.html');
-  win.loadFile('html/index.html');
+  win.loadFile('html/connexion.html');
 }
 
   var menu = new Menu();
