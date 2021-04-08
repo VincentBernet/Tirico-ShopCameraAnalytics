@@ -73,7 +73,7 @@ function form_submited() {
           else {
             LocID = result2[0].ID;
             alert("Select ID effectué : "+LocID);
-            var sql3 = "INSERT INTO AccToLoc(AccID,LocID) VALUES ('"+Account_ID+"','"+LocID+"');";
+            var sql3 = "INSERT INTO AccToLoc(IdAcc,IdLoc) VALUES ('"+Account_ID+"','"+LocID+"');";
             con.query(sql3, function (err3, result3) {
               if (err3) alert(err3);
               else {

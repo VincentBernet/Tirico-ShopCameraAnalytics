@@ -20,7 +20,7 @@ con = mysql.createConnection({
     host: "mysql-pa8.alwaysdata.net",
     user: "pa8_acc",
     password: "5wtE3Cx8W",
-    database: "pa8_bdd"
+    database: "pa8_bddv2"
     });
 console.log("Connected!");
     
