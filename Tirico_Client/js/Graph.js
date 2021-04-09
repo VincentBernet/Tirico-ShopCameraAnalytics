@@ -19,7 +19,7 @@ function ConnectToDatabase() {
 
     con.connect(function(err) {
         if (err) throw err;
-        else console.log("Welcome mister : "+ Account_Name);
+        else console.log("Connected to the DB : From Graph.js");
 
     });
     
@@ -92,9 +92,9 @@ function Affluence_Today()
         else {
             //alert(result[10].AccID);
             values = result;
-            console.log("Nombre : " + values[0].NombreDePassage);
+            /*console.log("Nombre : " + values[0].NombreDePassage);
             console.log("Nombre : " + values[1].NombreDePassage);
-            console.log("Nombre : " + values[2].NombreDePassage);
+            console.log("Nombre : " + values[2].NombreDePassage);*/
         }
     });
 
@@ -170,7 +170,7 @@ function MakeLineGraph() {
             label: "Alimentaire"
         }]
     };
-    console.log("1");
+    //console.log("1");
     options = {
         title: {
             display: true,
@@ -194,7 +194,7 @@ function MakeLineGraph() {
         data: data,
         options : options
     });
-    console.log("2");
+    //console.log("2");
 }
 
 function RetrieveAffluence()
@@ -213,7 +213,7 @@ function RetrieveAffluence()
 function MakeBar()
 {
     var graph2;
-    console.log("yeess");
+    //console.log("yeess");
     ctx = document.getElementById('graph2').getContext('2d')
     //
     data = {
@@ -229,7 +229,7 @@ function MakeBar()
             data: [5, 4, 8, 15, 5, 23, 34, 56, 44, 40, 35]
         }]
     };
-    console.log("ddd");
+    //console.log("ddd");
     options = {
         title: {
             display: true,

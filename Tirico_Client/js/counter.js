@@ -5,7 +5,8 @@ const urlParamsCounter = new URLSearchParams(urlDataCounter);
 const Account_IDCounter = urlParamsCounter.get('ID');
 const Account_NameCounter = urlParamsCounter.get('Name');
 var mysql = require('mysql');
-var CompteurAtm = "Nothing";
+var CompteurAtm = "";
+var CompteurDiff ="Nothing_Yet";
 
     con = mysql.createConnection({
         host: "mysql-pa8.alwaysdata.net",
@@ -16,15 +17,21 @@ var CompteurAtm = "Nothing";
 
     con.connect(function(err) {
         if (err) throw err;
-        else console.log("Connected to the DB from Counter");
+        else 
+        {
+            console.log("Hello Mister :"+Account_NameCounter+"");
+            console.log("Connected to the DB : From Counter.js");
+        }
     });
+
+    
 UpdateCompteur();
 
 function UpdateCompteur() {
 /* First SELECT IdLoc from foreign table AccToLoc WHERE IdAcc = Account_ID;
 Then SELECT Ccap & Cpt FROM Local WHERE ID = IdLoc;*/
 
-console.log("Updating ...");
+
 var sql0 = "SELECT IdLoc FROM `AccToLoc` WHERE IdAcc = '"+Account_IDCounter+"'";
 con.query(sql0, function (err0, result0) {
     if (err0) alert(err0);
@@ -32,16 +39,37 @@ con.query(sql0, function (err0, result0) {
     {
         var LocalID = result0[0].IdLoc;
         //alert("Select working we have current LocalID: "+LocalID+"");
-        var sql1 = "SELECT Ccap, Cpt FROM `Local` WHERE ID = '"+LocalID+"'";
+        var sql1 = "SELECT Ccap, Cpt, CapMax FROM `Local` WHERE ID = '"+LocalID+"'";
         con.query(sql1, function (err1, result1) {
             if (err1) alert(err1);
             else
             {
-                //alert("Select working we have current LocalID: "+LocalID+"");
                 CompteurAtm = result1[0].Ccap;
-                document.getElementById("container_Compteur").innerHTML=''+CompteurAtm+'';
-                setTimeout(UpdateCompteur, 1000);
+                if (CompteurAtm != CompteurDiff)
+                {
+                //alert("Select working we have current LocalID: "+LocalID+"");
+                
+                
+                    if (result1[0].CapMax <= CompteurAtm)
+                    {
+                        document.getElementById("Ccap").innerHTML=''+CompteurAtm+'';
+                        document.getElementById("alert").innerHTML='Alerte Covid : Capacité Max Atteinte';
+                        console.log("Updating + Alert");
+                    }
+                    else
+                    {
+                        document.getElementById("Ccap").innerHTML=''+CompteurAtm+'';
+                        console.log("Updating ...")
+                    }
+                }
+                else 
+                {
+                    console.log("Waiting for Change");
+                }
             }
+            CompteurDiff = CompteurAtm;
+            setTimeout(UpdateCompteur, 1000);
+            
         });
     }
 });

@@ -18,7 +18,7 @@ const Account_Name = urlParams.get('Name');
 
 // Redirection Index ou Inscript
 document.getElementById("redirect_Index").addEventListener("click", function() {
-  window.location.href="NewIndex.html?Name="+Account_Name+"&ID="+Account_ID+"";
+  window.location.href="index.html?Name="+Account_Name+"&ID="+Account_ID+"";
 });
 
 document.getElementById("redirect_Inscri_Loc").addEventListener("click", function() {
@@ -62,7 +62,7 @@ function form_submited() {
   var LocID = 0; 
 
   // Sucession de querry à exécuter
-  var sql1 = "INSERT INTO Local (Adresse, Nom, Type, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"','"+Magasin_Name+"', '"+Magasin_Type+"','"+Magasin_Taille+"','"+Magasin_Taille/10+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire/365+"')";
+  var sql1 = "INSERT INTO Local (Adresse, Nom, Type, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"','"+Magasin_Name+"', '"+Magasin_Type+"','"+Magasin_Taille+"','"+Magasin_Taille/8+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire/365+"')";
   con.query(sql1, function (err1, result1) {
     if (err1) alert(err1);
     else {
