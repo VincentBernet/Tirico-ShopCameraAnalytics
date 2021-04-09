@@ -79,7 +79,7 @@ function installation() {
 const {PythonShell} = require('python-shell');
 
 
-// Appel Python du code de détection, génère un fichier Csv
+// Appel Python du code d'installation d'environnement'
 let pyshell0 = new PythonShell('code_python/yolov4-deepsort/first_run_debug.py');
 
 pyshell0.send(JSON.stringify(['\n-----------------------------------------------------\nAppel du script d\'installation "first_run_debug.py"']))
