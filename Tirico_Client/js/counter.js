@@ -7,6 +7,7 @@ const Account_NameCounter = urlParamsCounter.get('Name');
 var mysql = require('mysql');
 var CompteurAtm = "";
 var CompteurDiff ="Nothing_Yet";
+var CapacityRemaining = 0;
 
     con = mysql.createConnection({
         host: "mysql-pa8.alwaysdata.net",
@@ -45,6 +46,7 @@ con.query(sql0, function (err0, result0) {
             else
             {
                 CompteurAtm = result1[0].Ccap;
+                CapacityRemaining = result1[0].CapMax -CompteurAtm;
                 if (CompteurAtm != CompteurDiff)
                 {
                 //alert("Select working we have current LocalID: "+LocalID+"");
@@ -54,11 +56,12 @@ con.query(sql0, function (err0, result0) {
                     {
                         document.getElementById("Ccap").innerHTML=''+CompteurAtm+'';
                         document.getElementById("alert").innerHTML='Alerte Covid : Capacité Max Atteinte';
-                        console.log("Updating + Alert");
+                        console.log("Updating + Alert"); 
                     }
                     else
                     {
                         document.getElementById("Ccap").innerHTML=''+CompteurAtm+'';
+                        document.getElementById("CapRestante").innerHTML=''+CapacityRemaining+'';
                         console.log("Updating ...")
                     }
                 }

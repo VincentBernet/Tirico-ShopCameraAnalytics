@@ -340,6 +340,11 @@ span.live-icon:before {
 	left: 10%;
 }
 
+#container_Compteur td {
+	color: white;
+	margin-left: 1em;
+}
+
 #alert {
 	color: red;
 	margin-left: 5%;
