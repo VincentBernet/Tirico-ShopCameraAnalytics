@@ -56,10 +56,12 @@ con.query(sql0, function (err0, result0) {
                     {
                         document.getElementById("Ccap").innerHTML=''+CompteurAtm+'';
                         document.getElementById("alert").innerHTML='Alerte Covid : Capacité Max Atteinte';
+                        document.getElementById("CapRestante").innerHTML=''+CapacityRemaining+'';
                         console.log("Updating + Alert"); 
                     }
                     else
                     {
+                        document.getElementById("alert").innerHTML='';
                         document.getElementById("Ccap").innerHTML=''+CompteurAtm+'';
                         document.getElementById("CapRestante").innerHTML=''+CapacityRemaining+'';
                         console.log("Updating ...")
