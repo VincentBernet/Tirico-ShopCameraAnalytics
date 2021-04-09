@@ -18,7 +18,7 @@ const Account_Name = urlParams.get('Name');
 
 // Redirection Index ou Inscript
 document.getElementById("redirect_Index").addEventListener("click", function() {
-  window.location.href="index.html?Name="+Account_Name+"&ID="+Account_ID+"";
+  window.location.href="NewIndex.html?Name="+Account_Name+"&ID="+Account_ID+"";
 });
 
 document.getElementById("redirect_Inscri_Loc").addEventListener("click", function() {
@@ -48,7 +48,7 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected mister : "+Account_Name+"");
+  console.log("Connected mister : "+Account_Name);
 });
 
 
