@@ -11,6 +11,6 @@ start cmd.exe /c "echo Create Kafka Topic : capacity-counter & cd C:\Apache\kafk
 @echo End of Kafka Initialization
 
 
-@echo Environment configuration & Run yolov4 deepsort object tracker on video
+@echo Environment configuration Run yolov4 deepsort object tracker on video
 @echo If a problem occurs, launch run_first_batch.bat
 conda activate yolov4-gpu & python object_tracker.py --video ./data/video/test.mp4 --output ./outputs/demo.avi --model yolov4

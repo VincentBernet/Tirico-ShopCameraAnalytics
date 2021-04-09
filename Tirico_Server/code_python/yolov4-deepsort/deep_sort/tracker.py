@@ -5,7 +5,9 @@ from . import kalman_filter
 from . import linear_assignment
 from . import iou_matching
 from .track import Track
-
+from kafka import KafkaProducer
+import json
+import time
 
 class Tracker:
     """
@@ -46,6 +48,8 @@ class Tracker:
         self.kf = kalman_filter.KalmanFilter()
         self.tracks = []
         self._next_id = 1
+        self.producer = KafkaProducer(bootstrap_servers="localhost:9092",value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+
 
     def predict(self):
         """Propagate track state distributions one time step forward.
@@ -131,6 +135,13 @@ class Tracker:
         return matches, unmatched_tracks, unmatched_detections
 
     def _initiate_track(self, detection):
+        # Kafka producer sends message with new trackID upon its creation
+        localtime = time.localtime(time.time())
+        message = {'trackID': self._next_id, 'time' : time.strftime("%H:%M:%S",localtime), 'date' : time.strftime("%d|%b|%Y")} 
+        self.producer.send('store-counter', message)
+        print("Produced a message with trackID: ", self._next_id)
+
+        # Initiate new track
         mean, covariance = self.kf.initiate(detection.to_xyah())
         class_name = detection.get_class()
         self.tracks.append(Track(

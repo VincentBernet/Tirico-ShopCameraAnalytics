@@ -1,3 +1,5 @@
 node_modules
 package-lock.json
-code_python/data/yolov4weights
+code_python/yolov4-deepsort/data/yolov4.weights
+code_python/yolov4-deepsort/.vscode
+code_python/yolov4-deepsort/checkpoints
