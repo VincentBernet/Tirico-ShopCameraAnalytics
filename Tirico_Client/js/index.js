@@ -24,6 +24,18 @@ new customTitlebar.Titlebar({
     //icon: "../ressource/image/logo.png",
 });
 
+// Redirection Index ou Inscript
+document.getElementById("redirect_Analyse").addEventListener("click", function() {
+    window.location.href="analyse.html?Name="+Account_Name+"&ID="+Account_ID+"";
+});
+document.getElementById("redirect_Parameter").addEventListener("click", function() {
+    window.location.href="parametre.html?Name="+Account_Name+"&ID="+Account_ID+"";
+});
+document.getElementById("redirect_Disconnection").addEventListener("click", function() {
+    window.location.href="connexion.html";
+}); 
+
+
 /*const DeconnectBtn = document.getElementById('DECO')
 DeconnectBtn.addEventListener('click', (event) => {
     window.location.href="connexion.html";

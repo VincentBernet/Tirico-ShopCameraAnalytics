@@ -40,7 +40,6 @@ function createMainWindow() {
     win = null;
   });
 
-  //win.loadFile('html/connexion.html');
   win.loadFile('html/connexion.html');
 }
 

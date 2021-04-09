@@ -48,7 +48,7 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected mister : "+Account_Name+"");
+  console.log("Connected mister : "+Account_Name);
 });
 
 
@@ -62,7 +62,7 @@ function form_submited() {
   var LocID = 0; 
 
   // Sucession de querry à exécuter
-  var sql1 = "INSERT INTO Local (Adresse, Nom, Type, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"','"+Magasin_Name+"', '"+Magasin_Type+"','"+Magasin_Taille+"','"+Magasin_Taille/10+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire/365+"')";
+  var sql1 = "INSERT INTO Local (Adresse, Nom, Type, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"','"+Magasin_Name+"', '"+Magasin_Type+"','"+Magasin_Taille+"','"+Magasin_Taille/8+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire/365+"')";
   con.query(sql1, function (err1, result1) {
     if (err1) alert(err1);
     else {
