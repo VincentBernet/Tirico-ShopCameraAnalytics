@@ -55,3 +55,21 @@ var con = mysql.createConnection({
     }});
 
 
+// Call the script of analyse made by Jean
+/*
+const {PythonShell} = require('python-shell');
+let pyshell = new PythonShell('code_python/analyse.py');
+
+pyshell.send(JSON.stringify(['\n-----------------------------------------------------\nAppel du script de generation de conseil "analyse.py"']))
+
+pyshell.on('message', function(message) {
+  console.log(message);
+})
+
+pyshell.end(function (err) {
+  if (err){
+    throw err;
+  };
+  console.log('Fin du script Python : "analyse.py"');
+  console.log("-----------------------------------------------------");
+});*/

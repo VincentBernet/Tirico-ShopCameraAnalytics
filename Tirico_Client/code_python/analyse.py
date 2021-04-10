@@ -13,7 +13,7 @@ import datetime
 from datetime import datetime
 
 db = mysql.connector.connect(
- host="mysql-pa8.alwaysdata.net",
+  host="mysql-pa8.alwaysdata.net",
   user="pa8_acc",
   password="5wtE3Cx8W",
   database="pa8_bddv2",)
