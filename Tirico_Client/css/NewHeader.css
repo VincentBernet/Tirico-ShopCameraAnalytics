@@ -1,4 +1,4 @@
-header {
+/*header {
 	display: flex;
 	height: 10vh;
 	justify-content: space-between;
@@ -39,7 +39,7 @@ li > a:hover {
 	cursor: pointer;
 	margin: 0 0 0 7%;
 	border-radius: 50%;
-	/*background-color: white;*/
+	/*background-color: white;
 	transition: box-shadow 0.7s, transform 2s;
 }
 
@@ -68,3 +68,4 @@ li > a:hover {
 .digit {
 	display: inline;
 }
+*/
