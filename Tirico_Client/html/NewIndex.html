@@ -63,7 +63,7 @@
 		</div>
         <div class="Workspace">
 			<div id="refresh_button"><button>Refresh</button></div>
-			<div id="time_button"><button>Daily</button><button>Weekly</button><button>Monthly</button></div>
+			<div id="time_button"><button id="Daily"> Daily</button><button id="Weekly">Weekly</button><button id="Monthly">Monthly</button></div>
 			<!--<div class="Component_Utilisateur">
 				<div class="toolbar">
 					<a href="#" class="btn btn_live">Live<span class="live-icon"></span>
@@ -146,8 +146,9 @@
 			const Analy7Btn = document.getElementById('Analy-7')
 			Analy7Btn.addEventListener('click', (event) => {
 				document.getElementById("Container_graphe").innerHTML='<img  src="../code_python/Density_Map/HeatMap.png"  id="Graphe" />';
-				
 			})
+
+			
 		</script>
 	</body>
 	
@@ -155,10 +156,10 @@
 
 
 <script>
+	Button_Time();
 	ConnectToDatabase();
 	MakeLineGraph();
 	MakeBar();
 	MakeAraignee();
 	MakeCercle();
-	
 </script>

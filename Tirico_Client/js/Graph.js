@@ -1,10 +1,95 @@
 var Chart = require('chart.js');
 var values = null;
 
-
-
 var con;
 
+
+var Now;
+var DateBefore;
+
+
+var Req_Now;
+var Req_Before;
+
+
+function Button_Time() {
+    const DailyBtn = document.getElementById('Daily')
+    DailyBtn.addEventListener('click', (event) => {
+        Now = new Date();
+        var dd = String(Now.getDate()).padStart(2, '0');
+        var mm = String (Now.getMonth() + 1).padStart(2, '0');
+        var yyyy = String (Now.getFullYear());
+
+        Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
+
+        DateBefore = Now;
+        if (parseInt(dd) <= 7)
+        {
+            DateBefore.setDate(23);
+            DateBefore.setMonth(DateBefore.getMonth() - 1);
+        }
+        else {
+            DateBefore.setDate(parseInt(dd) - 7);
+        }
+        
+        var A_dd = String(DateBefore.getDate()).padStart(2, '0');
+        var A_mm = String (DateBefore.getMonth() + 1).padStart(2, '0');
+        var A_yyyy = String (DateBefore.getFullYear());
+
+        Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
+
+        console.log(Req_Now);
+        console.log(Req_Before);
+
+        RetrieveDatas();
+    })
+    const MonthlyBtn = document.getElementById('Weekly')
+    MonthlyBtn.addEventListener('click', (event) => {
+        Now = new Date();
+        var dd = String(Now.getDate()).padStart(2, '0');
+        var mm = String (Now.getMonth() + 1).padStart(2, '0');
+        var yyyy = String (Now.getFullYear());
+
+        Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
+
+        DateBefore = Now;
+        DateBefore.setMonth(DateBefore.getMonth() - 1);
+
+        var A_dd = String(DateBefore.getDate()).padStart(2, '0');
+        var A_mm = String (DateBefore.getMonth() + 1).padStart(2, '0');
+        var A_yyyy = String (DateBefore.getFullYear());
+
+        Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
+
+        console.log(Req_Now);
+        console.log(Req_Before);
+
+        RetrieveDatas();
+    })
+    const YearBtn = document.getElementById('Monthly')
+    YearBtn.addEventListener('click', (event) => {
+        Now = new Date();
+        var dd = String(Now.getDate()).padStart(2, '0');
+        var mm = String (Now.getMonth() + 1).padStart(2, '0');
+        var yyyy = String (Now.getFullYear());
+
+        Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
+
+        DateBefore = Now;
+        DateBefore.setFullYear(parseInt(yyyy) - 1);
+
+        var A_dd = String(DateBefore.getDate()).padStart(2, '0');
+        var A_mm = String (DateBefore.getMonth() + 1).padStart(2, '0');
+        var A_yyyy = String (DateBefore.getFullYear());
+
+        Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
+
+        console.log(Req_Now);
+        console.log(Req_Before);
+
+        RetrieveDatas();
+    })
+}
 
 
 function ConnectToDatabase() {
@@ -43,111 +128,29 @@ var options;
 var config;
 var graph;
 
-
-/*
-
-ARCHITECTURE
-
-
-*/
-
-
 // Appeler cette fonction à chaque fois qu'on appuie un bouton : TODAY, WEEKLY, MONTHLY
-function RetrieveDatas(select)
+function RetrieveDatas()
 {
-    switch (select) {
-        case 'Today':
-            select_Affluence = '';
-            Affluence_Today();
-            Ventes_Today();
-            Time_Today();
-            break;
-        case 'Weekly':
-            Affluence_Weekly();
-            Ventes_Weekly();
-            Time_Weekly();
-            break;
-        case 'Monthly':
-            Affluence_Monthly();
-            Ventes_Monthly();
-            Time_Monthly();
-            break;
-        default:
-            console.log('Sorry there is an error');
-    }
+    Affluence_Today();
+	MakeLineGraph();
+	MakeBar();
+	MakeAraignee();
+	MakeCercle();
 }
-
-
 
 function Affluence_Today() 
 {
-    // SELECT DANS LA DATABASE : STRING
-    // CON QUERY
-    // - RESULT
-
-    var sql = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '2020-06-29 00:00:00' AND '2020-06-29 10:00:00'";
-    con.query(sql, function (err, result) {
-        
+    var req = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
+    console.log("Request : " + req);
+    //var sql = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '2020-06-29 00:00:00' AND '2020-06-29 10:00:00'";
+    con.query(req, function (err, result) {
         if (err) throw err;
         else {
-            //alert(result[10].AccID);
             values = result;
-            console.log("Nombre : " + values[0].NombreDePassage);
-            console.log("Nombre : " + values[1].NombreDePassage);
-            console.log("Nombre : " + values[2].NombreDePassage);
+            console.log("Renvoie " + values);
         }
     });
-
-    // L'ID (la fenetre ou affiché sera toujours la même donc même ID pour les 3).
-    // On fait le graphe : on aura 12 parametres à mettre vu que c'est de 8h à 20h.
 }
-function Affluence_Weekly() 
-{
-
-}
-function Affluence_Monthly() 
-{
-
-}
-
-function Ventes_Today()
-{
-
-}
-function Ventes_Weekly()
-{
-
-}
-function Ventes_Monthly()
-{
-
-}
-
-function Time_Today()
-{
-
-}
-function Time_Weekly()
-{
-
-}
-function Time_Monthly()
-{
-
-}
-
-function RetrieveAllDatas() {
-    // On doit récupérer toutes les données
-    // results[0].DateTime.getHours() == 11h
-    // results[0].NombreDePassage == 52
-    // ...
-    // results[12]...
-
-    // ça fait 12 lignes à faire pour les jours de 8h à 20h
-    // 4 lignes pour les semaines.
-    // 12 pour les mois.
-}
-
 
 function MakeLineGraph() {
 
@@ -213,7 +216,6 @@ function RetrieveAffluence()
 function MakeBar()
 {
     var graph2;
-    console.log("yeess");
     ctx = document.getElementById('graph2').getContext('2d')
     //
     data = {
@@ -229,7 +231,6 @@ function MakeBar()
             data: [5, 4, 8, 15, 5, 23, 34, 56, 44, 40, 35]
         }]
     };
-    console.log("ddd");
     options = {
         title: {
             display: true,
@@ -302,7 +303,7 @@ function MakeAraignee()
     ctx = document.getElementById('graph4').getContext('2d')
 
     data = {
-        lable: 'salut',
+        label: 'salut',
     labels: ['Red', 'Février', 'Marss'],
     datasets: [{
         backgroundColor: '#2d9ae0',
