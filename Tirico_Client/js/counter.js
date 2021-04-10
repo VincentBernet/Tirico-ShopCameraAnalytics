@@ -1,110 +1,82 @@
-var counterStart = "0000000"; 
-var counterValue = 0;  
-const {PythonShell} = require('python-shell');
-var compteur;
+// We take back the paramater of the ID, we parse it cleany first
 
-  // Appel Python du Compteur 
-  let pyshell2 = new PythonShell('code_python/Counter/AffluenceCounter.py');
+const urlDataCounter = window.location.search;
+const urlParamsCounter = new URLSearchParams(urlDataCounter);
+const Account_IDCounter = urlParamsCounter.get('ID');
+const Account_NameCounter = urlParamsCounter.get('Name');
+var mysql = require('mysql');
+var CompteurAtm = "";
+var CompteurDiff ="Nothing_Yet";
+var CapacityRemaining = 0;
 
-  pyshell2.send(JSON.stringify([" "]))
+    con = mysql.createConnection({
+        host: "mysql-pa8.alwaysdata.net",
+        user: "pa8_acc",
+        password: "5wtE3Cx8W",
+        database: "pa8_bddv2"
+    });
 
-  pyshell2.on('message', function(message) {
-    compteur= parseInt(message);
-    console.log("Compteur du nombre de personne total comptabilise dans le magasin : "+compteur);
-  })
+    con.connect(function(err) {
+        if (err) throw err;
+        else 
+        {
+            console.log("Hello Mister :"+Account_NameCounter+"");
+            console.log("Connected to the DB : From Counter.js");
+        }
+    });
 
-  pyshell2.end(function (err) {
-    if (err){
-      throw err;
-    };
-    console.log('Fin du script Python : "AffluenceCounter.py"');
-  });
+    
+UpdateCompteur();
+
+function UpdateCompteur() {
+/* First SELECT IdLoc from foreign table AccToLoc WHERE IdAcc = Account_ID;
+Then SELECT Ccap & Cpt FROM Local WHERE ID = IdLoc;*/
 
 
- function counterGradient(id, level)
-{
-	
-	var digit = document.getElementById("counter");
-	digit.style.opacity = level;
-	digit.style.MozOpacity = level;
-	digit.style.KhtmlOpacity = level;
-	digit.style.filter = "alpha(opacity=" + level * 100 + ")";
-	return;
+var sql0 = "SELECT IdLoc FROM `AccToLoc` WHERE IdAcc = '"+Account_IDCounter+"'";
+con.query(sql0, function (err0, result0) {
+    if (err0) alert(err0);
+    else
+    {
+        var LocalID = result0[0].IdLoc;
+        //alert("Select working we have current LocalID: "+LocalID+"");
+        var sql1 = "SELECT Ccap, Cpt, CapMax FROM `Local` WHERE ID = '"+LocalID+"'";
+        con.query(sql1, function (err1, result1) {
+            if (err1) alert(err1);
+            else
+            {
+                CompteurAtm = result1[0].Ccap;
+                CapacityRemaining = result1[0].CapMax -CompteurAtm;
+                if (CompteurAtm != CompteurDiff)
+                {
+                //alert("Select working we have current LocalID: "+LocalID+"");
+                
+                
+                    if (result1[0].CapMax <= CompteurAtm)
+                    {
+                        document.getElementById("Ccap").innerHTML=''+CompteurAtm+'';
+                        document.getElementById("alert").innerHTML='Alerte Covid : Capacité Max Atteinte';
+                        document.getElementById("CapRestante").innerHTML=''+CapacityRemaining+'';
+                        console.log("Updating + Alert"); 
+                    }
+                    else
+                    {
+                        document.getElementById("alert").innerHTML='';
+                        document.getElementById("Ccap").innerHTML=''+CompteurAtm+'';
+                        document.getElementById("CapRestante").innerHTML=''+CapacityRemaining+'';
+                        console.log("Updating ...")
+                    }
+                }
+                else 
+                {
+                    console.log("Waiting for Change");
+                }
+            }
+            CompteurDiff = CompteurAtm;
+            setTimeout(UpdateCompteur, 1000);
+            
+        });
+    }
+});
+
 }
-
-
-
-function counterEffect(id, nd)
-{
-	digit.innerHTML = nd;	
-}
-
-
-function digitUpdate(rank)
-{
-	var id = "digit" + new String(rank);
-	var ret = false;
-	digit = document.getElementById(id);
-	var od = new Number(digit.innerHTML);
-	var nd = od + 1;
-
-	if (counterValue > compteur)
-	{
-		return;
-	}
-		
-	if(nd > 9)
-	{
-		ret = true;
-		nd = 0;
-	}
-
-	counterEffect(id, nd);
-	return ret;
-}
-
-function buildDisplay(rank)
-{
-	var id = "digit" + new String(rank);
-
-	var digit = counterStart + new String(counterValue);
-	digit = digit.charAt(digit.length - rank); 
-
-	var d = "<div class='digit' id=\"" + id + "\">" + digit + "</div>";
-	return d;
-}
-
-function counterUpdate()
-{
-   counterValue += 1;
-  
-   var size = counterStart.length;  
-   var flag = digitUpdate(1); 	
-
-   for(i = 2; i <= size; i++)
-   {
-	  if(flag)
-	  	flag = digitUpdate(i);
-   }
-}
-
-function counterInit()
-{
-   counterValue = 0;
-  
-   var size = counterStart.length;  
-   var theString = "";
-
-   for(i = 1; i <= size; i++)
-   {
-	  theString = buildDisplay(i) + theString;
-   }
-
-   var counter = document.getElementById("counter");
-   
-   counter.innerHTML = theString;
-}
-
-
-
-window.onload=counterInit;

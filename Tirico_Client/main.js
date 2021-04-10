@@ -1,4 +1,3 @@
-
 const {app, BrowserWindow, Menu, MenuItem} = require('electron');
 
 // This method will be called when Electron has finished
@@ -41,7 +40,6 @@ function createMainWindow() {
     win = null;
   });
 
-  //win.loadFile('html/connexion.html');
   win.loadFile('html/connexion.html');
 }
 

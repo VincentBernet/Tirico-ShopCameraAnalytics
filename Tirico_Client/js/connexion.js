@@ -42,12 +42,12 @@ var con = mysql.createConnection({
   host: "mysql-pa8.alwaysdata.net",
   user: "pa8_acc",
   password: "5wtE3Cx8W",
-  database: "pa8_bdd"
+  database: "pa8_bddv2"
 });
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("Connected to the DB!");
 });
 
 
@@ -79,7 +79,7 @@ function form_submited() {
                 {
                   boolean = true;
                   console.log("Already registrer -> Go to index.html");
-                  window.location.href="NewIndex.html?Name="+result0[0].Name+"&ID="+result0[0].ID+"";
+                  window.location.href="index.html?Name="+result0[0].Name+"&ID="+result0[0].ID+"";
                 }
         }
         catch {

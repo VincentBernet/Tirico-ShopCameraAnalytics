@@ -43,12 +43,12 @@ var con = mysql.createConnection({
   host: "mysql-pa8.alwaysdata.net",
   user: "pa8_acc",
   password: "5wtE3Cx8W",
-  database: "pa8_bdd"
+  database: "pa8_bddv2"
 });
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected mister : "+Account_Name+"");
+  console.log("Connected mister : "+Account_Name);
 });
 
 
@@ -62,7 +62,7 @@ function form_submited() {
   var LocID = 0; 
 
   // Sucession de querry à exécuter
-  var sql1 = "INSERT INTO Local (Adresse, Nom, Type, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"','"+Magasin_Name+"', '"+Magasin_Type+"','"+Magasin_Taille+"','"+Magasin_Taille/10+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire/365+"')";
+  var sql1 = "INSERT INTO Local (Adresse, Nom, Type, Taille, CapMax, NbCam,CAjour) VALUES ('"+Magasin_Adresse+"','"+Magasin_Name+"', '"+Magasin_Type+"','"+Magasin_Taille+"','"+Magasin_Taille/8+"','"+Magasin_Taille/200+"','"+Chiffre_Affaire/365+"')";
   con.query(sql1, function (err1, result1) {
     if (err1) alert(err1);
     else {
@@ -73,7 +73,7 @@ function form_submited() {
           else {
             LocID = result2[0].ID;
             alert("Select ID effectué : "+LocID);
-            var sql3 = "INSERT INTO AccToLoc(AccID,LocID) VALUES ('"+Account_ID+"','"+LocID+"');";
+            var sql3 = "INSERT INTO AccToLoc(IdAcc,IdLoc) VALUES ('"+Account_ID+"','"+LocID+"');";
             con.query(sql3, function (err3, result3) {
               if (err3) alert(err3);
               else {

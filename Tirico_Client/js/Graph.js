@@ -104,7 +104,7 @@ function ConnectToDatabase() {
 
     con.connect(function(err) {
         if (err) throw err;
-        else console.log("Welcome mister : "+ Account_Name);
+        else console.log("Connected to the DB : From Graph.js");
 
     });
     
@@ -173,7 +173,7 @@ function MakeLineGraph() {
             label: "Alimentaire"
         }]
     };
-    console.log("1");
+    //console.log("1");
     options = {
         title: {
             display: true,
@@ -197,7 +197,7 @@ function MakeLineGraph() {
         data: data,
         options : options
     });
-    console.log("2");
+    //console.log("2");
 }
 
 function RetrieveAffluence()
