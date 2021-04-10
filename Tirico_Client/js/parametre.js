@@ -14,3 +14,7 @@ document.getElementById("redirect_Index").addEventListener("click", function() {
 document.getElementById("redirect_Disconnection").addEventListener("click", function() {
     window.location.href="connexion.html";
 }); 
+
+document.getElementById("redirect_InscriptionLoc").addEventListener("click", function() {
+    window.location.href="inscription_loc.html?Name="+Account_Name+"&ID="+Account_ID+"";
+}); 

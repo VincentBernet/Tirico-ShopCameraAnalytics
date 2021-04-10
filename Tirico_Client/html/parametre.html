@@ -8,8 +8,7 @@
 			http-equiv="Content-Security-Policy"
 			content="script-src 'self' 'unsafe-inline';"
 		/>
-		<link rel="stylesheet" href="../css/index.css" />
-		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/parametre.css" />
 
         <!-- Script assurant la déconnexion et d'autres fonctions -->
 		<script defer src="../js/index.js"></script>
@@ -17,23 +16,27 @@
 	</head>
 
 	<body>
-		<!-- Identifiant : sebastien.friedberg@gmail.com Mdp : Azerty123 or vincent.bernet@efrei.net Azerty123 -->
-		<header>
-			<!-- Logo -->
-			<img   class="logo" src="../ressource/image/logo.png"/>
-			<ul class="nav_links">
-				<li><a href="#" id="redirect_Index" >Accueil</a></li>
-				<li><a href="#" id="redirect_Analyse" >Analyse</a></li>
-				<li><a href="#" id="redirect_Disconnection" >Déconnexion</a></li>
-			</ul>
-		</header>
-		<br><br><br>
-		
+
 		<!-- Container flex comprenant et les boutons pour changer d'analyse et la rubrique-->
 		<div class="Option_Graphe_Container">
 
+            <div class = "bouton_gauche">
+				<!-- Logo -->
+				<a href="#">
+					<img id="logotext"  src="../ressource/image/Logo_bleu.png"/>
+				</a>
+				<div id="BouttonRedirection">
+					<a id="redirect_Index" class="button" href="#">DashBoard</a>
+					<br>
+					<a id="redirect_Analyse" class="button" href="#">Analyse</a>
+					<br>
+					<a id="redirect_Disconnection" class="button" href="#">Déconnexion</a>
+				</div>
+				<div id ="radioButton"></div>
+				
+			</div>
 			<!-- Container avec le graphe choisi (en format png) -->
-			<span id="Container_graphe"> 
+			<div id="Container_graphe"> 
                 <br>
                  
                 Sélectionnez le graphe que vous souhaitez modifier : 
@@ -44,7 +47,7 @@
                         <option value="Graphe3">Graphe3</option>
                         <option value="DailyAnalysis">Daily Analysis</option>
                       </select>
-                
+                <button id="redirect_InscriptionLoc">Rajouter un nouveau Magasin</button>
                 <br>
                 <br>
                 <textarea id="code_python" rows="30" cols="130">
@@ -86,11 +89,11 @@
                     <br><br>
                 <!-- Implenter un input pour choisir un fichier à importer -->
                 <input id="SelectFile" type="file">
-                <a type="buton" href="inscription_loc.html">Rajouter un autre magasin</a>
+                
                 <button   id="RestaurerBtn" style="color:red;">Restaurer les paramètres par défauts</button>
                 <button  id="ValidateBtn">Valider</button>
             <!--</form> -->
-            </span>
+            </div>
 		</div>
         
         <!-- Script pour modifier le code source souhaiter selon le "select" sélectionner + Alert si le boutton restaurer ou valider est activé-->
