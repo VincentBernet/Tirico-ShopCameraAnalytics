@@ -4,8 +4,12 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 .Option_Graphe_Container {
+	position: absolute;
+	top: 0;
 	display: flex;
 	flex-direction: row;
+	height: 100%;
+	width: 100%;
 }
 
 .bouton_gauche {
@@ -14,16 +18,70 @@ body {
 	width: 16%;
 	box-sizing: initial;
 	overflow: visible;
-	position: absolute;
+	position: relative;
 	top: 0px;
 	left: 0px;
 	box-shadow: inset -5px 0px #15141a;
 }
 
+#logotext {
+	position: relative;
+	width: 75%;
+	cursor: pointer;
+	margin: 15% 0 0 7%;
+	padding: 10px 10px 10px 10px;
+	transition: box-shadow 0.7s, transform 3s;
+}
+
+#logotext:hover {
+	transform: rotateY(360deg);
+}
+
+#BouttonRedirection {
+	margin-top: 15%;
+}
+/* Bouton sélection Analytics */
+.button {
+	display: inline-flex;
+	height: 4vh;
+	width: 60%;
+	margin-left: 18%;
+	margin-bottom: 5%;
+	border: 2px solid #423e69;
+	color: #000000;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 1.6vh;
+	letter-spacing: 1.5px;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	background-color: #00abe9;
+
+	transition-duration: 300ms;
+	transition-property: color, background-color, letter-spacing;
+}
+
+.button:hover::before {
+	transform: scale(1.1);
+	box-shadow: 0 0 15px #007acc;
+}
+.button:hover {
+	background-color: #006488;
+	box-shadow: outset 5px 2px 5px #0a0a0a, outset -5px -2px 5px #2a2a2a;
+
+	color: #ffee10;
+	box-shadow: 0 0 5px #4100d8;
+	text-shadow: 0 0 5px #4100d8;
+	letter-spacing: 6px;
+}
+
 #Container_graphe {
 	position: flex;
 	width: 45%;
-	margin-left: 23%;
+	height: 50%;
+	margin-top: 5%;
+	margin-left: 13%;
 	background: #1a1a1a;
 	box-shadow: inset 5px 5px 18px #0a0a0a, inset -5px -5px 18px #2a2a2a;
 	padding: 3%;
@@ -44,5 +102,6 @@ body {
 
 #radioButton {
 	margin-top: 10%;
+	margin-left: 22%;
 	color: white;
 }
