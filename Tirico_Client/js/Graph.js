@@ -113,10 +113,8 @@ function ConnectToDatabase() {
         
         if (err) throw err;
         else {
-            //alert(result[10].AccID);
             values = result;
-            //MakeGraphGreatAgain();
-            Affluence_Today();
+            RetrieveDatas();
         }
     });
 }

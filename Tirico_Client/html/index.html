@@ -26,60 +26,43 @@
 	</head>
 
 	<body>
-		<br><br><br>
 		<!-- Container flex comprenant et les boutons pour changer d'analyse et la rubrique-->
 		<div class="Option_Graphe_Container">
 			<div class = "bouton_gauche">
-				<form method="POST">
-					<br>
-						<a href="index.html">
-							<img id="logotext"  src="../ressource/image/Logo_bleu.png"/>
-						</a>
-					<br><br>
-					<div id="container_Compteur" >
-						<table>
-							<tr>
-								<td>Nombre de Client</td> 
-								<td class="odometer" id="Ccap"></td>
-								
-							</tr>
-							<tr>
-								<td>Capacité Restante</td>
-								<td class="odometer" id="CapRestante"></td>
-							</tr>
-							<tr><span id="alert"></span></tr>
-							<tr></tr>
-						
-						</table>
-					</div>
-					<br><br>
-					<div id="locaux">
-                            <input type="radio" id="kraken" name="monster">
-                            <div class="kraken">Locaux 1</div><br/>
-                            <input type="radio" id="sasquatch" name="monster">
-                            <div class="kraken">Locaux 2</div><br/>
-                            <input type="radio" id="mothman" name="monster">
-                            <div class="kraken">Locaux 3</div>
-                    </div>
-						
-					<br><br>
-					<a id="redirect_Analyse" class="button" href="#">Analyse</a>
-					<br>
-					<a id="redirect_Parameter" class="button" href="#">Paramètre</a>
-					<br>
-					<a id="redirect_Disconnection" class="button" href="#">Déconnexion</a>
-					<br>
-				</form>
+				<a href="index.html">
+					<img id="logotext"  src="../ressource/image/Logo_bleu.png"/>
+				</a>
+				<div id="container_Compteur">
+					<table>
+						<tr>
+							<td>Nombre de Client</td> 
+							<td class="odometer" id="Ccap"></td>
+						</tr>
+						<tr>
+							<td>Capacité Restante</td>
+							<td class="odometer" id="CapRestante"></td>
+						</tr>
+						<tr><span id="alert"></span></tr>
+						<tr></tr>
+					</table>
+				</div>
+				<br><br>
+				<div id="locaux">
+                    <div id ="radioButton"></div>
+                </div>
+				<br><br>
+				<a id="redirect_Analyse" class="button" href="#">Dashboard</a>
+				<br>
+				<a id="redirect_Analyse" class="button" href="#">Analyse</a>
+				<br>
+				<a id="redirect_Parameter" class="button" href="#">Paramètre</a>
+				<br>
+				<a id="redirect_Disconnection" class="button" href="#">Déconnexion</a>
+				<br>
 			</div>
 		</div>
         <div class="Workspace">
-			<div id="refresh_button"><button>Refresh</button></div>
-			<div id="time_button"><button>Daily</button><button>Weekly</button><button>Monthly</button></div>
-			<!--<div class="Component_Utilisateur">
-				<div class="toolbar">
-					<a href="#" class="btn btn_live">Live<span class="live-icon"></span>
-				</div>
-			</div>-->
+			<div id="time_button"><button id="refresh_button">Refresh</button><button id="Daily">Daily</button><button id="Weekly">Weekly</button><button id="Monthly">Monthly</button></div>
 				<div class="Espace">
 					<span id="Container_graphe">
 						<canvas id="Vente" width="100" height="50"></canvas>
@@ -148,9 +131,6 @@
 
 
 <script>
+	Button_Time();
 	ConnectToDatabase();
-	MakeLineGraph();
-	MakeBar();
-	MakeAraignee();
-	MakeCercle();
 </script>
