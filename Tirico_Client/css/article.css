@@ -4,19 +4,23 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 .Option_Graphe_Container {
+	position: absolute;
 	top: 0;
 	display: flex;
 	flex-direction: row;
 	height: 100%;
 	width: 100%;
-	position: fixed;
 }
 
 .bouton_gauche {
-	background-color: #1a1a69;
+	background-color: #191925;
 	height: 100%;
-	width: 50%;
-	overflow: hidden;
+	width: 16%;
+	box-sizing: initial;
+	overflow: visible;
+	position: relative;
+	top: 0px;
+	left: 0px;
 	box-shadow: inset -5px 0px #15141a;
 }
 
