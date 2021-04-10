@@ -12,10 +12,26 @@ var Req_Now;
 var Req_Before;
 
 
+function addDays(date, days) {
+    return new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate() + days,
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+        date.getMilliseconds()
+    );
+}
+
+var Graphe_Label = [];
+var datas = [];
+var titre = [];
+
 function Button_Time() {
     const DailyBtn = document.getElementById('Daily')
     DailyBtn.addEventListener('click', (event) => {
-        Now = new Date();
+        Now = new Date(2020,10,15);
         var dd = String(Now.getDate()).padStart(2, '0');
         var mm = String (Now.getMonth() + 1).padStart(2, '0');
         var yyyy = String (Now.getFullYear());
@@ -23,14 +39,7 @@ function Button_Time() {
         Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
 
         DateBefore = Now;
-        if (parseInt(dd) <= 7)
-        {
-            DateBefore.setDate(23);
-            DateBefore.setMonth(DateBefore.getMonth() - 1);
-        }
-        else {
-            DateBefore.setDate(parseInt(dd) - 7);
-        }
+        DateBefore = addDays(DateBefore, -1);
         
         var A_dd = String(DateBefore.getDate()).padStart(2, '0');
         var A_mm = String (DateBefore.getMonth() + 1).padStart(2, '0');
@@ -41,11 +50,67 @@ function Button_Time() {
         console.log(Req_Now);
         console.log(Req_Before);
 
+        Get_Datas().then(function(dat) {
+            dat.forEach(function(item, index, array) 
+            {
+                console.log(item.NombreDePassage);
+                console.log(item.DateTime.getHours());
+                datas.push(item.NombreDePassage);
+                Graphe_Label.push(item.DateTime.getHours());
+                
+            })
+            titre[0] = "Affluence par jour";
+            MakeLineGraph();
+        }).catch((err) => setImmediate(() => { throw err; }));
+
         RetrieveDatas();
     })
-    const MonthlyBtn = document.getElementById('Weekly')
+
+    const WeeklyBtn = document.getElementById('Weekly')
+    WeeklyBtn.addEventListener('click', (event) => {
+        Now = new Date(2020,10,15);
+        var dd = String(Now.getDate()).padStart(2, '0');
+        var mm = String (Now.getMonth() + 1).padStart(2, '0');
+        var yyyy = String (Now.getFullYear());
+
+        Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
+
+        DateBefore = Now;
+        DateBefore = addDays(DateBefore, -7);
+
+        var A_dd = String(DateBefore.getDate()).padStart(2, '0');
+        var A_mm = String (DateBefore.getMonth() + 1).padStart(2, '0');
+        var A_yyyy = String (DateBefore.getFullYear());
+
+        Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
+
+        console.log(Req_Now);
+        console.log(Req_Before);
+
+        Get_Datas().then(function(dat) {
+            dat.forEach(function(item, index, array) 
+            {
+                var jour = item.DateTime.getDate();
+                console.log(item.NombreDePassage);
+                console.log(item.DateTime.getDate());
+                datas.push(item.NombreDePassage);
+                Graphe_Label.push(item.DateTime.getDate());
+            })
+            titre[0] = "Affluence par jour";
+            MakeLineGraph();
+        }).catch((err) => setImmediate(() => { throw err; }));
+
+        RetrieveDatas();
+    })
+
+
+
+
+
+
+    const MonthlyBtn = document.getElementById('Monthly')
     MonthlyBtn.addEventListener('click', (event) => {
-        Now = new Date();
+        Now = new Date(2020,10,15);
         var dd = String(Now.getDate()).padStart(2, '0');
         var mm = String (Now.getMonth() + 1).padStart(2, '0');
         var yyyy = String (Now.getFullYear());
@@ -53,39 +118,23 @@ function Button_Time() {
         Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
 
         DateBefore = Now;
-        DateBefore.setMonth(DateBefore.getMonth() - 1);
+        DateBefore = addDays(DateBefore, -30);
 
         var A_dd = String(DateBefore.getDate()).padStart(2, '0');
-        var A_mm = String (DateBefore.getMonth() + 1).padStart(2, '0');
-        var A_yyyy = String (DateBefore.getFullYear());
+        var A_mm = String(DateBefore.getMonth() + 1).padStart(2, '0');
+        var A_yyyy = String(DateBefore.getFullYear());
 
         Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
 
         console.log(Req_Now);
         console.log(Req_Before);
 
-        RetrieveDatas();
-    })
-    const YearBtn = document.getElementById('Monthly')
-    YearBtn.addEventListener('click', (event) => {
-        Now = new Date();
-        var dd = String(Now.getDate()).padStart(2, '0');
-        var mm = String (Now.getMonth() + 1).padStart(2, '0');
-        var yyyy = String (Now.getFullYear());
+        values.forEach(function(item, index, array) 
+        {
+            console.log(item.NombreDePassage, index);
+            datas.push(item.NombreDePassage);
+        })
 
-        Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
-
-        DateBefore = Now;
-        DateBefore.setFullYear(parseInt(yyyy) - 1);
-
-        var A_dd = String(DateBefore.getDate()).padStart(2, '0');
-        var A_mm = String (DateBefore.getMonth() + 1).padStart(2, '0');
-        var A_yyyy = String (DateBefore.getFullYear());
-
-        Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
-
-        console.log(Req_Now);
-        console.log(Req_Before);
 
         RetrieveDatas();
     })
@@ -119,7 +168,6 @@ function ConnectToDatabase() {
     });
 }
 
-
 var ctx;
 var data;
 var options;
@@ -129,49 +177,60 @@ var graph;
 // Appeler cette fonction à chaque fois qu'on appuie un bouton : TODAY, WEEKLY, MONTHLY
 function RetrieveDatas()
 {
-    Affluence_Today();
-	MakeLineGraph();
 	MakeBar();
 	MakeAraignee();
 	MakeCercle();
 }
 
-function Affluence_Today() 
+
+function Get_Datas() 
 {
-    var req = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
-    console.log("Request : " + req);
-    //var sql = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '2020-06-29 00:00:00' AND '2020-06-29 10:00:00'";
-    con.query(req, function (err, result) {
-        if (err) throw err;
-        else {
-            values = result;
-            console.log("Renvoie " + values);
-        }
-    });
+    datas = [];
+    Graphe_Label = [];
+    return new Promise(function(resolve, reject) {
+        var req = "SELECT NombreDePassage, DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
+        console.log("Request : " + req);
+        //var sql = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '2020-06-29 00:00:00' AND '2020-06-29 10:00:00'";
+        con.query(req, function (err, result) {
+            if (err) return reject(err);
+            else {
+                values = result;
+                console.log("Renvoie " + datas.length);
+                resolve(values);
+            }
+        });
+    })
+    
 }
 
+
+function filter_list(l) {
+    return l.filter(Int => typeof Int === "number");
+}
+console.log(filter_list([1,2,'a','b']))
+
+var graph1;
+var test = new Array(5,10,16,18,10,5);
+
+
 function MakeLineGraph() {
+    if (graph1 != null)
+    {
+        graph1.destroy();
+    }
 
-    var graph1;
-
+    console.log(datas.length);
     ctx = document.getElementById('Vente').getContext('2d')
 
     data = {
-        labels: ['Janvier', 'Février', 'Mars', 'Avril','Mai'],
+        labels: Graphe_Label,
         datasets: [{
             backgroundColor: 'rgba(45, 154, 224, 0.35)',
             borderColor: '#2d9ae0',
-            data: [10, 50, 40, 25, 20],
-            label: "Technologique"
-        },
-        {
-            backgroundColor: 'rgba(114, 112, 180, 0.35)',
-            borderColor: '7270b4',
-            data: [40, 30, 70, 60, 54],
-            label: "Alimentaire"
+            data: datas,
+            label: "Personne"
         }]
     };
-    //console.log("1");
     options = {
         title: {
             display: true,
@@ -182,7 +241,7 @@ function MakeLineGraph() {
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: 'Evolution Mensuel'
+            text: titre[0]
         },
         animation: {
             duration: 1000,
@@ -195,7 +254,6 @@ function MakeLineGraph() {
         data: data,
         options : options
     });
-    //console.log("2");
 }
 
 function RetrieveAffluence()
@@ -211,9 +269,13 @@ function RetrieveAffluence()
         }
     });
 }
+var graph2; 
 function MakeBar()
 {
-    var graph2;
+    if (graph2 != null)
+    {
+        graph2.destroy();
+    }
     ctx = document.getElementById('graph2').getContext('2d')
     //
     data = {
@@ -253,10 +315,12 @@ function MakeBar()
     });
 }
 
+var graph3;
 function MakeCercle() {
-    
-    var graph3;
-
+    if (graph3 != null)
+    {
+        graph3.destroy();
+    }
     ctx = document.getElementById('graph3').getContext('2d')
 
     data = {
@@ -293,11 +357,13 @@ function MakeCercle() {
 });
 }
 
-
+var graph4;
 function MakeAraignee() 
 {
-    var graph4;
-
+    if (graph4 != null)
+    {
+        graph4.destroy();
+    }
     ctx = document.getElementById('graph4').getContext('2d')
 
     data = {
