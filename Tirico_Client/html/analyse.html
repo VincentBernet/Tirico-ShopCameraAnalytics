@@ -46,19 +46,18 @@
 			<span id="Container_graphe"> 
                 <br> <!-- Les espaces dans les paragraphes et indentations sont prise en compte pour la mise en forme -->
 				<p id="Titre">
-					 Votre analyse journalière du <!-- Script pour insérer la date :-->
-					 <script>
-						 var today = new Date();
-						 var dd = String(today.getDate()).padStart(2, '0');
-						 var mm = String(today.getMonth() + 1).padStart(2, '0');
-						 var yyyy = today.getFullYear();
-						 today = dd + '/' + mm + '/' + yyyy;
-						 document.write(today+"");
-					 </script>
+					Votre analyse journalière du <!-- Script pour insérer la date :-->
+					<script>
+						var today = new Date();
+						var dd = String(today.getDate()).padStart(2, '0');
+						var mm = String(today.getMonth() + 1).padStart(2, '0');
+						var yyyy = today.getFullYear();
+						today = dd + '/' + mm + '/' + yyyy;
+						document.write(today+"");
+					</script>
 				</p>
 				<!-- Paragraphe contenant le conseil avec en amont la date du jour actuel --> 
                 <div id="DailyAdvice">
-					
 					<!-- Le conseil journalier à délivrer -->
 					<span class="TitreDaily">Prévision de l'affluence :</span>
 					<div class="DailyAdviceClass" id="DailyAdvice1"> Votre vitrine génère entre 8 000 et 80 000 vues par jour en fonction de votre emplacement.  </div>
@@ -69,7 +68,6 @@
 					<span class="TitreDaily">Analyse du marché :</span>
 					<div class="DailyAdviceClass"id="DailyAdvice3"> Votre vitrine génère entre 8 000 et 80 000 vues par jour en fonction de votre emplacement.  </div>
 					<br></div>
-
 				<!-- Ce conseil vous as t'il été pertinent ? Recharger nouveau conseil -->
             </span>
 			

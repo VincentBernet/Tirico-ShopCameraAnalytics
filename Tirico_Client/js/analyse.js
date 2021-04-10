@@ -19,16 +19,16 @@ var con = mysql.createConnection({
     user: "pa8_acc",
     password: "5wtE3Cx8W",
     database: "pa8_bddv2"
-  });
-  
-  con.connect(function(err) {
+});
+
+con.connect(function(err) {
     if (err) throw err;
     console.log("Connected to the DB: From Analyse.js");
-  });
+});
 
 
-  var sql0 = "SELECT IdLoc FROM AccToLoc WHERE IdAcc='"+Account_ID+"'";
-  con.query(sql0, function (err0, result0) {
+var sql0 = "SELECT IdLoc FROM AccToLoc WHERE IdAcc='"+Account_ID+"'";
+con.query(sql0, function (err0, result0) {
     if (err0) alert(err0);
     else
     {
