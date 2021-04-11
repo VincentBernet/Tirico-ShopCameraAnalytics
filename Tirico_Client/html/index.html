@@ -51,7 +51,7 @@
                     <div id ="radioButton"></div>
                 </div>
 				<br><br>
-				<a id="redirect_Analyse" class="button" href="#">Dashboard</a>
+				<a id="redirect_Dashboard" class="button" href="#">Dashboard</a>
 				<br>
 				<a id="redirect_Analyse" class="button" href="#">Analyse</a>
 				<br>
@@ -63,6 +63,15 @@
 		</div>
         <div class="Workspace">
 			<div id="time_button"><button id="refresh_button">Refresh</button><button id="Daily">Daily</button><button id="Weekly">Weekly</button><button id="Monthly">Monthly</button></div>
+			<div id="time_button">
+			<input type="date" id="start" name="trip-start"
+				value="2018-07-22"
+				min="2020-01-01" max="2020-12-31">
+			<input type="date" id="end" name="trip-start"
+				value="2019-07-22"
+				min="2020-01-01" max="2020-12-31">
+			<button id="go_datebutton" />
+			</div>
 				<div class="Espace">
 					<span id="Container_graphe">
 						<canvas id="Vente" width="100" height="50"></canvas>
@@ -81,18 +90,18 @@
 				</div>
 				<div class="Espace">
 					<span id="Container_graphe">
-						<canvas id="graph3"></canvas>
+						<canvas id="graph5"></canvas>
 					</span>
 					<span id="Container_graphe">
-						<canvas id="graph4"></canvas>
+						<canvas id="graph6"></canvas>
 					</span>
 				</div>
 				<div class="Espace">
 					<span id="Container_graphe">
-						<canvas id="graph3"></canvas>
+						<canvas id="graph7"></canvas>
 					</span>
 					<span id="Container_graphe">
-						<canvas id="graph4"></canvas>
+						<canvas id="graph8"></canvas>
 					</span>
 				</div>
             </div>
