@@ -46,8 +46,8 @@ function Button_Time() {
         Now = new Date(dateControlEnd.value);
         console.log(Now);
         var dd = String(Now.getDate()).padStart(2, '0');
-        var mm = String (Now.getMonth() + 1).padStart(2, '0');
-        var yyyy = String (Now.getFullYear());
+        var mm = String(Now.getMonth() + 1).padStart(2, '0');
+        var yyyy = String(Now.getFullYear());
 
         Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
 
@@ -67,7 +67,7 @@ function Button_Time() {
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + dat[0].DateTime.getMonth())
+            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
@@ -95,7 +95,7 @@ function Button_Time() {
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + dat[0].DateTime.getMonth())
+            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
@@ -116,7 +116,6 @@ function Button_Time() {
             MakeVenteLineGraph();
             MakeBarVente();
         }).catch((err) => setImmediate(() => { throw err; }));
-
         RetrieveDatas();
     })
     const DailyBtn = document.getElementById('Daily')
@@ -160,7 +159,6 @@ function Button_Time() {
             MakeVenteLineGraph();
             MakeBarVente();
         }).catch((err) => setImmediate(() => { throw err; }));
-        
         RetrieveDatas();
     })
 
@@ -189,7 +187,7 @@ function Button_Time() {
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + dat[0].DateTime.getMonth())
+            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
@@ -216,7 +214,7 @@ function Button_Time() {
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + dat[0].DateTime.getMonth())
+            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
@@ -268,7 +266,7 @@ function Button_Time() {
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + dat[0].DateTime.getMonth())
+            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
@@ -296,7 +294,7 @@ function Button_Time() {
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + dat[0].DateTime.getMonth())
+            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
