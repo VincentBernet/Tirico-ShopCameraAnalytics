@@ -66,19 +66,22 @@ function Button_Time() {
         Get_Datas("NombreDePassage").then(function(dat) {
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
+            var nb = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
                 if (jour == dernierJour)
                 {
                     moyenne = moyenne + item.NombreDePassage;
+                    nb = nb + 1;
                 }
                 if (jour != dernierJour)
                 {
                     semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas.push(moyenne);
+                    datas.push(moyenne / nb);
+                    nb = 0;
                     moyenne = 0;
                 }
                 dernierJour = jour;
@@ -94,19 +97,22 @@ function Button_Time() {
             console.log(dat);
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
+            var nb = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
                 if (jour == dernierJour)
                 {
                     moyenne = moyenne + item.NbVente;
+                    nb = nb + 1;
                 }
                 if (jour != dernierJour)
                 {
                     semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas_ventes.push(moyenne);
+                    datas_ventes.push(moyenne / nb);
+                    nb = 0;
                     moyenne = 0;
                 }
                 dernierJour = jour;
@@ -118,6 +124,8 @@ function Button_Time() {
         }).catch((err) => setImmediate(() => { throw err; }));
         RetrieveDatas();
     })
+
+
     const DailyBtn = document.getElementById('Daily')
     DailyBtn.addEventListener('click', (event) => {
         Now = new Date(2020,10,15);
@@ -186,20 +194,24 @@ function Button_Time() {
         Get_Datas("NombreDePassage").then(function(dat) {
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
+            var nb = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+            // Est -ce qu'on doit pas enlever cette ligne ?
+            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
                 if (jour == dernierJour)
                 {
                     moyenne = moyenne + item.NombreDePassage;
+                    nb = nb + 1;
                 }
                 if (jour != dernierJour)
                 {
                     semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas.push(moyenne);
+                    datas.push(moyenne / nb);
                     moyenne = 0;
+                    nb = 0;
                 }
                 dernierJour = jour;
             })
@@ -213,21 +225,24 @@ function Button_Time() {
             
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
+            var nb = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
                 if (jour == dernierJour)
                 {
                     moyenne = moyenne + item.NbVente;
+                    nb = nb + 1;
                     console.log(moyenne);
                 }
                 if (jour != dernierJour)
                 {
                     semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas_ventes.push(moyenne);
+                    datas_ventes.push(moyenne / nb);
                     moyenne = 0;
+                    nb = 0;
                 }
                 dernierJour = jour;
             })
@@ -265,20 +280,23 @@ function Button_Time() {
         Get_Datas("NombreDePassage").then(function(dat) {
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
+            var nb = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
                 if (jour == dernierJour)
                 {
                     moyenne = moyenne + item.NombreDePassage;
+                    nb = nb + 1;
                 }
                 if (jour != dernierJour)
                 {
                     semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas.push(moyenne);
+                    datas.push(moyenne / nb);
                     moyenne = 0;
+                    nb = 0;
                 }
                 dernierJour = jour;
             })
@@ -293,20 +311,23 @@ function Button_Time() {
             console.log(dat);
             var dernierJour = dat[0].DateTime.getDate();
             var moyenne = 0;
+            var nb = 0;
             var semaine = [];
-            semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
             dat.forEach(function(item, index, array) 
             {
                 var jour = item.DateTime.getDate();
                 if (jour == dernierJour)
                 {
                     moyenne = moyenne + item.NbVente;
+                    nb = nb + 1;
                 }
                 if (jour != dernierJour)
                 {
                     semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas_ventes.push(moyenne);
+                    datas_ventes.push(moyenne / nb);
                     moyenne = 0;
+                    nb = 0;
                 }
                 dernierJour = jour;
             })

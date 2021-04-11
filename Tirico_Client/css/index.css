@@ -2,7 +2,10 @@ body {
 	/*background-color: #15161a;*/
 	background-color: #1e1c24;
 	font-family: 'Raleway', sans-serif;
-	overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .nav_links {
