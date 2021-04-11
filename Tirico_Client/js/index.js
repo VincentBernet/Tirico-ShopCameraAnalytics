@@ -111,5 +111,3 @@ con.query(sql0, function (err0, result0) {
             }
         }
     }});
-
-
