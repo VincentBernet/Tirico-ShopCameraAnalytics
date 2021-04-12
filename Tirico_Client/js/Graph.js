@@ -121,8 +121,9 @@ function Button_Time() {
             titre[1] = 'Vente par mois';
             MakeVenteLineGraph();
             MakeBarVente();
+            MakeAraignee();
+            MakeCercle();
         }).catch((err) => setImmediate(() => { throw err; }));
-        RetrieveDatas();
     })
 
 
@@ -166,8 +167,9 @@ function Button_Time() {
             titre[1] = "Vente par jour";
             MakeVenteLineGraph();
             MakeBarVente();
+            MakeAraignee();
+            MakeCercle();
         }).catch((err) => setImmediate(() => { throw err; }));
-        RetrieveDatas();
     })
 
     const WeeklyBtn = document.getElementById('Weekly')
@@ -250,9 +252,9 @@ function Button_Time() {
             titre[1] = 'Vente par semaine';
             MakeVenteLineGraph();
             MakeBarVente();
+            MakeAraignee();
+            MakeCercle();
         }).catch((err) => setImmediate(() => { throw err; }));
-
-        RetrieveDatas();
     })
 
 
@@ -335,9 +337,9 @@ function Button_Time() {
             titre[1] = 'Vente par mois';
             MakeVenteLineGraph();
             MakeBarVente();
+            MakeAraignee();
+            MakeCercle();
         }).catch((err) => setImmediate(() => { throw err; }));
-
-        RetrieveDatas();
     })
 }
 function set_BoxDate(A_yyyy, A_mm, A_dd, yyyy, mm, dd)
@@ -372,7 +374,6 @@ function ConnectToDatabase() {
         if (err) throw err;
         else {
             values = result;
-            RetrieveDatas();
         }
     });
 }
@@ -382,14 +383,6 @@ var data;
 var options;
 var config;
 var graph;
-
-// Appeler cette fonction à chaque fois qu'on appuie un bouton : TODAY, WEEKLY, MONTHLY
-function RetrieveDatas()
-{
-	MakeBar();
-	MakeAraignee();
-	MakeCercle();
-}
 
 
 function Get_Datas(Data) 
@@ -619,6 +612,13 @@ function MakeBarVente()
 
 var graph5;
 function MakeCercle() {
+
+    var t = [];
+    datas.forEach(function(item, index, array) {
+        t.push('rgb(' + Math.random() * 255 + ', ' + Math.random() * 255 + ', ' + Math.random() * 255 + ')');
+    })
+
+
     if (graph5 != null)
     {
         graph5.destroy();
@@ -626,11 +626,11 @@ function MakeCercle() {
     ctx = document.getElementById('graph5').getContext('2d')
 
     data = {
-        labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
+        labels: Graphe_Label_Vente,
         datasets: [{
-            backgroundColor: '#2d9ae0',
+            backgroundColor: t,
             borderColor: '#0000',
-            data: [30, 40, 60, 30, 70, 120, 0]
+            data: datas
         }]
     }
 
@@ -669,14 +669,18 @@ function MakeAraignee()
     ctx = document.getElementById('graph6').getContext('2d')
 
     data = {
-        label: 'salut',
-    labels: ['Red', 'Février', 'Marss'],
+        label: 'Vente',
+    labels: Graphe_Label_Vente,
     datasets: [{
-        backgroundColor: '#2d9ae0',
-        data: [30, 30, 25]
+        label: titre[0],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        fill: true,
+        borderColor: 'rgb(54, 162, 235)',
+        pointBorderColor: '#fff',
+        pointBackgroundColor: 'rgb(54, 162, 235)',
+        data: datas
     }]
 }
-
     options = {
         title: {
             display: true,
@@ -694,10 +698,6 @@ function MakeAraignee()
                 easing: 'easeInQuad'
             },
             scale: {
-                ticks: {
-                    suggestedMin: 15,
-                    suggestedMax: 35
-                }
             }
         }
 
