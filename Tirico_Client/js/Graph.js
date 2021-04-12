@@ -653,7 +653,7 @@ function MakeCercle() {
     }
 
     graph5 = new Chart(ctx, {
-    type: 'doughnut',
+    type: 'polarArea',
     data: data,
     options: options
 });
