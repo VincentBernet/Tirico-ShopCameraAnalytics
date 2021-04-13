@@ -65,7 +65,7 @@ On this application we implemetended multiples features such as :
 
  - Jean Hecke & Louis Gailhac & Serge Nicolas Excoffier
  - Hélène Boersma & Emeline Bagoris
- - Sébastien Fried & Vincent Bernet
+ - Sébastien Friedberg & Vincent Bernet
 
 
 
