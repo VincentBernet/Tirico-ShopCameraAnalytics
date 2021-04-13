@@ -9,6 +9,7 @@
 			content="script-src 'self' 'unsafe-inline';"
 		/>
 		<link rel="stylesheet" href="../css/parametre.css" />
+        <link rel="stylesheet" href="../css/header.css" />
 
         <!-- Script assurant la déconnexion et d'autres fonctions -->
 		<script defer src="../js/index.js"></script>
@@ -16,29 +17,39 @@
 	</head>
 
 	<body>
-
 		<!-- Container flex comprenant et les boutons pour changer d'analyse et la rubrique-->
 		<div class="Option_Graphe_Container">
-
-            <div class = "bouton_gauche">
-				<!-- Logo -->
-				<a href="#">
-					<img id="logotext"  src="../ressource/image/Logo_bleu.png"/>
-				</a>
-				<div id="BouttonRedirection">
-					<a id="redirect_Index" class="button" href="#">DashBoard</a>
-					<br>
-					<a id="redirect_Analyse" class="button" href="#">Analyse</a>
-					<br>
-					<a id="redirect_Disconnection" class="button" href="#">Déconnexion</a>
+			<div class = "bouton_gauche">
+				<img id="logotext"  src="../ressource/image/Logo_bleu.png"/>
+				<div id="container_Compteur">
+					<table>
+						<tr>
+							<td>Nombre de Client</td> 
+							<td class="odometer" id="Ccap"></td>
+						</tr>
+						<tr>
+							<td>Capacité Restante</td>
+							<td class="odometer" id="CapRestante"></td>
+						</tr>
+						<tr><span id="alert"></span></tr>
+						<tr></tr>
+					</table>
 				</div>
-				<div id ="radioButton"></div>
-				
+				<br><br>
+				<br><br>
+				<a id="redirect_Dashboard" class="button" href="#">Dashboard</a>
+				<br>
+				<a id="redirect_Analyse" class="button" href="#">Analyse</a>
+				<br>
+				<a id="redirect_Parameter" class="button" href="#">Paramètre</a>
+				<br>
+				<a id="redirect_Disconnection" class="button" href="#">Déconnexion</a>
+				<br>
 			</div>
+		</div>
+        
 			<!-- Container avec le graphe choisi (en format png) -->
-			<div id="Container_graphe"> 
-                <br>
-                 
+		<div id="Container_graphe">
                 Sélectionnez le graphe que vous souhaitez modifier : 
                 <!--<form method="POST"> -->
                     <select id="Graph_Selected">
