@@ -14,34 +14,11 @@ body {
 	left: 350px;
 }
 
-.Option_Graphe_Container {
-	display: flex;
-	flex-direction: row;
-	position: fixed;
-	height: 100%;
-}
-
-.bouton_gauche {
-	background-color: rgb(28, 28, 44);
-	height: 100%;
-	width: 100%;
-	box-shadow: inset -5px 0px #15141a;
-}
-
-#radioButton {
-	align-items: center;
-	justify-content: middle;
-	color: white;
-
-}
-#radioButton a {
-	color : white;
-}
-
 .Workspace {
 	padding-left: 15%;
 	padding-top: 2%;
 }
+
 .Espace {
 	height: 40vh;
 	display: flex;
@@ -83,46 +60,6 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	width: 17em;
-}
-
-
-/* Bouton sélection Analytics */
-.button {
-	display: inline-flex;
-	height: 4vh;
-	width: 20vh;
-	border: 2px solid #423e69;
-	margin: 2vh 2vh 2vh 4vh;
-	color: #000000;
-	text-transform: uppercase;
-	text-decoration: none;
-	font-size: 1.6vh;
-	letter-spacing: 1.5px;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	background-color: #00abe9;
-
-	transition-duration: 300ms;
-	transition-property: color, background-color, letter-spacing;
-}
-.button:hover::before {
-	transform: scale(1.1);
-	box-shadow: 0 0 15px #007acc;
-}
-.button:hover {
-	background-color: #006488;
-	box-shadow: outset 5px 2px 5px #0a0a0a, outset -5px -2px 5px #2a2a2a;
-
-	color: #ffee10;
-	box-shadow: 0 0 5px #4100d8;
-	text-shadow: 0 0 5px #4100d8;
-	letter-spacing: 6px;
-}
-a {
-	color: #bfc0c0;
-	text-decoration: none;
-	letter-spacing: 1px;
 }
 
 #refresh_button {
@@ -211,27 +148,10 @@ select {
 	background-color: #1a1a1a;
 }
 
-#logotext {
-	width: 75%;
-	cursor: pointer;
-	margin: 0 0 0 7%;
-	padding: 10px 10px 10px 10px;
-	transition: box-shadow 0.7s, transform 3s;
-}
-
-#logotext:hover {
-	transform: rotateY(360deg);
-}
 
 #locaux {
 	padding-top: -10vh;
 	display: flex;
-}
-
-.kraken {
-	color: white;
-	font-weight: 200;
-	font-size: small;
 }
 
 .toolbar {
@@ -338,4 +258,51 @@ span.live-icon:before {
 #alert {
 	color: red;
 	margin-left: 5%;
+}
+
+
+
+.bloc {
+	position: absolute;
+	top : 50px;
+	right : 60px;
+}
+select {
+	appearance: none;
+	outline: 0;
+	border: 0 !important;
+	background: #F9F9F9;
+	background-image: none;
+	box-shadow: none;
+	font-size: 1.2em;
+}
+.select {
+	position: relative;
+	width: 275px;
+	height: 37px;
+	overflow: hidden;
+	border-radius: 5px;
+	border: 1px solid #CED4DA;
+}
+
+select {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding-left: 15px;
+	color: #555555;
+	cursor: pointer;
+}
+
+.select::after {
+	content: '\276F';
+	position: absolute;
+	top: 20%;
+	right: 0;
+	padding: 0 15px;
+	background: white;
+	pointer-events: none;
+	transform: rotate(90deg);
+	font-size: 1.5em;
+	background: #F9F9F9;
 }

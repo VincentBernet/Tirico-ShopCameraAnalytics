@@ -9,7 +9,7 @@
 			content="script-src 'self' 'unsafe-inline';"
 		/>
 		<link rel="stylesheet" href="../css/index.css" />
-		<link rel="stylesheet" href="../css/NewHeader.css" />
+		<link rel="stylesheet" href="../CSS/header.css" />
 
 		<!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
 			The script loads “in the background”, and then runs when the DOM is fully built.-->
@@ -69,17 +69,18 @@
 				min="2020-01-01" max="2020-12-31">
 			<button id="go_datebutton">Search</button>
 			</div>
-			<div id="time_button">
-				<div id="locaux">
-                    <div id ="radioButton"></div>
-                </div>
+			<div class="bloc">
+				<div class="select">
+					<select id="magasinSelect">
+					</select>
+				</div>
 			</div>
 				<div class="Espace">
 					<span id="Container_graphe">
-						<canvas id="Vente" width="100" height="50"></canvas>
+						<canvas id="Vente"</canvas>
 					</span>
 					<span id="Container_graphe">
-						<canvas id="graph2" width="100" height="50"></canvas>
+						<canvas id="graph2"</canvas>
 					</span>
 				</div>
 				<div class="Espace">

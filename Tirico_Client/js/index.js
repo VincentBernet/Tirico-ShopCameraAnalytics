@@ -105,7 +105,11 @@ con.query(sql0, function (err0, result0) {
                     if (err1) alert(err1);
                     else
                     {
-                        document.getElementById("radioButton").innerHTML += '<input type="radio" id="Local'+result1[0].ID+'" name="local" value="local'+result1[0].ID+'"><label for="Local">'+result1[0].Nom+'</label><br>';
+                        var x = document.getElementById("magasinSelect");
+                        var option = document.createElement("option");
+                        option.text = result1[0].Nom;
+                        option.id = result1[0].ID;
+                        x.add(option);
                     }
                 });
             }
