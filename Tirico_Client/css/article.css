@@ -9,7 +9,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	height: 100%;
-	width: 100%;
+	width: 99%;
 }
 
 .bouton_gauche {
@@ -87,6 +87,8 @@ body {
 	padding: 3%;
 	color: white;
 	border-radius: 1%;
+	opacity: 0;
+	animation: fadeIn 1s forwards 0.1s;
 }
 
 #Titre {
@@ -104,4 +106,14 @@ body {
 	margin-top: 10%;
 	margin-left: 22%;
 	color: white;
+}
+
+@keyframes fadeIn {
+	10% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
