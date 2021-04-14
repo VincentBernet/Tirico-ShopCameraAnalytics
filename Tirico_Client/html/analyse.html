@@ -8,12 +8,10 @@
 			http-equiv="Content-Security-Policy"
 			content="script-src 'self' 'unsafe-inline';"
 		/>
-		<link rel="stylesheet" href="../css/article.css" />
-		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/analyse.css" />
 
 		<!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
 			The script loads “in the background”, and then runs when the DOM is fully built.-->
-		<script defer src="../js/index.js"></script>
 		<script defer src="../js/analyse.js"></script>
 	</head>
 
@@ -22,20 +20,7 @@
 		<div class="Option_Graphe_Container">
 			<div class = "bouton_gauche">
 				<img id="logotext"  src="../ressource/image/Logo_bleu.png"/>
-				<div id="container_Compteur">
-					<table>
-						<tr>
-							<td>Nombre de Client</td> 
-							<td class="odometer" id="Ccap"></td>
-						</tr>
-						<tr>
-							<td>Capacité Restante</td>
-							<td class="odometer" id="CapRestante"></td>
-						</tr>
-						<tr><span id="alert"></span></tr>
-						<tr></tr>
-					</table>
-				</div>
+				
 				<br><br>
 				<br><br>
 				<a id="redirect_Dashboard" class="button" href="#">Dashboard</a>
@@ -47,7 +32,6 @@
 				<a id="redirect_Disconnection" class="button" href="#">Déconnexion</a>
 				<br>
 			</div>
-		</div>
 
 		<div class="Container_graphe"> 
             <br> <!-- Les espaces dans les paragraphes et indentations sont prise en compte pour la mise en forme -->
