@@ -3,6 +3,7 @@ body {
 	background-color: #15161a;
 	font-family: 'Raleway', sans-serif;
 }
+<<<<<<< HEAD
 .Option_Graphe_Container {
 	position: absolute;
 	top: 0;
@@ -36,45 +37,9 @@ body {
 #logotext:hover {
 	transform: rotateY(360deg);
 }
+=======
+>>>>>>> 601734e5565829044e752cdcc49fa61c49dee569
 
-#BouttonRedirection {
-	margin-top: 15%;
-}
-/* Bouton sélection Analytics */
-.button {
-	display: inline-flex;
-	height: 4vh;
-	width: 60%;
-	margin-left: 18%;
-	margin-bottom: 5%;
-	border: 2px solid #423e69;
-	color: #000000;
-	text-transform: uppercase;
-	text-decoration: none;
-	font-size: 1.6vh;
-	letter-spacing: 1.5px;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	background-color: #00abe9;
-
-	transition-duration: 300ms;
-	transition-property: color, background-color, letter-spacing;
-}
-
-.button:hover::before {
-	transform: scale(1.1);
-	box-shadow: 0 0 15px #007acc;
-}
-.button:hover {
-	background-color: #006488;
-	box-shadow: outset 5px 2px 5px #0a0a0a, outset -5px -2px 5px #2a2a2a;
-
-	color: #ffee10;
-	box-shadow: 0 0 5px #4100d8;
-	text-shadow: 0 0 5px #4100d8;
-	letter-spacing: 6px;
-}
 
 #Container_graphe {
 	position: flex;
@@ -82,7 +47,7 @@ body {
 	height: fit-content;
 	min-width: 50%;
 	margin-top: 5%;
-	margin-left: 13%;
+	margin-left: 20%;
 	background: #1a1a1a;
 	box-shadow: inset 5px 5px 18px #0a0a0a, inset -5px -5px 18px #2a2a2a;
 	padding: 3%;

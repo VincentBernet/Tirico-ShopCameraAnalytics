@@ -9,6 +9,7 @@
 			content="script-src 'self' 'unsafe-inline';"
 		/>
 		<link rel="stylesheet" href="../css/article.css" />
+		<link rel="stylesheet" href="../css/header.css" />
 
 		<!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
 			The script loads “in the background”, and then runs when the DOM is fully built.-->
@@ -16,16 +17,10 @@
 	</head>
 
 	<body>
-
-		<!-- Identifiant : sebastien.friedberg@gmail.com Mdp : Azerty123 or vincent.bernet@efrei.net Azerty123 -->
-		<header>
-			
-		</header>
-		<br><br><br>
-
 		<!-- Container flex général -->
 		<div class="Option_Graphe_Container">
 			<div class = "bouton_gauche">
+<<<<<<< HEAD
 				<!-- Logo -->
 				<a href="#">
 					<img id="logotext"  src="../ressource/image/Logo_bleu.png"/>
@@ -39,42 +34,65 @@
 				<br>
 				<a id="redirect_Disconnection" class="button" href="#">Déconnexion</a>
 				<br>
+=======
+				<img id="logotext"  src="../ressource/image/Logo_bleu.png"/>
+				<div id="container_Compteur">
+					<table>
+						<tr>
+							<td>Nombre de Client</td> 
+							<td class="odometer" id="Ccap"></td>
+						</tr>
+						<tr>
+							<td>Capacité Restante</td>
+							<td class="odometer" id="CapRestante"></td>
+						</tr>
+						<tr><span id="alert"></span></tr>
+						<tr></tr>
+					</table>
+>>>>>>> 601734e5565829044e752cdcc49fa61c49dee569
 				</div>
-				<div id ="radioButton"></div>
-				
+				<br><br>
+				<br><br>
+				<a id="redirect_Dashboard" class="button" href="#">Dashboard</a>
+				<br>
+				<a id="redirect_Analyse" class="button" href="#">Analyse</a>
+				<br>
+				<a id="redirect_Parameter" class="button" href="#">Paramètre</a>
+				<br>
+				<a id="redirect_Disconnection" class="button" href="#">Déconnexion</a>
+				<br>
 			</div>
-
-			<!-- Container contenant le conseil journalier -->
-			<span id="Container_graphe"> 
-                <br> <!-- Les espaces dans les paragraphes et indentations sont prise en compte pour la mise en forme -->
-				<p id="Titre">
-					Votre analyse journalière du <!-- Script pour insérer la date :-->
-					<script>
-						var today = new Date();
-						var dd = String(today.getDate()).padStart(2, '0');
-						var mm = String(today.getMonth() + 1).padStart(2, '0');
-						var yyyy = today.getFullYear();
-						today = dd + '/' + mm + '/' + yyyy;
-						document.write(today+"");
-					</script>
-				</p>
-				<!-- Paragraphe contenant le conseil avec en amont la date du jour actuel --> 
-                <div id="DailyAdvice">
-					<!-- Le conseil journalier à délivrer -->
-					<span class="TitreDaily">Prévision de l'affluence :</span>
-					<div class="DailyAdviceClass" id="DailyAdvice1"> Votre vitrine génère entre 8 000 et 80 000 vues par jour en fonction de votre emplacement.  </div>
-
-					<span class="TitreDaily">Gestion des Stocks :</span>
-					<div class="DailyAdviceClass" id="DailyAdvice2"> Votre vitrine génère entre 8 000 et 80 000 vues par jour en fonction de votre emplacement.  </div>
-
-					<span class="TitreDaily">Analyse du marché :</span>
-					<div class="DailyAdviceClass"id="DailyAdvice3"> Votre vitrine génère entre 8 000 et 80 000 vues par jour en fonction de votre emplacement.  </div>
-					<br></div>
-				<!-- Ce conseil vous as t'il été pertinent ? Recharger nouveau conseil -->
-            </span>
-			
 		</div>
 
+		<div class="Container_graphe"> 
+            <br> <!-- Les espaces dans les paragraphes et indentations sont prise en compte pour la mise en forme -->
+			<p id="Titre">
+				Votre analyse journalière du <!-- Script pour insérer la date :-->
+				<script>
+					var today = new Date();
+					var dd = String(today.getDate()).padStart(2, '0');
+					var mm = String(today.getMonth() + 1).padStart(2, '0');
+					var yyyy = today.getFullYear();
+					today = dd + '/' + mm + '/' + yyyy;
+					document.write(today+"");
+				</script>
+			</p>
+			<!-- Paragraphe contenant le conseil avec en amont la date du jour actuel --> 
+            <div id="DailyAdvice">
+				<!-- Le conseil journalier à délivrer -->
+				<span class="TitreDaily">Prévision de l'affluence :</span>
+				<div class="DailyAdviceClass" id="DailyAdvice1"> Votre vitrine génère entre 8 000 et 80 000 vues par jour en fonction de votre emplacement.  </div>
+
+				<span class="TitreDaily">Gestion des Stocks :</span>
+				<div class="DailyAdviceClass" id="DailyAdvice2"> Votre vitrine génère entre 8 000 et 80 000 vues par jour en fonction de votre emplacement.  </div>
+
+				<span class="TitreDaily">Analyse du marché :</span>
+				<div class="DailyAdviceClass"id="DailyAdvice3"> Votre vitrine génère entre 8 000 et 80 000 vues par jour en fonction de votre emplacement.  </div>
+				<br></div>
+			<!-- Ce conseil vous as t'il été pertinent ? Recharger nouveau conseil -->
+			</div>
+		</div>
+			
 		
 	</body>
 </html>

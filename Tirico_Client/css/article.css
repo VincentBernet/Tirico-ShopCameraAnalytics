@@ -3,6 +3,7 @@ body {
 	background-color: #15161a;
 	font-family: 'Raleway', sans-serif;
 }
+<<<<<<< HEAD
 .Option_Graphe_Container {
 	position: absolute;
 	top: 0;
@@ -37,6 +38,8 @@ body {
 	transform: rotateY(360deg);
 }
 
+=======
+>>>>>>> 601734e5565829044e752cdcc49fa61c49dee569
 #BouttonRedirection {
 	margin-top: 15%;
 }
@@ -76,12 +79,12 @@ body {
 	letter-spacing: 6px;
 }
 
-#Container_graphe {
+.Container_graphe {
 	position: flex;
-	width: 45%;
-	height: 50%;
+	width: auto;
+	height: fit-content;
 	margin-top: 5%;
-	margin-left: 13%;
+	margin-left: 20%;
 	background: #1a1a1a;
 	box-shadow: inset 5px 5px 18px #0a0a0a, inset -5px -5px 18px #2a2a2a;
 	padding: 3%;
@@ -101,6 +104,7 @@ body {
 .DailyAdviceClass {
 	margin-bottom: 5%;
 }
+<<<<<<< HEAD
 
 #radioButton {
 	margin-top: 10%;
@@ -117,3 +121,5 @@ body {
 		opacity: 1;
 	}
 }
+=======
+>>>>>>> 601734e5565829044e752cdcc49fa61c49dee569
