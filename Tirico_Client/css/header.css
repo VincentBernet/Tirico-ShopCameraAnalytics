@@ -12,7 +12,6 @@
 }
 
 #logotext {
-	
 	width: 75%;
 	cursor: pointer;
 	margin: 0 0 0 7%;
@@ -72,7 +71,6 @@ a.button:hover{
 	background-color:#FFFFFF;
 }
 
-<<<<<<< HEAD
 #redirect_Disconnection {
 	position: absolute;
 	width: 65%;
@@ -82,17 +80,9 @@ a.button:hover{
 	align-items: center;
 	justify-content: center;
 	display: inline-flex;
-	margin-left: 0px;
-}
-=======
-	color: #ffee10;
-	box-shadow: 0 0 5px #4100d8;
-	text-shadow: 0 0 5px #4100d8;
-	letter-spacing: 6px;
 }
 a {
 	color: #bfc0c0;
 	text-decoration: none;
 	letter-spacing: 1px;
 }
->>>>>>> e86c137e7fa43e59879bcf71e12e482740ed019f

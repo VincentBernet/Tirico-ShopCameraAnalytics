@@ -129,47 +129,7 @@ function Button_Time() {
 
     const DailyBtn = document.getElementById('Daily')
     DailyBtn.addEventListener('click', (event) => {
-        Now = new Date(2020,10,15);
-        var dd = String(Now.getDate()).padStart(2, '0');
-        var mm = String (Now.getMonth() + 1).padStart(2, '0');
-        var yyyy = String (Now.getFullYear());
-
-        Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
-
-        DateBefore = Now;
-        DateBefore = addDays(DateBefore, -1);
-        
-        var A_dd = String(DateBefore.getDate()).padStart(2, '0');
-        var A_mm = String (DateBefore.getMonth() + 1).padStart(2, '0');
-        var A_yyyy = String (DateBefore.getFullYear());
-
-        Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
-
-        set_BoxDate(A_yyyy, A_mm, A_dd, yyyy, mm, dd);
-
-        Get_Datas("NombreDePassage").then(function(dat) {
-            dat.forEach(function(item, index, array) 
-            {
-                datas.push(item.NombreDePassage);
-                Graphe_Label.push(item.DateTime.getHours() + 'h');
-            })
-            titre[0] = "Affluence par jour";
-            MakeLineGraph();
-            MakeBar();
-        }).catch((err) => setImmediate(() => { throw err; }));
-
-        Get_Datas("NbVente").then(function(dat) {
-            dat.forEach(function(item, index, array) 
-            {
-                datas_ventes.push(item.NbVente);
-                Graphe_Label_Vente.push(item.DateTime.getHours() + 'h');
-            })
-            titre[1] = "Vente par jour";
-            MakeVenteLineGraph();
-            MakeBarVente();
-            MakeAraignee();
-            MakeCercle();
-        }).catch((err) => setImmediate(() => { throw err; }));
+        Data_ForToday();
     })
 
     const WeeklyBtn = document.getElementById('Weekly')
@@ -308,7 +268,6 @@ function Button_Time() {
             MakeBar();
         }).catch((err) => setImmediate(() => { throw err; }));
 
-
         Get_Datas("NbVente").then(function(dat) {
             console.log(dat);
             var dernierJour = dat[0].DateTime.getDate();
@@ -374,8 +333,54 @@ function ConnectToDatabase() {
         if (err) throw err;
         else {
             values = result;
+            window.setTimeout(Data_ForToday, 250);
         }
     });
+}
+
+function Data_ForToday()
+{
+    Now = new Date(2020,10,15);
+    var dd = String(Now.getDate()).padStart(2, '0');
+    var mm = String (Now.getMonth() + 1).padStart(2, '0');
+    var yyyy = String (Now.getFullYear());
+
+    Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
+
+    DateBefore = Now;
+    DateBefore = addDays(DateBefore, -1);
+    
+    var A_dd = String(DateBefore.getDate()).padStart(2, '0');
+    var A_mm = String(DateBefore.getMonth() + 1).padStart(2, '0');
+    var A_yyyy = String(DateBefore.getFullYear());
+
+    Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
+
+    set_BoxDate(A_yyyy, A_mm, A_dd, yyyy, mm, dd);
+
+    Get_Datas("NombreDePassage").then(function(dat) {
+        dat.forEach(function(item, index, array) 
+        {
+            datas.push(item.NombreDePassage);
+            Graphe_Label.push(item.DateTime.getHours() + 'h');
+        })
+        titre[0] = "Affluence par jour";
+        MakeLineGraph();
+        MakeBar();
+    }).catch((err) => setImmediate(() => { throw err; }));
+
+    Get_Datas("NbVente").then(function(dat) {
+        dat.forEach(function(item, index, array) 
+        {
+            datas_ventes.push(item.NbVente);
+            Graphe_Label_Vente.push(item.DateTime.getHours() + 'h');
+        })
+        titre[1] = "Vente par jour";
+        MakeVenteLineGraph();
+        MakeBarVente();
+        MakeAraignee();
+        MakeCercle();
+    }).catch((err) => setImmediate(() => { throw err; }));
 }
 
 var ctx;
@@ -383,7 +388,6 @@ var data;
 var options;
 var config;
 var graph;
-
 
 function Get_Datas(Data) 
 {
@@ -483,7 +487,7 @@ function MakeBar()
     {
         graph2.destroy();
     }
-    ctx = document.getElementById('graph2').getContext('2d')
+    ctx = document.getElementById('graph5').getContext('2d')
     //
     data = {
         //labels: [values[0].DateTime, values[1].DateTime, values[2].DateTime, values[3].DateTime, values[4].DateTime, values[5].DateTime, values[6].DateTime, values[7].DateTime, values[8].DateTime, values[9].DateTime, values[10].DateTime],
@@ -572,7 +576,7 @@ function MakeBarVente()
     {
         graphVenteBar.destroy();
     }
-    ctx = document.getElementById('graph4').getContext('2d')
+    ctx = document.getElementById('graph6').getContext('2d')
     //
     data = {
         //labels: [values[0].DateTime, values[1].DateTime, values[2].DateTime, values[3].DateTime, values[4].DateTime, values[5].DateTime, values[6].DateTime, values[7].DateTime, values[8].DateTime, values[9].DateTime, values[10].DateTime],
@@ -624,7 +628,7 @@ function MakeCercle() {
     {
         graph5.destroy();
     }
-    ctx = document.getElementById('graph5').getContext('2d')
+    ctx = document.getElementById('graph2').getContext('2d')
 
     data = {
         labels: Graphe_Label_Vente,
@@ -667,7 +671,7 @@ function MakeAraignee()
     {
         graph6.destroy();
     }
-    ctx = document.getElementById('graph6').getContext('2d')
+    ctx = document.getElementById('graph4').getContext('2d')
 
     data = {
         label: 'Vente',

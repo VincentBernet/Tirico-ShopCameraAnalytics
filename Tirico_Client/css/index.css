@@ -70,10 +70,8 @@ body {
 	align-items: center;
 	justify-content: center;
 	padding-left: 5%;
-
-
-	
 }
+
 #time_button button {
 	width: 7em;
 	height: 3em;
@@ -81,12 +79,11 @@ body {
 	background-color: var(--blue-color);
 	cursor: pointer;
 
-
 	backface-visibility: hidden;
 	position: relative;
 	cursor: pointer;
 	display: inline-block;
-	background: #446ade;
+	background: #313141;
 	border: 1px solid #ffffff;
 	color: #ffffff;
 	font-size: 16px;
@@ -94,6 +91,7 @@ body {
 	font-weight: 300;
 	font-style: normal
 }
+
 #time_button button a {
 	font-family: 'Raleway', sans-serif;
 }
@@ -110,38 +108,6 @@ body {
 	padding: 0 5px;
 }
 
-a#Analy-1:hover img {
-	width: 1vh;
-	opacity: 1;
-	transform: translateX(60px);
-}
-
-a#Analy-2:hover img {
-	width: 1vh;
-	opacity: 1;
-	transform: translateX(60px);
-}
-a#Analy-3:hover img {
-	width: 1vh;
-	opacity: 1;
-	transform: translateX(60px);
-}
-a#Analy-4:hover img {
-	width: 1vh;
-	opacity: 1;
-	transform: translateX(60px);
-}
-a#Analy-5:hover img {
-	width: 1vh;
-	opacity: 1;
-	transform: translateX(60px);
-}
-
-a#Reload:hover img {
-	width: 1vh;
-	opacity: 1;
-	transform: translateX(60px);
-}
 
 #code_python {
 	color: white;
