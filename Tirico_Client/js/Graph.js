@@ -395,7 +395,8 @@ function Get_Datas(Data)
 
     return new Promise(function(resolve, reject) {
         //var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
-        var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = " + document.getElementById("magasinSelect").selectedIndex + " AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
+        console.log(document.getElementById("magasinSelect").selectedIndex);
+        var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = " + (document.getElementById("magasinSelect").selectedIndex + 1)+ " AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
         console.log("Request : " + req);
         //var sql = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '2020-06-29 00:00:00' AND '2020-06-29 10:00:00'";
         con.query(req, function (err, result) {
