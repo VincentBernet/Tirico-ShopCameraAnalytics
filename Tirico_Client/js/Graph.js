@@ -3,15 +3,6 @@ var values = null;
 
 var con;
 
-
-var Now;
-var DateBefore;
-
-
-var Req_Now;
-var Req_Before;
-
-
 function addDays(date, days) {
     return new Date(
         date.getFullYear(),
@@ -27,103 +18,16 @@ function addDays(date, days) {
 var Graphe_Label = [];
 var datas = [];
 var datas_ventes = [];
-var Graphe_Label_Vente = [];
 var titre = [];
 
 function Button_Time() {
     const RefreshBtn = document.getElementById('refresh_button')
     RefreshBtn.addEventListener('click', (event) => {
-        updateGraph();
+        Data_ForSearching();
     })
     const go_Btn = document.getElementById('go_datebutton')
     go_Btn.addEventListener('click', (event) => {
-        var dateControlStart = document.getElementById('start');
-        console.log(dateControlStart.value);
-
-        var dateControlEnd = document.getElementById('end');
-        console.log(dateControlEnd.value);
-
-        Now = new Date(dateControlEnd.value);
-        console.log(Now);
-        var dd = String(Now.getDate()).padStart(2, '0');
-        var mm = String(Now.getMonth() + 1).padStart(2, '0');
-        var yyyy = String(Now.getFullYear());
-
-        Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
-
-        DateBefore = new Date(dateControlStart.value);
-        console.log(DateBefore);
-
-        var A_dd = String(DateBefore.getDate()).padStart(2, '0');
-        var A_mm = String(DateBefore.getMonth() + 1).padStart(2, '0');
-        var A_yyyy = String(DateBefore.getFullYear());
-
-        Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
-
-        set_BoxDate(A_yyyy, A_mm, A_dd, yyyy, mm, dd);
-
-
-        Get_Datas("NombreDePassage").then(function(dat) {
-            var dernierJour = dat[0].DateTime.getDate();
-            var moyenne = 0;
-            var nb = 0;
-            var semaine = [];
-            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
-            dat.forEach(function(item, index, array) 
-            {
-                var jour = item.DateTime.getDate();
-                if (jour == dernierJour)
-                {
-                    moyenne = moyenne + item.NombreDePassage;
-                    nb = nb + 1;
-                }
-                if (jour != dernierJour)
-                {
-                    semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas.push(moyenne / nb);
-                    nb = 0;
-                    moyenne = 0;
-                }
-                dernierJour = jour;
-            })
-            Graphe_Label = semaine;
-            titre[0] = 'Affluence par mois';
-            MakeLineGraph();
-            MakeBar();
-        }).catch((err) => setImmediate(() => { throw err; }));
-
-
-        Get_Datas("NbVente").then(function(dat) {
-            console.log(dat);
-            var dernierJour = dat[0].DateTime.getDate();
-            var moyenne = 0;
-            var nb = 0;
-            var semaine = [];
-            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
-            dat.forEach(function(item, index, array) 
-            {
-                var jour = item.DateTime.getDate();
-                if (jour == dernierJour)
-                {
-                    moyenne = moyenne + item.NbVente;
-                    nb = nb + 1;
-                }
-                if (jour != dernierJour)
-                {
-                    semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas_ventes.push(moyenne / nb);
-                    nb = 0;
-                    moyenne = 0;
-                }
-                dernierJour = jour;
-            })
-            Graphe_Label_Vente = semaine;
-            titre[1] = 'Vente par mois';
-            MakeVenteLineGraph();
-            MakeBarVente();
-            MakeAraignee();
-            MakeCercle();
-        }).catch((err) => setImmediate(() => { throw err; }));
+        Data_ForSearching();
     })
 
 
@@ -134,182 +38,25 @@ function Button_Time() {
 
     const WeeklyBtn = document.getElementById('Weekly')
     WeeklyBtn.addEventListener('click', (event) => {
-        Now = new Date(2020,10,15);
-        var dd = String(Now.getDate()).padStart(2, '0');
-        var mm = String (Now.getMonth() + 1).padStart(2, '0');
-        var yyyy = String (Now.getFullYear());
-
-        Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
-
-        DateBefore = Now;
-        DateBefore = addDays(DateBefore, -7);
-
-        var A_dd = String(DateBefore.getDate()).padStart(2, '0');
-        var A_mm = String (DateBefore.getMonth() + 1).padStart(2, '0');
-        var A_yyyy = String (DateBefore.getFullYear());
-
-        Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
-        
-        set_BoxDate(A_yyyy, A_mm, A_dd, yyyy, mm, dd);
-
-
-        Get_Datas("NombreDePassage").then(function(dat) {
-            var dernierJour = dat[0].DateTime.getDate();
-            var moyenne = 0;
-            var nb = 0;
-            var semaine = [];
-            // Est -ce qu'on doit pas enlever cette ligne ?
-            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
-            dat.forEach(function(item, index, array) 
-            {
-                var jour = item.DateTime.getDate();
-                if (jour == dernierJour)
-                {
-                    moyenne = moyenne + item.NombreDePassage;
-                    nb = nb + 1;
-                }
-                if (jour != dernierJour)
-                {
-                    semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas.push(moyenne / nb);
-                    moyenne = 0;
-                    nb = 0;
-                }
-                dernierJour = jour;
-            })
-            Graphe_Label = semaine;
-            titre[0] = 'Affluence par semaine';
-            MakeLineGraph();
-            MakeBar();
-        }).catch((err) => setImmediate(() => { throw err; }));
-
-        Get_Datas("NbVente").then(function(dat) {
-            
-            var dernierJour = dat[0].DateTime.getDate();
-            var moyenne = 0;
-            var nb = 0;
-            var semaine = [];
-            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
-            dat.forEach(function(item, index, array) 
-            {
-                var jour = item.DateTime.getDate();
-                if (jour == dernierJour)
-                {
-                    moyenne = moyenne + item.NbVente;
-                    nb = nb + 1;
-                    console.log(moyenne);
-                }
-                if (jour != dernierJour)
-                {
-                    semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas_ventes.push(moyenne / nb);
-                    moyenne = 0;
-                    nb = 0;
-                }
-                dernierJour = jour;
-            })
-            Graphe_Label_Vente = semaine;
-            titre[1] = 'Vente par semaine';
-            MakeVenteLineGraph();
-            MakeBarVente();
-            MakeAraignee();
-            MakeCercle();
-        }).catch((err) => setImmediate(() => { throw err; }));
+        Data_ForWeekly();
     })
 
 
     const MonthlyBtn = document.getElementById('Monthly')
     MonthlyBtn.addEventListener('click', (event) => {
-        Now = new Date(2020,10,15);
-        var dd = String(Now.getDate()).padStart(2, '0');
-        var mm = String (Now.getMonth() + 1).padStart(2, '0');
-        var yyyy = String (Now.getFullYear());
-
-        Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
-
-        DateBefore = Now;
-        DateBefore = addDays(DateBefore, -30);
-
-        var A_dd = String(DateBefore.getDate()).padStart(2, '0');
-        var A_mm = String(DateBefore.getMonth() + 1).padStart(2, '0');
-        var A_yyyy = String(DateBefore.getFullYear());
-
-        Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
-
-        set_BoxDate(A_yyyy, A_mm, A_dd, yyyy, mm, dd);
-
-
-        Get_Datas("NombreDePassage").then(function(dat) {
-            var dernierJour = dat[0].DateTime.getDate();
-            var moyenne = 0;
-            var nb = 0;
-            var semaine = [];
-            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
-            dat.forEach(function(item, index, array) 
-            {
-                var jour = item.DateTime.getDate();
-                if (jour == dernierJour)
-                {
-                    moyenne = moyenne + item.NombreDePassage;
-                    nb = nb + 1;
-                }
-                if (jour != dernierJour)
-                {
-                    semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas.push(moyenne / nb);
-                    moyenne = 0;
-                    nb = 0;
-                }
-                dernierJour = jour;
-            })
-            Graphe_Label = semaine;
-            titre[0] = 'Affluence par mois';
-            MakeLineGraph();
-            MakeBar();
-        }).catch((err) => setImmediate(() => { throw err; }));
-
-        Get_Datas("NbVente").then(function(dat) {
-            console.log(dat);
-            var dernierJour = dat[0].DateTime.getDate();
-            var moyenne = 0;
-            var nb = 0;
-            var semaine = [];
-            //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
-            dat.forEach(function(item, index, array) 
-            {
-                var jour = item.DateTime.getDate();
-                if (jour == dernierJour)
-                {
-                    moyenne = moyenne + item.NbVente;
-                    nb = nb + 1;
-                }
-                if (jour != dernierJour)
-                {
-                    semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
-                    datas_ventes.push(moyenne / nb);
-                    moyenne = 0;
-                    nb = 0;
-                }
-                dernierJour = jour;
-            })
-            Graphe_Label_Vente = semaine;
-            titre[1] = 'Vente par mois';
-            MakeVenteLineGraph();
-            MakeBarVente();
-            MakeAraignee();
-            MakeCercle();
-        }).catch((err) => setImmediate(() => { throw err; }));
+        Data_ForMonthly();
     })
 }
-function set_BoxDate(A_yyyy, A_mm, A_dd, yyyy, mm, dd)
-    {
-        var dateControl = document.getElementById('start');
-        dateControl.value = A_yyyy + '-' + A_mm + '-' + A_dd;
 
-        var dateControl = document.getElementById('end');
-        dateControl.value = yyyy + '-' + mm + '-' + dd;
-    }
+function set_BoxDateBefore(A_yyyy, A_mm, A_dd) {
+    var dateControl = document.getElementById('start');
+    dateControl.value = A_yyyy + '-' + A_mm + '-' + A_dd;
+}
 
+function set_BoxDateNow(yyyy, mm, dd) {
+    var dateControl = document.getElementById('end');
+    dateControl.value = yyyy + '-' + mm + '-' + dd;
+}
 
 function ConnectToDatabase() {
     var mysql = require('mysql');
@@ -338,25 +85,42 @@ function ConnectToDatabase() {
     });
 }
 
-function Data_ForToday()
-{
+// La date d'aujourd'hui
+var Now;
+// La date jusqu'a ce que l'on veut
+var DateBefore;
+
+// String de la date now
+var Req_Now;
+// String de la date d'avant
+var Req_Before;
+
+function SetNow() {
     Now = new Date(2020,10,15);
     var dd = String(Now.getDate()).padStart(2, '0');
     var mm = String (Now.getMonth() + 1).padStart(2, '0');
     var yyyy = String (Now.getFullYear());
 
     Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
+    set_BoxDateNow(yyyy, mm, dd);
+}
 
+function SetBefore(value) {
     DateBefore = Now;
-    DateBefore = addDays(DateBefore, -1);
+    DateBefore = addDays(DateBefore, value);
     
     var A_dd = String(DateBefore.getDate()).padStart(2, '0');
     var A_mm = String(DateBefore.getMonth() + 1).padStart(2, '0');
     var A_yyyy = String(DateBefore.getFullYear());
 
     Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
+    set_BoxDateBefore(A_yyyy, A_mm, A_dd);
+}
 
-    set_BoxDate(A_yyyy, A_mm, A_dd, yyyy, mm, dd);
+function Data_ForToday()
+{
+    SetNow();
+    SetBefore(-1);
 
     Get_Datas("NombreDePassage").then(function(dat) {
         dat.forEach(function(item, index, array) 
@@ -373,9 +137,227 @@ function Data_ForToday()
         dat.forEach(function(item, index, array) 
         {
             datas_ventes.push(item.NbVente);
-            Graphe_Label_Vente.push(item.DateTime.getHours() + 'h');
         })
         titre[1] = "Vente par jour";
+        MakeVenteLineGraph();
+        MakeBarVente();
+        MakeAraignee();
+        MakeCercle();
+    }).catch((err) => setImmediate(() => { throw err; }));
+}
+
+function Data_ForWeekly() {
+    SetNow();
+    SetBefore(-7);
+
+    Get_Datas("NombreDePassage").then(function(dat) {
+        var dernierJour = dat[0].DateTime.getDate();
+        var moyenne = 0;
+        var nb = 0;
+        var semaine = [];
+        // Est -ce qu'on doit pas enlever cette ligne ?
+        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+        dat.forEach(function(item, index, array) 
+        {
+            var jour = item.DateTime.getDate();
+            if (jour == dernierJour)
+            {
+                moyenne = moyenne + item.NombreDePassage;
+                nb = nb + 1;
+            }
+            if (jour != dernierJour)
+            {
+                semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
+                datas.push(moyenne / nb);
+                moyenne = 0;
+                nb = 0;
+            }
+            dernierJour = jour;
+        })
+        Graphe_Label = semaine;
+        titre[0] = 'Affluence par semaine';
+        MakeLineGraph();
+        MakeBar();
+    }).catch((err) => setImmediate(() => { throw err; }));
+
+    Get_Datas("NbVente").then(function(dat) {
+        
+        var dernierJour = dat[0].DateTime.getDate();
+        var moyenne = 0;
+        var nb = 0;
+        var semaine = [];
+        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+        dat.forEach(function(item, index, array) 
+        {
+            var jour = item.DateTime.getDate();
+            if (jour == dernierJour)
+            {
+                moyenne = moyenne + item.NbVente;
+                nb = nb + 1;
+                console.log(moyenne);
+            }
+            if (jour != dernierJour)
+            {
+                semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
+                datas_ventes.push(moyenne / nb);
+                moyenne = 0;
+                nb = 0;
+            }
+            dernierJour = jour;
+        })
+        titre[1] = 'Vente par semaine';
+        MakeVenteLineGraph();
+        MakeBarVente();
+        MakeAraignee();
+        MakeCercle();
+    }).catch((err) => setImmediate(() => { throw err; }));
+}
+
+function Data_ForMonthly() {
+    SetNow();
+    SetBefore(-30);
+
+    Get_Datas("NombreDePassage").then(function(dat) {
+        var dernierJour = dat[0].DateTime.getDate();
+        var moyenne = 0;
+        var nb = 0;
+        var semaine = [];
+        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+        dat.forEach(function(item, index, array) 
+        {
+            var jour = item.DateTime.getDate();
+            if (jour == dernierJour)
+            {
+                moyenne = moyenne + item.NombreDePassage;
+                nb = nb + 1;
+            }
+            if (jour != dernierJour)
+            {
+                semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
+                datas.push(moyenne / nb);
+                moyenne = 0;
+                nb = 0;
+            }
+            dernierJour = jour;
+        })
+        Graphe_Label = semaine;
+        titre[0] = 'Affluence par mois';
+        MakeLineGraph();
+        MakeBar();
+    }).catch((err) => setImmediate(() => { throw err; }));
+
+    Get_Datas("NbVente").then(function(dat) {
+        console.log(dat);
+        var dernierJour = dat[0].DateTime.getDate();
+        var moyenne = 0;
+        var nb = 0;
+        var semaine = [];
+        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+        dat.forEach(function(item, index, array) 
+        {
+            var jour = item.DateTime.getDate();
+            if (jour == dernierJour)
+            {
+                moyenne = moyenne + item.NbVente;
+                nb = nb + 1;
+            }
+            if (jour != dernierJour)
+            {
+                semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
+                datas_ventes.push(moyenne / nb);
+                moyenne = 0;
+                nb = 0;
+            }
+            dernierJour = jour;
+        })
+        titre[1] = 'Vente par mois';
+        MakeVenteLineGraph();
+        MakeBarVente();
+        MakeAraignee();
+        MakeCercle();
+    }).catch((err) => setImmediate(() => { throw err; }));
+}
+
+function Data_ForSearching() {
+    var dateControlStart = document.getElementById('start');
+    console.log(dateControlStart.value);
+
+    var dateControlEnd = document.getElementById('end');
+    console.log(dateControlEnd.value);
+
+    Now = new Date(dateControlEnd.value);
+    var dd = String(Now.getDate()).padStart(2, '0');
+    var mm = String(Now.getMonth() + 1).padStart(2, '0');
+    var yyyy = String(Now.getFullYear());
+
+    Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
+
+    DateBefore = new Date(dateControlStart.value);
+    console.log(DateBefore);
+
+    var A_dd = String(DateBefore.getDate()).padStart(2, '0');
+    var A_mm = String(DateBefore.getMonth() + 1).padStart(2, '0');
+    var A_yyyy = String(DateBefore.getFullYear());
+
+    Req_Before = A_yyyy + '-' + A_mm + '-' + A_dd + ' ' + DateBefore.getHours() + ':' + DateBefore.getMinutes() + ':' + DateBefore.getSeconds();
+
+    
+    Get_Datas("NombreDePassage").then(function(dat) {
+        var dernierJour = dat[0].DateTime.getDate();
+        var moyenne = 0;
+        var nb = 0;
+        var semaine = [];
+        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+        dat.forEach(function(item, index, array) 
+        {
+            var jour = item.DateTime.getDate();
+            if (jour == dernierJour)
+            {
+                moyenne = moyenne + item.NombreDePassage;
+                nb = nb + 1;
+            }
+            if (jour != dernierJour)
+            {
+                semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
+                datas.push(moyenne / nb);
+                nb = 0;
+                moyenne = 0;
+            }
+            dernierJour = jour;
+        })
+        Graphe_Label = semaine;
+        titre[0] = 'Affluence par mois';
+        MakeLineGraph();
+        MakeBar();
+    }).catch((err) => setImmediate(() => { throw err; }));
+
+
+    Get_Datas("NbVente").then(function(dat) {
+        console.log(dat);
+        var dernierJour = dat[0].DateTime.getDate();
+        var moyenne = 0;
+        var nb = 0;
+        var semaine = [];
+        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+        dat.forEach(function(item, index, array) 
+        {
+            var jour = item.DateTime.getDate();
+            if (jour == dernierJour)
+            {
+                moyenne = moyenne + item.NbVente;
+                nb = nb + 1;
+            }
+            if (jour != dernierJour)
+            {
+                semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
+                datas_ventes.push(moyenne / nb);
+                nb = 0;
+                moyenne = 0;
+            }
+            dernierJour = jour;
+        })
+        Graphe_Label_Vente = semaine;
+        titre[1] = 'Vente par mois';
         MakeVenteLineGraph();
         MakeBarVente();
         MakeAraignee();
@@ -393,9 +375,7 @@ function Get_Datas(Data)
 {
     datas = [];
     Graphe_Label = [];
-
     datas_ventes = [];
-    Graphe_Label_Vente = [];
 
     return new Promise(function(resolve, reject) {
         //var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
@@ -415,16 +395,7 @@ function Get_Datas(Data)
     
 }
 
-
-function filter_list(l) {
-    return l.filter(Int => typeof Int === "number");
-}
-console.log(filter_list([1,2,'a','b']))
-
 var graph1;
-var test = new Array(5,10,16,18,10,5);
-
-
 function MakeLineGraph() {
     if (graph1 != null)
     {
@@ -631,7 +602,7 @@ function MakeCercle() {
     ctx = document.getElementById('graph2').getContext('2d')
 
     data = {
-        labels: Graphe_Label_Vente,
+        labels: Graphe_Label,
         datasets: [{
             backgroundColor: t,
             borderColor: '#0000',
@@ -675,7 +646,7 @@ function MakeAraignee()
 
     data = {
         label: 'Vente',
-    labels: Graphe_Label_Vente,
+    labels: Graphe_Label,
     datasets: [{
         label: titre[0],
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -712,14 +683,4 @@ function MakeAraignee()
         options: options
     });
 
-}
-
-
-function updateGraph() {
-    if (graph != null)
-        graph.update();
-    if (graph1 != null)
-        graph1.update();
-    if (graph2 != null)
-        graph2.update();
 }
