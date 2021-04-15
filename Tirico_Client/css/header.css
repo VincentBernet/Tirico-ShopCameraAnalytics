@@ -61,7 +61,7 @@ a.button {
 	text-decoration: none;
 
 	height: 3vh;
-	width: 90%;
+	width: 85%;
 	align-items: center;
 	justify-content: center;
 	display: inline-flex;
@@ -73,9 +73,10 @@ a.button:hover{
 
 #redirect_Disconnection {
 	position: absolute;
-	width: 65%;
+	width: 60%;
 	bottom: 50px;
 	padding: 10px 20px 10px 20px;
+	left: 0px;
 	color: red;
 	align-items: center;
 	justify-content: center;
