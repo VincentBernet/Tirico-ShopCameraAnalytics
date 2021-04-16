@@ -37,13 +37,30 @@ document.getElementById("redirect_Parameter").addEventListener("click", function
 });
 document.getElementById("redirect_Disconnection").addEventListener("click", function() {
     window.location.href="connexion.html";
-}); 
+});
+var white = 0;
+document.getElementById("whiteblack").addEventListener("click", function() {
+    if (white == 0)
+    {
+        document.documentElement.style.setProperty('--main-bg-color', '#fff');
+        document.documentElement.style.setProperty('--main-bg-workspacecolor', '#fff');
+        document.documentElement.style.setProperty('--textColor', '#000000');
+        document.documentElement.style.setProperty('--color-button', '#00abe9');
+        document.documentElement.style.setProperty('--opposite-color', '#000000');
+        white = 1;
+    }
+    else
+    {
+        document.documentElement.style.setProperty('--main-bg-color', '#191925');
+        document.documentElement.style.setProperty('--main-bg-workspacecolor', '#15161a');
+        document.documentElement.style.setProperty('--textColor', '#fff');
+        document.documentElement.style.setProperty('--color-button', '#313141');
+        document.documentElement.style.setProperty('--opposite-color', '#fff');
+        white = 0;
+    }
+    console.log('es');
+});
 
-
-/*const DeconnectBtn = document.getElementById('DECO')
-DeconnectBtn.addEventListener('click', (event) => {
-    window.location.href="connexion.html";
-})*/
 /*
 const messageAccueil= {
     title: 'TIRICO Notification',
