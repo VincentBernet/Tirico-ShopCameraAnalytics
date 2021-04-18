@@ -103,6 +103,9 @@ con.connect(function(err) {
     console.log("Connected to the DB: From Analyse.js");
 });
 
+
+var num = -99;
+var numId = [];
 var sql0 = "SELECT IdLoc FROM AccToLoc WHERE IdAcc='"+Account_ID+"'";
 con.query(sql0, function (err0, result0) {
     if (err0) alert(err0);
@@ -127,6 +130,8 @@ con.query(sql0, function (err0, result0) {
                         var option = document.createElement("option");
                         option.text = result1[0].Nom;
                         option.id = result1[0].ID;
+                        numId.push(option.id);
+                        console.log(numId[i]);
                         x.add(option);
                     }
                 });

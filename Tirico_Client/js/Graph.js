@@ -36,6 +36,12 @@ function Button_Time() {
         Data_ForToday();
     })
 
+
+    const magasinBtn = document.getElementById('magasinSelect')
+    magasinBtn.addEventListener('change', (event) => {
+        Data_ForToday();
+    })
+
     const WeeklyBtn = document.getElementById('Weekly')
     WeeklyBtn.addEventListener('click', (event) => {
         Data_ForWeekly();
@@ -128,7 +134,7 @@ function Data_ForToday()
             datas.push(item.NombreDePassage);
             Graphe_Label.push(item.DateTime.getHours() + 'h');
         })
-        titre[0] = "Affluence par jour";
+        titre[0] = "Affluence client par jour";
         MakeLineGraph();
         MakeBar();
     }).catch((err) => setImmediate(() => { throw err; }));
@@ -138,7 +144,7 @@ function Data_ForToday()
         {
             datas_ventes.push(item.NbVente);
         })
-        titre[1] = "Vente par jour";
+        titre[1] = "nombre de produits vendus par jour";
         MakeVenteLineGraph();
         MakeBarVente();
         MakeAraignee();
@@ -175,7 +181,7 @@ function Data_ForWeekly() {
             dernierJour = jour;
         })
         Graphe_Label = semaine;
-        titre[0] = 'Affluence par semaine';
+        titre[0] = 'Affluence client par semaine';
         MakeLineGraph();
         MakeBar();
     }).catch((err) => setImmediate(() => { throw err; }));
@@ -205,7 +211,7 @@ function Data_ForWeekly() {
             }
             dernierJour = jour;
         })
-        titre[1] = 'Vente par semaine';
+        titre[1] = 'nombre de produits vendus par semaine';
         MakeVenteLineGraph();
         MakeBarVente();
         MakeAraignee();
@@ -241,7 +247,7 @@ function Data_ForMonthly() {
             dernierJour = jour;
         })
         Graphe_Label = semaine;
-        titre[0] = 'Affluence par mois';
+        titre[0] = 'Affluence client par mois';
         MakeLineGraph();
         MakeBar();
     }).catch((err) => setImmediate(() => { throw err; }));
@@ -270,7 +276,7 @@ function Data_ForMonthly() {
             }
             dernierJour = jour;
         })
-        titre[1] = 'Vente par mois';
+        titre[1] = 'nombre de produits vendus par mois';
         MakeVenteLineGraph();
         MakeBarVente();
         MakeAraignee();
@@ -326,7 +332,7 @@ function Data_ForSearching() {
             dernierJour = jour;
         })
         Graphe_Label = semaine;
-        titre[0] = 'Affluence par mois';
+        titre[0] = 'Affluence client';
         MakeLineGraph();
         MakeBar();
     }).catch((err) => setImmediate(() => { throw err; }));
@@ -357,7 +363,7 @@ function Data_ForSearching() {
             dernierJour = jour;
         })
         Graphe_Label_Vente = semaine;
-        titre[1] = 'Vente par mois';
+        titre[1] = 'nombre de produits vendus';
         MakeVenteLineGraph();
         MakeBarVente();
         MakeAraignee();
@@ -380,8 +386,9 @@ function Get_Datas(Data)
     return new Promise(function(resolve, reject) {
         //var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
         console.log(document.getElementById("magasinSelect").selectedIndex);
-        var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = " + (document.getElementById("magasinSelect").selectedIndex + 1)+ " AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
+        var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = " + numId[document.getElementById("magasinSelect").selectedIndex] + " AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
         console.log("Request : " + req);
+        console.log("Number : ", num);
         //var sql = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '2020-06-29 00:00:00' AND '2020-06-29 10:00:00'";
         con.query(req, function (err, result) {
             if (err) return reject(err);
@@ -620,7 +627,7 @@ function MakeCercle() {
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: 'Affluence par Semaine : Magasin de '+''+''
+            text: titre[0]
         },
         animation: {
             duration: 1000,
@@ -667,7 +674,7 @@ function MakeAraignee()
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: 'Ventes par mois'
+            text: titre[1]
         },
             animation: {
                 duration: 1000,
