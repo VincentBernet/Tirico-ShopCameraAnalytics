@@ -45,7 +45,7 @@ function Button_Time() {
     })
 
     const BAndWBtn = document.getElementById('whiteblack')
-    BAndWBtn.addEventListener('change', (event) => {
+    BAndWBtn.addEventListener('click', (event) => {
         Data_ForSearching();
     })
 
@@ -198,7 +198,6 @@ function Data_ForWeekly() {
         var moyenne = 0;
         var nb = 0;
         var semaine = [];
-        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
         dat.forEach(function(item, index, array) 
         {
             var jour = item.DateTime.getDate();

@@ -47,7 +47,7 @@ document.getElementById("whiteblack").addEventListener("click", function() {
         document.documentElement.style.setProperty('--textColor', '#000000');
         document.documentElement.style.setProperty('--color-button', '#00abe9');
         document.documentElement.style.setProperty('--opposite-color', '#000000');
-        gt = '#000000';
+        colorTitre = '#000000';
         white = 1;
     }
     else
@@ -57,7 +57,7 @@ document.getElementById("whiteblack").addEventListener("click", function() {
         document.documentElement.style.setProperty('--textColor', '#fff');
         document.documentElement.style.setProperty('--color-button', '#313141');
         document.documentElement.style.setProperty('--opposite-color', '#fff');
-        gt = '#fff';
+        colorTitre = '#fff';
         white = 0;
     }
     console.log('es');
