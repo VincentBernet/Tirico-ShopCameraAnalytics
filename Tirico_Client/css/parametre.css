@@ -1,9 +1,3 @@
-body {
-	/*background-color: #15161a;*/
-	background-color: #15161a;
-	font-family: 'Raleway', sans-serif;
-}
-
 #Container_graphe {
 	position: flex;
 	width: auto;
