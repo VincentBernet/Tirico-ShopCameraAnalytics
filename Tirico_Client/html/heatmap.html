@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<title>Page d'accueil</title>
+		<title>HeatMap</title>
 
 		<meta
 			http-equiv="Content-Security-Policy"
@@ -16,8 +16,8 @@
 			The script loads “in the background”, and then runs when the DOM is fully built.-->
 		<script defer src="../js/commun.js"></script>
 		<script defer src="../js/index.js"></script>
+
         <script src="../node_modules/chart.js/dist/Chart.js"></script>
-		<script type="text/javascript" src="../js/Graph.js"></script>
 		
 		<!-- For the counter -->
 		<link rel="stylesheet" href="../css/odometer-theme-car.css" />
@@ -56,7 +56,7 @@
 			</div>
 		</div>
         <div class="Workspace">
-			<div id="time_button"><button id="refresh_button">Refresh</button><button id="Daily">Today</button><button id="Weekly">This week</button><button id="Monthly">This month</button></div>
+			<div id="time_button"><button id="refresh_button">Refresh</button></div>
 			<div id="time_button">
 			<br/>
 			<input type="date" id="start" name="trip-start"
@@ -73,46 +73,16 @@
 					<select id="magasinSelect"></select>
 				</div>
 			</div>
-			<div class="Espace">
-				<span id="Container_graphe">
-					<canvas id="Vente"></canvas>
-				</span>
-				<span id="Container_graphe">
-					<canvas id="graph2"></canvas>
-				</span>
-			</div>
-			<div class="Espace">
-				<span id="Container_graphe">
-					<canvas id="graph3"></canvas>
-				</span>
-				<span id="Container_graphe">
-					<canvas id="graph4"></canvas>
-				</span>
-			</div>
-			<div class="Espace">
-				<span id="Container_graphe">
-					<canvas id="graph5"></canvas>
-				</span>
-				<span id="Container_graphe">
-					<canvas id="graph6"></canvas>
-				</span>
-			</div>
-			<div class="Espace">
-				<span id="Container_graphe">
-					<canvas id="graph7"></canvas>
-				</span>
-				<span id="Container_graphe">
-					<canvas id="graph8"></canvas>
-				</span>
-			</div>
+            <img id="HeatMap" src="../ressource/image/heatmap1.png"/>
         </div>
     </div>
 </body>
-	
+<script>
+	const magasinBtn = document.getElementById('magasinSelect')
+    magasinBtn.addEventListener('change', (event) => {
+        var heatmap = document.getElementById("HeatMap");
+		heatmap.src = "../ressource/image/heatmap"+numId[document.getElementById("magasinSelect").selectedIndex]+".PNG"
+    })
+</script>
 </html>
 
-
-<script>
-	Button_Time();
-	ConnectToDatabase();
-</script>

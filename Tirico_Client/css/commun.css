@@ -1,0 +1,18 @@
+:root {
+	--main-bg-workspacecolor: #15161a;
+	--blue-color: #00abe9;
+	--blue-color-hover: #006488;
+	--opposite-color: #fff;
+
+	--color-button: #313141;
+}
+
+body {
+	/*background-color: #15161a;*/
+	background-color: var(--main-bg-workspacecolor);
+	font-family: 'Raleway', sans-serif;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}

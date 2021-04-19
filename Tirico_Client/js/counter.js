@@ -20,7 +20,6 @@ var CapacityRemaining = 0;
         if (err) throw err;
         else 
         {
-            console.log("Hello Mister :"+Account_NameCounter+"");
             console.log("Connected to the DB : From Counter.js");
         }
     });
@@ -38,11 +37,17 @@ con.query(sql0, function (err0, result0) {
     if (err0) alert(err0);
     else
     {
-        var LocalID = result0[0].IdLoc;
+        if ((numId[document.getElementById("magasinSelect").selectedIndex] === undefined) || (result0[0].IdLoc === undefined))
+        {
+            var LocalID = result0[0].IdLoc;
+        }
+        else {  
+            var LocalID = result0[numId[document.getElementById("magasinSelect").selectedIndex]-1].IdLoc;
+    }
         //alert("Select working we have current LocalID: "+LocalID+"");
         var sql1 = "SELECT Ccap, Cpt, CapMax FROM `Local` WHERE ID = '"+LocalID+"'";
         con.query(sql1, function (err1, result1) {
-            if (err1) alert(err1);
+            if (err1) alert(err1); 
             else
             {
                 CompteurAtm = result1[0].Ccap;

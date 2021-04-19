@@ -205,7 +205,6 @@ function Data_ForWeekly() {
             {
                 moyenne = moyenne + item.NbVente;
                 nb = nb + 1;
-                console.log(moyenne);
             }
             if (jour != dernierJour)
             {
@@ -281,7 +280,6 @@ function Data_ForMonthly() {
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("NbVente").then(function(dat) {
-        console.log(dat);
         var dernierJour = dat[0].DateTime.getDate();
         var moyenne = 0;
         var nb = 0;
@@ -338,10 +336,8 @@ function Data_ForMonthly() {
 
 function Data_ForSearching() {
     var dateControlStart = document.getElementById('start');
-    console.log(dateControlStart.value);
 
     var dateControlEnd = document.getElementById('end');
-    console.log(dateControlEnd.value);
 
     Now = new Date(dateControlEnd.value);
     var dd = String(Now.getDate()).padStart(2, '0');
@@ -351,7 +347,6 @@ function Data_ForSearching() {
     Req_Now = yyyy + '-' + mm + '-' + dd + ' ' + Now.getHours() + ':' + Now.getMinutes() + ':' + Now.getSeconds();
 
     DateBefore = new Date(dateControlStart.value);
-    console.log(DateBefore);
 
     var A_dd = String(DateBefore.getDate()).padStart(2, '0');
     var A_mm = String(DateBefore.getMonth() + 1).padStart(2, '0');
@@ -390,7 +385,6 @@ function Data_ForSearching() {
 
 
     Get_Datas("NbVente").then(function(dat) {
-        console.log(dat);
         var dernierJour = dat[0].DateTime.getDate();
         var moyenne = 0;
         var nb = 0;
@@ -463,14 +457,11 @@ function Get_Datas(Data)
         //var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
         console.log(document.getElementById("magasinSelect").selectedIndex);
         var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = " + numId[document.getElementById("magasinSelect").selectedIndex] + " AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
-        console.log("Request : " + req);
-        console.log("Number : ", num);
         //var sql = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '2020-06-29 00:00:00' AND '2020-06-29 10:00:00'";
         con.query(req, function (err, result) {
             if (err) return reject(err);
             else {
                 values = result;
-                console.log("Renvoie " + datas.length);
                 resolve(values);
             }
         });

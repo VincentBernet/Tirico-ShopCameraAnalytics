@@ -5,13 +5,13 @@ import easygui as eg
 import csv
 
 # image_path
-img_path = "mag.jpg"
+img_path = "./code_python/DrawZone/mag.jpg"
 
 # read image
 img_raw = cv2.imread(img_path)
 
 # open the csv file in the write mode
-f = open('out.csv', 'w')
+f = open('./code_python/DrawZone/out.csv', 'w')
 
 # create the csv writer
 writer = csv.writer(f)

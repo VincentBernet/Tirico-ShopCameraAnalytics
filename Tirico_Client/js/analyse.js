@@ -1,22 +1,20 @@
-// We take back the paramater of the ID, we parse it cleany first
-// We take back the paramater of the ID, we parse it cleany first
-const urlData = window.location.search;
-const urlParams = new URLSearchParams(urlData);
-const Account_ID = urlParams.get('ID');
-const Account_Name = urlParams.get('Name');
+const {PythonShell} = require('python-shell');
 
-var mysql = require('mysql');
+// Appel Python du code de génération de conseil
+let pyshell = new PythonShell('code_python/analyse.py');
 
-document.getElementById("redirect_Dashboard").addEventListener("click", function() {
-    window.location.href="index.html?Name="+Account_Name+"&ID="+Account_ID+"";
+pyshell.send(JSON.stringify(['\n-----------------------------------------------------\nAppel du script de conseil / d\'analyse "analyse.py"']))
+
+pyshell.on('message', function(message) {
+  console.log(message);
+})
+
+pyshell.end(function (err) {
+  if (err){
+    throw err;
+  };
+  console.log('Fin du script Python : "analyse.py"');
+  console.log("-----------------------------------------------------");
 });
-document.getElementById("redirect_Analyse").addEventListener("click", function() {
-    window.location.href="analyse.html?Name="+Account_Name+"&ID="+Account_ID+"";
-});
-document.getElementById("redirect_Parameter").addEventListener("click", function() {
-    window.location.href="parametre.html?Name="+Account_Name+"&ID="+Account_ID+"";
-});
-document.getElementById("redirect_Disconnection").addEventListener("click", function() {
-    window.location.href="connexion.html";
-}); 
+
 

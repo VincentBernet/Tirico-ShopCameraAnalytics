@@ -25,6 +25,10 @@ document.getElementById("redirect_Inscri_Loc").addEventListener("click", functio
   window.location.href="inscription_loc.html?Name="+Account_Name+"&ID="+Account_ID+"";
 });
 
+document.getElementById("redirect_Previous").addEventListener("click", function() {
+  window.history.back();
+});
+
 // Code for the Form
 const checkbox = document.querySelector('.my-form input[type="checkbox"]');
 const btns = document.querySelectorAll(".my-form button");
