@@ -19,6 +19,7 @@ var Graphe_Label = [];
 var datas = [];
 var datas_ventes = [];
 var titre = [];
+var datas_CA = [];
 
 function Button_Time() {
     const RefreshBtn = document.getElementById('refresh_button')
@@ -123,32 +124,32 @@ function SetBefore(value) {
     set_BoxDateBefore(A_yyyy, A_mm, A_dd);
 }
 
+function Show_Graph() {
+    Affluence_LineGraph();
+    CA_BarGraph();
+    MakeVenteLineGraph();
+    MakeBarVente();
+    MakeAraignee();
+    MakeCercle();
+}
+
 function Data_ForToday()
 {
     SetNow();
     SetBefore(-1);
 
-    Get_Datas("NombreDePassage").then(function(dat) {
+    Get_Datas("NombreDePassage, NbVente, CAh").then(function(dat) {
         dat.forEach(function(item, index, array) 
         {
-            datas.push(item.NombreDePassage);
             Graphe_Label.push(item.DateTime.getHours() + 'h');
+            datas.push(item.NombreDePassage);
+            datas_ventes.push(item.NbVente);
+            datas_CA.push(item.CAh);
         })
         titre[0] = "Affluence client par jour";
-        MakeLineGraph();
-        MakeBar();
-    }).catch((err) => setImmediate(() => { throw err; }));
-
-    Get_Datas("NbVente").then(function(dat) {
-        dat.forEach(function(item, index, array) 
-        {
-            datas_ventes.push(item.NbVente);
-        })
-        titre[1] = "nombre de produits vendus par jour";
-        MakeVenteLineGraph();
-        MakeBarVente();
-        MakeAraignee();
-        MakeCercle();
+        titre[1] = "Nombre de produits vendus par jour";
+        titre[2] = "Chiffre d'affaires par jour";
+        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 }
 
@@ -182,8 +183,7 @@ function Data_ForWeekly() {
         })
         Graphe_Label = semaine;
         titre[0] = 'Affluence client par semaine';
-        MakeLineGraph();
-        MakeBar();
+        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("NbVente").then(function(dat) {
@@ -212,10 +212,34 @@ function Data_ForWeekly() {
             dernierJour = jour;
         })
         titre[1] = 'nombre de produits vendus par semaine';
-        MakeVenteLineGraph();
-        MakeBarVente();
-        MakeAraignee();
-        MakeCercle();
+        Show_Graph();
+    }).catch((err) => setImmediate(() => { throw err; }));
+
+    Get_Datas("CAh").then(function(dat) {
+        var dernierJour = dat[0].DateTime.getDate();
+        var moyenne = 0;
+        var nb = 0;
+        var semaine = [];
+        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+        dat.forEach(function(item, index, array) 
+        {
+            var jour = item.DateTime.getDate();
+            if (jour == dernierJour)
+            {
+                moyenne = moyenne + item.CAh;
+                nb = nb + 1;
+            }
+            if (jour != dernierJour)
+            {
+                semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
+                datas_CA.push(moyenne / nb);
+                moyenne = 0;
+                nb = 0;
+            }
+            dernierJour = jour;
+        })
+        titre[2] = "Moyenne du chiffres d'affaires par mois";
+        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 }
 
@@ -248,8 +272,7 @@ function Data_ForMonthly() {
         })
         Graphe_Label = semaine;
         titre[0] = 'Affluence client par mois';
-        MakeLineGraph();
-        MakeBar();
+        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("NbVente").then(function(dat) {
@@ -277,10 +300,34 @@ function Data_ForMonthly() {
             dernierJour = jour;
         })
         titre[1] = 'nombre de produits vendus par mois';
-        MakeVenteLineGraph();
-        MakeBarVente();
-        MakeAraignee();
-        MakeCercle();
+        Show_Graph();
+    }).catch((err) => setImmediate(() => { throw err; }));
+
+    Get_Datas("CAh").then(function(dat) {
+        var dernierJour = dat[0].DateTime.getDate();
+        var moyenne = 0;
+        var nb = 0;
+        var semaine = [];
+        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+        dat.forEach(function(item, index, array) 
+        {
+            var jour = item.DateTime.getDate();
+            if (jour == dernierJour)
+            {
+                moyenne = moyenne + item.CAh;
+                nb = nb + 1;
+            }
+            if (jour != dernierJour)
+            {
+                semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
+                datas_CA.push(moyenne / nb);
+                moyenne = 0;
+                nb = 0;
+            }
+            dernierJour = jour;
+        })
+        titre[2] = "Moyenne du chiffres d'affaires par mois";
+        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 }
 
@@ -333,8 +380,7 @@ function Data_ForSearching() {
         })
         Graphe_Label = semaine;
         titre[0] = 'Affluence client';
-        MakeLineGraph();
-        MakeBar();
+        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 
 
@@ -364,10 +410,34 @@ function Data_ForSearching() {
         })
         Graphe_Label_Vente = semaine;
         titre[1] = 'nombre de produits vendus';
-        MakeVenteLineGraph();
-        MakeBarVente();
-        MakeAraignee();
-        MakeCercle();
+        Show_Graph();
+    }).catch((err) => setImmediate(() => { throw err; }));
+
+    Get_Datas("CAh").then(function(dat) {
+        var dernierJour = dat[0].DateTime.getDate();
+        var moyenne = 0;
+        var nb = 0;
+        var semaine = [];
+        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
+        dat.forEach(function(item, index, array) 
+        {
+            var jour = item.DateTime.getDate();
+            if (jour == dernierJour)
+            {
+                moyenne = moyenne + item.CAh;
+                nb = nb + 1;
+            }
+            if (jour != dernierJour)
+            {
+                semaine.push(item.DateTime.getDate() + '/' + (item.DateTime.getMonth() + 1));
+                datas_CA.push(moyenne / nb);
+                moyenne = 0;
+                nb = 0;
+            }
+            dernierJour = jour;
+        })
+        titre[2] = "Moyenne du chiffres d'affaires";
+        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 }
 
@@ -382,6 +452,7 @@ function Get_Datas(Data)
     datas = [];
     Graphe_Label = [];
     datas_ventes = [];
+    datas_CA = [];
 
     return new Promise(function(resolve, reject) {
         //var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
@@ -403,7 +474,7 @@ function Get_Datas(Data)
 }
 
 var graph1;
-function MakeLineGraph() {
+function Affluence_LineGraph() {
     if (graph1 != null)
     {
         graph1.destroy();
@@ -415,7 +486,7 @@ function MakeLineGraph() {
     data = {
         labels: Graphe_Label,
         datasets: [{
-            backgroundColor: 'rgba(45, 154, 224, 0.35)',
+            backgroundColor: '#2d9ae0',
             borderColor: '#2d9ae0',
             data: datas,
             label: "Personne"
@@ -445,39 +516,23 @@ function MakeLineGraph() {
         options : options
     });
 }
-
-function RetrieveAffluence()
-{
-    var sql = "SELECT DateTime, NombreDePassage FROM Stats";
-    con.query(sql, function (err, result) {
-        if (err) throw err;
-        else {
-            //alert(result[10].AccID);
-            values = result;
-            MakeBar();
-        }
-    });
-}
 var graph2; 
-function MakeBar()
+function CA_BarGraph()
 {
     if (graph2 != null)
     {
         graph2.destroy();
     }
     ctx = document.getElementById('graph5').getContext('2d')
-    //
     data = {
-        //labels: [values[0].DateTime, values[1].DateTime, values[2].DateTime, values[3].DateTime, values[4].DateTime, values[5].DateTime, values[6].DateTime, values[7].DateTime, values[8].DateTime, values[9].DateTime, values[10].DateTime],
         labels: Graphe_Label,
         datasets: [{
-            backgroundColor: '#2d9ae0',
+            backgroundColor: '#FFC300',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             borderColor: 'rgb(255, 99, 132)',
-            label: "Affluence/heure",
-            //data: [values[0].NombreDePassage, values[1].NombreDePassage, values[2].NombreDePassage, values[3].NombreDePassage, values[4].NombreDePassage, values[5].NombreDePassage, values[6].NombreDePassage, values[7].NombreDePassage, values[8].NombreDePassage, values[9].NombreDePassage, values[10].NombreDePassage]
-            data: datas
+            label: "Chiffre d'affaires en euros (€)",
+            data: datas_CA
         }]
     };
     options = {
@@ -490,7 +545,7 @@ function MakeBar()
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: titre[0],
+            text: titre[2],
         },
         animation: {
             duration: 1000,
@@ -516,8 +571,7 @@ function MakeVenteLineGraph() {
     data = {
         labels: Graphe_Label,
         datasets: [{
-            backgroundColor: 'rgba(45, 154, 224, 0.35)',
-            borderColor: '#2d9ae0',
+            backgroundColor: '#900C3F',
             data: datas_ventes,
             label: "Vente"
         }]
@@ -555,19 +609,34 @@ function MakeBarVente()
         graphVenteBar.destroy();
     }
     ctx = document.getElementById('graph6').getContext('2d')
-    //
+
     data = {
-        //labels: [values[0].DateTime, values[1].DateTime, values[2].DateTime, values[3].DateTime, values[4].DateTime, values[5].DateTime, values[6].DateTime, values[7].DateTime, values[8].DateTime, values[9].DateTime, values[10].DateTime],
         labels: Graphe_Label,
         datasets: [{
             backgroundColor: '#2d9ae0',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             borderColor: 'rgb(255, 99, 132)',
-            label: 'Vente Bar',
-            //data: [values[0].NombreDePassage, values[1].NombreDePassage, values[2].NombreDePassage, values[3].NombreDePassage, values[4].NombreDePassage, values[5].NombreDePassage, values[6].NombreDePassage, values[7].NombreDePassage, values[8].NombreDePassage, values[9].NombreDePassage, values[10].NombreDePassage]
+            label: 'Nombre de personne',
+            data: datas
+        },
+        {
+            backgroundColor: '#900C3F',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: 'Nombre de produits vendus',
             data: datas_ventes
-        }]
+        },
+        {
+            backgroundColor: '#FFC300',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: "Chiffre d'affaires",
+            data: datas_CA
+        }
+    ]
     };
     options = {
         title: {
@@ -579,7 +648,7 @@ function MakeBarVente()
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: titre[1],
+            text: "Every  graphics together",
         },
         animation: {
             duration: 1000,
@@ -656,11 +725,11 @@ function MakeAraignee()
     labels: Graphe_Label,
     datasets: [{
         label: titre[0],
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        backgroundColor: '#900C3F',
+        borderColor: '#44061E',
         fill: true,
-        borderColor: 'rgb(54, 162, 235)',
         pointBorderColor: '#fff',
-        pointBackgroundColor: 'rgb(54, 162, 235)',
+        pointBackgroundColor: '#900C3F',
         data: datas
     }]
 }
