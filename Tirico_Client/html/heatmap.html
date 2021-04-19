@@ -73,10 +73,16 @@
 					<select id="magasinSelect"></select>
 				</div>
 			</div>
-            <img id="HeatMap" src="../ressource/image/HeatMap.png"/>
+            <img id="HeatMap" src="../ressource/image/heatmap1.png"/>
         </div>
     </div>
 </body>
-	
+<script>
+	const magasinBtn = document.getElementById('magasinSelect')
+    magasinBtn.addEventListener('change', (event) => {
+        var heatmap = document.getElementById("HeatMap");
+		heatmap.src = "../ressource/image/heatmap"+numId[document.getElementById("magasinSelect").selectedIndex]+".PNG"
+    })
+</script>
 </html>
 
