@@ -15,7 +15,6 @@ con.connect(function(err) {
 });
 
 
-var num = -99;
 var numId = [];
 var sql0 = "SELECT IdLoc FROM AccToLoc WHERE IdAcc='"+Account_ID+"'";
 con.query(sql0, function (err0, result0) {

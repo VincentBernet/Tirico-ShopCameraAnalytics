@@ -37,7 +37,12 @@ con.query(sql0, function (err0, result0) {
     if (err0) alert(err0);
     else
     {
-        var LocalID = result0[0].IdLoc;
+        if (numId[document.getElementById("magasinSelect").selectedIndex] === undefined)
+        {
+            var LocalID = result0[0].IdLoc;
+        }
+        else {   var LocalID = result0[numId[document.getElementById("magasinSelect").selectedIndex]-1].IdLoc;
+    }
         //alert("Select working we have current LocalID: "+LocalID+"");
         var sql1 = "SELECT Ccap, Cpt, CapMax FROM `Local` WHERE ID = '"+LocalID+"'";
         con.query(sql1, function (err1, result1) {
