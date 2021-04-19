@@ -26,6 +26,7 @@ function Button_Time() {
     RefreshBtn.addEventListener('click', (event) => {
         Data_ForSearching();
     })
+
     const go_Btn = document.getElementById('go_datebutton')
     go_Btn.addEventListener('click', (event) => {
         Data_ForSearching();
@@ -41,6 +42,11 @@ function Button_Time() {
     const magasinBtn = document.getElementById('magasinSelect')
     magasinBtn.addEventListener('change', (event) => {
         Data_ForToday();
+    })
+
+    const BAndWBtn = document.getElementById('whiteblack')
+    BAndWBtn.addEventListener('change', (event) => {
+        Data_ForSearching();
     })
 
     const WeeklyBtn = document.getElementById('Weekly')
@@ -496,10 +502,10 @@ function Affluence_LineGraph() {
         title: {
             display: true,
             position: 'top',
-            fontSize: '15',
+            fontSize: '18',
             fontFamily: 'Tahoma',
-            fontColor: '#FFFFFF',
-            fontStyle:'bold',
+            fontColor: colorTitre,
+            fontStyle: 'bold',
             padding: '0',
             lineHeight: '1.5',
             text: titre[0]
@@ -516,6 +522,7 @@ function Affluence_LineGraph() {
         options : options
     });
 }
+var colorTitre = '#fff';
 var graph2; 
 function CA_BarGraph()
 {
@@ -539,10 +546,10 @@ function CA_BarGraph()
         title: {
             display: true,
             position: 'top',
-            fontSize: '15',
+            fontSize: '18',
             fontFamily: 'Tahoma',
-            fontColor: '#FFFFFF',
-            fontStyle:'bold',
+            fontColor: colorTitre,
+            fontStyle: 'bold',
             padding: '0',
             lineHeight: '1.5',
             text: titre[2],
@@ -580,9 +587,9 @@ function MakeVenteLineGraph() {
         title: {
             display: true,
             position: 'top',
-            fontSize: '15',
+            fontSize: '18',
             fontFamily: 'Tahoma',
-            fontColor: '#FFFFFF',
+            fontColor: colorTitre,
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
@@ -642,9 +649,9 @@ function MakeBarVente()
         title: {
             display: true,
             position: 'top',
-            fontSize: '15',
+            fontSize: '18',
             fontFamily: 'Tahoma',
-            fontColor: '#FFFFFF',
+            fontColor: colorTitre,
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
@@ -690,9 +697,9 @@ function MakeCercle() {
         title: {
             display: true,
             position: 'top',
-            fontSize: '15',
+            fontSize: '18',
             fontFamily: 'Tahoma',
-            fontColor: '#FFFFFF',
+            fontColor: colorTitre,
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
@@ -737,9 +744,9 @@ function MakeAraignee()
         title: {
             display: true,
             position: 'top',
-            fontSize: '15',
+            fontSize: '18',
             fontFamily: 'Tahoma',
-            fontColor: '#FFFFFF',
+            fontColor: colorTitre,
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
