@@ -20,7 +20,6 @@ var CapacityRemaining = 0;
         if (err) throw err;
         else 
         {
-            console.log("Hello Mister :"+Account_NameCounter+"");
             console.log("Connected to the DB : From Counter.js");
         }
     });

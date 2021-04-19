@@ -33,7 +33,7 @@ function createMainWindow() {
   });
 
   
-  //win.webContents.openDevTools();
+  win.webContents.openDevTools();
   win.resizable = false;
 
   win.on('closed', () => {
