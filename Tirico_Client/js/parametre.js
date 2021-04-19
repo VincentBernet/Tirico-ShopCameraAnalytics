@@ -239,7 +239,7 @@ var Code4 = `Get_Datas("NombreDePassage").then(function(dat) {
   MakeBar();
 }).catch((err) => setImmediate(() => { throw err; }));`;
 
-// Appel Python du code de détection, génère un fichier Csv
+// Appel Python du code de sélection de zone, ouvre une nouvelle Window
 let pyshell = new PythonShell('code_python/DrawZone/drawShopZones.py');
 
 pyshell.send(JSON.stringify(['\n-----------------------------------------------------\nAppel du script de Selection de Zone "drawShopZones.py"']))

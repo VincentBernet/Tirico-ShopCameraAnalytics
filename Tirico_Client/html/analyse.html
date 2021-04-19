@@ -9,13 +9,23 @@
 			content="script-src 'self' 'unsafe-inline';"
 		/>
 		<link rel="stylesheet" href="../css/commun.css" />
-		<link rel="stylesheet" href="../css/analyse.css" />
 		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/parametre.css" />
+
+
 
 		<!-- The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. 
 			The script loads “in the background”, and then runs when the DOM is fully built.-->
 		<script defer src="../js/commun.js"></script>
 		<script defer src="../js/analyse.js"></script>
+		<script defer src="../js/index.js"></script>
+
+		<!-- For the counter -->
+		<link rel="stylesheet" href="../css/odometer-theme-car.css" />
+		<script src="../js/odometer.js"></script>
+
+		<script type="text/javascript" src="../js/counter.js"></script>
 	</head>
 
 	<body>
@@ -46,13 +56,15 @@
 				<a id="redirect_Disconnection" class="button" href="#">Déconnexion</a>
 			</div>
 		</div>
+
+		<div class="Workspace">
 		<div class="bloc">
 			<button id="whiteblack"></button>
 			<div class="select">
 				<select id="magasinSelect"></select>
 			</div>
 		</div>
-		<div class="Container_graphe">
+		<div id="Container_graphe"  >
 			<p id="Titre">
 				Votre analyse journalière du <!-- Script pour insérer la date :-->
 				<script>

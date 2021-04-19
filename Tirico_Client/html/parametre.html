@@ -9,12 +9,21 @@
 			content="script-src 'self' 'unsafe-inline';"
 		/>
         <link rel="stylesheet" href="../css/commun.css" />
-		<link rel="stylesheet" href="../css/parametre.css" />
         <link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/parametre.css" />
+
 
         <!-- Script assurant la déconnexion et d'autres fonctions -->
         <script defer src="../js/commun.js"></script>
         <script defer src="../js/parametre.js"></script>
+		<script defer src="../js/index.js"></script>
+
+		<!-- For the counter -->
+		<link rel="stylesheet" href="../css/odometer-theme-car.css" />
+		<script src="../js/odometer.js"></script>
+
+		<script type="text/javascript" src="../js/counter.js"></script>
 	</head>
 
 	<body>
@@ -45,6 +54,7 @@
 				<a id="redirect_Disconnection" class="button" href="#">Déconnexion</a>
 			</div>
 		</div>
+		<div class="Workspace">
         <div class="bloc">
             <button id="whiteblack"></button>
             <div class="select">
@@ -135,7 +145,7 @@ sys.stdout.flush()</textarea>
                 <!-- Implenter un input pour choisir un fichier à importer -->
                 <input id="SelectFile" type="file">
                 
-                <button   id="RestaurerBtn" style="color:red;">Restaurer les paramètres par défauts</button>
+                <button   id="RestaurerBtn" >Restaurer les paramètres par défauts</button>
                 <button  id="ValidateBtn">Valider</button>
             <!--</form> -->
             </div>
