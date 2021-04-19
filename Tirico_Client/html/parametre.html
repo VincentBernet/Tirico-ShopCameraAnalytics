@@ -56,50 +56,81 @@
                 Sélectionnez le graphe que vous souhaitez modifier : 
                 <!--<form method="POST"> -->
                     <select id="Graph_Selected">
-                        <option value="Afluence">Affluence Graphe</option>
-                        <option value="HeatMap">HeatMap</option>
-                        <option value="Graphe3">Graphe3</option>
-                        <option value="DailyAnalysis">Daily Analysis</option>
+                        <option value="1">HeatMap</option>
+                        <option value="2">Affluence Graphe</option>
+                        <option value="3">Graphe3</option>
+                        <option value="4">Daily Analysis</option>
                       </select>
                 <button id="redirect_InscriptionLoc">Rajouter un nouveau Magasin</button>
                 <br>
                 <br>
                 <textarea id="code_python" rows="30" cols="130">
-# Affluence Graphe Code
+					
+# HeatMap Script Python
 
-                    import pandas as pd
-                    from matplotlib import pyplot as plt
-                    import plotly.express as px
+import sys,json
+data = sys.stdin.readlines()
+data = json.loads(data[0])
+print(data[0]+" : Recue")
 
-                    df = pd.read_csv("../../ressource/data/output.csv", usecols = ['time', 'class','trackID'])
-                    datetime = pd.to_datetime(df['time'])
-                    df = df.set_index(pd.DatetimeIndex(datetime))
-                    df.head(3)
 
-                    affluence = df.groupby(df.index.second).trackID.nunique()
-                    affluence.head(3)
-                    x = df.index.second.unique()
-                    y = affluence
-                    fig = px.bar(df, x, y, title='Affluence/Seconde',
-                        labels={
-                            "y": "Nombre de badauds",
-                            "x": "Horaire (en seconde)"
-                        },)
 
-                    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
-                        paper_bgcolor="rgba(0,0,0,0)",
-                        font_family="Taoma",
-                        font_color="white",
-                        font_size=15,
-                        title_font_family="Taoma",
-                        title_font_color="white",
-                        title_font_size=30,
-                        legend_title_font_color="green",
-                        width= 1248,
-                        height= 648)
+# PA8 : Density Map
+import pandas as pd
+import seaborn as sb
+import numpy as np
+from scipy.stats.kde import gaussian_kde 
+import matplotlib.pyplot as plt
 
-                        fig.write_image(file='Affluence.png', format='.png')
-                        fig.show()</textarea>
+## Chargement des données
+df = pd.read_csv('./ressource/data/output.csv')
+df.head(3)
+
+## Pré-traitement des données
+### Nettoyage
+df.dropna(inplace=True)
+
+### Matrice de données pour la carte de chaleur 
+#### 2D array avec les données centrales de chaque bounding box
+xpos = (df['xmax'] + df['xmin']) / 2
+ypos = (df['ymax'] + df['ymin']) / 2
+
+data = np.array([xpos, ypos])
+x, y = data
+
+## Calcul de densité
+### Noyau avec filtre de Gauss
+k = gaussian_kde(np.vstack([x,y]))
+xi, yi = np.mgrid[x.min():x.max():x.size**0.5*1j,y.min():y.max():y.size**0.5*1j]
+zi = k(np.vstack([xi.flatten(), yi.flatten()]))
+
+## Density Map
+#fig = plt.figure(figsize=(7,8))
+#ax1 = fig.add_subplot(211)
+fig, ax2 = plt.subplots()
+#ax2 = fig.add_subplot(212)
+
+# alpha=0.5 pour mettre les cartes semi-transparentes
+#ax1.pcolormesh(xi, yi, zi.reshape(xi.shape), alpha=0.5)
+ax2.contourf(xi, yi, zi.reshape(xi.shape), alpha=0.5)
+
+# Définit les axes de la carte
+#ax1.set_xlim(x.min(), x.max())
+#ax1.set_ylim(y.max(), y.min())
+ax2.set_xlim(x.min(), x.max())
+ax2.set_ylim(y.max(), y.min())
+
+print("Density_Map 1] Debug Creation + Supperposition HeatMap")
+# Superpose la density map avec l'image du magasin
+im = plt.imread('./ressource/data/Heatmap_fond.png')
+#ax1.imshow(im, extent=[x.min(), x.max(), y.max(), y.min()], aspect='auto')
+ax2.imshow(im, extent=[x.min(), x.max(), y.max(), y.min()], aspect='auto')
+
+print("Density_Map 2] Debug Telechargement HeatMap = ok")
+# Telechargment de la HeatMap
+fig.savefig('./code_python/Density_Map/HeatMap.png')
+
+sys.stdout.flush()</textarea>
                     <br><br>
                 <!-- Implenter un input pour choisir un fichier à importer -->
                 <input id="SelectFile" type="file">
