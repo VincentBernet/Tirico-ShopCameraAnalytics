@@ -110,29 +110,7 @@
             </div>
 		</div>
         
-        <!-- Script pour modifier le code source souhaiter selon le "select" sélectionner + Alert si le boutton restaurer ou valider est activé-->
-		<script>
-			const AffluenceBtn = document.getElementById('RestaurerBtn')
-			AffluenceBtn.addEventListener('click', (event) => {
-                confirm("Attention : Vous vous apprêtez à restaurer tous les paramètres par défauts, graphes compris !\n Confirmer ?")
-            })
-            
 
-            const ValidateBtn = document.getElementById('ValidateBtn')
-			ValidateBtn.addEventListener('click', (event) => {
-                var graphSelection = document.getElementById("Graph_Selected")
-                var Graph_Selected = graphSelection.value
-                alert("Le graphe d'"+Graph_Selected+" a bien été modifié")
-            })
-
-
-            const SelectBtn = document.getElementById('Graph_Selected')
-			SelectBtn.addEventListener('click', (event) => {
-                var graphSelection = document.getElementById("Graph_Selected")
-                var Graph_Selected = graphSelection.value
-                document.getElementById('code_python').value = '# '+ Graph_Selected +' Graphe Code \n'
-            })
-        </script>	
         
 		
 
