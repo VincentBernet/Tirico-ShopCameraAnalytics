@@ -55,21 +55,28 @@
 			</div>
 		</div>
 		<div class="Workspace">
-        <div class="bloc">
-            <button id="whiteblack"></button>
-            <div class="select">
-                <select id="magasinSelect"></select>
-            </div>
-        </div>
+			<div id="time_button">
+				<br>
+				<button id="redirect_InscriptionLoc" style="width: 15%; margin-right: 2%;">Rajouter un nouveau Magasin</button>
+				<button id="selection_Zone" style="width: 15%;">Selection de Zone</button>
+			</div>
+        	<div class="bloc">
+            	<button id="whiteblack"></button>
+            	<div class="select">
+                	<select id="magasinSelect"></select>
+           		 </div>
+        	</div>
 			<!-- Container avec le graphe choisi (en format png) -->
 		<div id="Container_graphe">
                 Sélectionnez le graphe que vous souhaitez modifier : 
                 <!--<form method="POST"> -->
                     <select id="Graph_Selected">
-                        <option value="1">HeatMap</option>
-                        <option value="2">Affluence Graphe</option>
-                        <option value="3">Graphe3</option>
-                        <option value="4">Daily Analysis</option>
+                        <option value="HeatMap">HeatMap</option>
+                        <option value="Affluence Graphe">Affluence Graphe</option>
+                        <option value="Ventes Produit Graphe">Ventes Produit Graphe</option>
+                        <option value="Chiffre affaire Graphe">Chiffre d'affaire Graphe</option>
+						<option value="Multi Graphe">Multi Graphe</option>
+						<option value="Conseil Journalier">Conseil Journalier</option>
                       </select>
                 <button id="redirect_InscriptionLoc">Rajouter un nouveau Magasin</button>
                 <br>
