@@ -90,9 +90,8 @@ coef_event()
 def Conseil_stocks( coef_event):
     ID = 100
     
-    while ID>2 or ID<0 : 
-        print ("Object Sélectionner: ",IdObject)
-        ID = int(IdObject)
+    print ("Object Sélectionner: ",IdObject)
+    ID = int(IdObject)
     cursor = db.cursor()
     cursor.execute("""SELECT Nom FROM Item  WHERE ID = %s """, ( ID , ))
     objet = cursor.fetchone()
@@ -107,9 +106,9 @@ def Conseil_stocks( coef_event):
     moy_trois_jours = moy_trois_jours[0]
     
     valeur_stock = ((moy_mois)-(moy_trois_jours))*(coef_event)
-    if valeur_stock<0.90 : print('Il faut augmenter le stock en prévision d’une hausse de consommation future de ',objet)
-    elif 0.90<valeur_stock<1.10 : print("Il faut continuer d’alimenter les stocks de manière constante, rien ne va bouger pour le produit ", objet)
-    elif valeur_stock>1.10 : print (".Il faut cesser d’alimenter les stocks de ", objet ," ce produit sera en perte de vitesse sur les prochains jours")
+    if valeur_stock<0.90 : print("Il faut augmenter le stock en prevision d'une hausse de consommation future de ",objet,".")
+    elif 0.90<valeur_stock<1.10 : print("Il faut continuer d'alimenter les stocks de ", objet," de manière constante, rien ne devrait bouger pour le produit.")
+    elif valeur_stock>1.10 : print ("Il faut cesser d'alimenter les stocks de ", objet ," ce produit sera en perte de vitesse sur les prochains jours.")
 
 
 
