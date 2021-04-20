@@ -10,7 +10,21 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import mysql.connector
 import datetime
+import sys, json
 from datetime import datetime
+
+#Code to Read data parse to this script
+#Read data from stdin
+lines = sys.stdin.readlines()
+# Since our input would only be having one line, parse our JSON data from that
+#get our data as an array from read_in()
+lines = json.loads(lines[0])
+
+print (lines[1])
+IdObject = lines[0]
+
+
+
 
 db = mysql.connector.connect(
   host="mysql-pa8.alwaysdata.net",
@@ -76,9 +90,8 @@ coef_event()
 def Conseil_stocks( coef_event):
     ID = 100
     
-    while ID>2 or ID<0 : 
-        print ("entrez l'ID de l'objet que vous souhaitez récupérer")
-        ID = int(input())
+    print ("Object Sélectionner: ",IdObject)
+    ID = int(IdObject)
     cursor = db.cursor()
     cursor.execute("""SELECT Nom FROM Item  WHERE ID = %s """, ( ID , ))
     objet = cursor.fetchone()
@@ -93,13 +106,15 @@ def Conseil_stocks( coef_event):
     moy_trois_jours = moy_trois_jours[0]
     
     valeur_stock = ((moy_mois)-(moy_trois_jours))*(coef_event)
-    if valeur_stock<0.90 : print('Il faut augmenter le stock en prévision d’une hausse de consommation future de ',objet)
-    elif 0.90<valeur_stock<1.10 : print("Il faut continuer d’alimenter les stocks de manière constante, rien ne va bouger pour le produit ", objet)
-    elif valeur_stock>1.10 : print (".Il faut cesser d’alimenter les stocks de ", objet ," ce produit sera en perte de vitesse sur les prochains jours")
+    if valeur_stock<0.90 : print("Il faut augmenter le stock en prevision d'une hausse de consommation future de ",objet,".")
+    elif 0.90<valeur_stock<1.10 : print("Il faut continuer d'alimenter les stocks de ", objet," de manière constante, rien ne devrait bouger pour le produit.")
+    elif valeur_stock>1.10 : print ("Il faut cesser d'alimenter les stocks de ", objet ," ce produit sera en perte de vitesse sur les prochains jours.")
 
+
+
+    
+#Création_liste()
 Conseil_stocks(1)
-
-
 # In[ ]:
 
 
