@@ -17,7 +17,10 @@
 		<script defer src="../js/commun.js"></script>
 		<script defer src="../js/index.js"></script>
         <script src="../node_modules/chart.js/dist/Chart.js"></script>
-		<script type="text/javascript" src="../js/Graph.js"></script>
+		<script src="../js/Graph/date.js"></script>
+		<script src="../js/Graph/request.js"></script>
+		<script src="../js/Graph/print-graph.js"></script>
+		<script src="../js/Graph/graph.js"></script>
 		
 		<!-- For the counter -->
 		<link rel="stylesheet" href="../css/odometer-theme-car.css" />
@@ -98,11 +101,9 @@
 				</span>
 			</div>
 			<div class="Espace">
+				<h1>Comparaison entre les magasins</h1>
 				<span id="Container_graphe">
-					<canvas id="graph7"></canvas>
-				</span>
-				<span id="Container_graphe">
-					<canvas id="graph8"></canvas>
+					<canvas id="graphCommun"></canvas>
 				</span>
 			</div>
         </div>
@@ -111,8 +112,6 @@
 	
 </html>
 
-
 <script>
 	Button_Time();
-	ConnectToDatabase();
 </script>
