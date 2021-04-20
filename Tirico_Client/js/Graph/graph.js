@@ -405,6 +405,7 @@ async function getAllShops() {
             {
                 var dernierJour = dat[0].DateTime.getDate();
                 var moyenne = [0, 0, 0];
+                
                 dat.forEach(function(item, index, array) 
                 {
                     var jour = item.DateTime.getDate();
@@ -416,10 +417,12 @@ async function getAllShops() {
                     }
                     if (jour != dernierJour)
                     {
-                        donneesAff.push(moyenne[0] / moyenne[0].length);
-                        donneesVentes.push(moyenne[1] / moyenne[1].length);
-                        donneesCA.push(moyenne[2] / moyenne[2].length);
-                        moyenne = [0 , 0, 0];
+                        var total = moyenne.length * 3;
+                        donneesAff.push(moyenne[0] / total);
+                        donneesVentes.push(moyenne[1] / total);
+                        donneesCA.push(moyenne[2] / total);
+                        moyenne = [0, 0, 0];
+                        total = 0;
                     }
                     dernierJour = jour;
                 })

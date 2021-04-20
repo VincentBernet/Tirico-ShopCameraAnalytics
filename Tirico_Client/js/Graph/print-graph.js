@@ -11,6 +11,8 @@ function Show_Graph() {
     MakeAraignee();
     MakeCercle();
     MakeCommun();
+    MakeCommunVente();
+    MakeCommunCA();
     console.log("on finit de montrer");
 }
 
@@ -323,7 +325,7 @@ function MakeCommun() {
             data: datas_magasin[0][0]
         },
         {
-            backgroundColor: '#900C3F',
+            backgroundColor: '#2d9ae0',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             borderColor: 'rgb(255, 99, 132)',
@@ -331,7 +333,7 @@ function MakeCommun() {
             data: datas_magasin[1][0]
         },
         {
-            backgroundColor: '#FFC300',
+            backgroundColor: '#2d9ae0',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             borderColor: 'rgb(255, 99, 132)',
@@ -358,6 +360,126 @@ function MakeCommun() {
         }
     };
     graphCommun = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+}
+
+var graphCommunVente;
+function MakeCommunVente() {
+    if (graphCommunVente != null)
+    {
+        graphCommunVente.destroy();
+    }
+    ctx = document.getElementById('graphCommunVente').getContext('2d')
+
+    data = {
+        labels: Graphe_Label,
+        datasets: [{
+            backgroundColor: '#900C3F',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: 'Vente du magasin 0',
+            data: datas_magasin[0][1]
+        },
+        {
+            backgroundColor: '#900C3F',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: 'Vente du magasin 1',
+            data: datas_magasin[1][1]
+        },
+        {
+            backgroundColor: '#900C3F',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: "Vente du magasin 2",
+            data: datas_magasin[1][1]
+        }
+    ]
+    };
+    options = {
+        title: {
+            display: true,
+            position: 'top',
+            fontSize: '18',
+            fontFamily: 'Tahoma',
+            fontColor: colorTitre,
+            fontStyle:'bold',
+            padding: '0',
+            lineHeight: '1.5',
+            text: "Graphe Commun Vente",
+        },
+        animation: {
+            duration: 1000,
+            easing: 'easeInQuad'
+        }
+    };
+    graphCommunVente = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+}
+
+var graphCommunCA;
+function MakeCommunCA() {
+    if (graphCommunCA != null)
+    {
+        graphCommunCA.destroy();
+    }
+    ctx = document.getElementById('graphCommunCA').getContext('2d')
+
+    data = {
+        labels: Graphe_Label,
+        datasets: [{
+            backgroundColor: '#900C3F',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: 'CA du magasin 0',
+            data: datas_magasin[0][2]
+        },
+        {
+            backgroundColor: '#900C3F',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: 'CA du magasin 1',
+            data: datas_magasin[1][2]
+        },
+        {
+            backgroundColor: '#900C3F',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: "CA du magasin 2",
+            data: datas_magasin[1][2]
+        }
+    ]
+    };
+    options = {
+        title: {
+            display: true,
+            position: 'top',
+            fontSize: '18',
+            fontFamily: 'Tahoma',
+            fontColor: colorTitre,
+            fontStyle:'bold',
+            padding: '0',
+            lineHeight: '1.5',
+            text: "Graphe Commun CA",
+        },
+        animation: {
+            duration: 1000,
+            easing: 'easeInQuad'
+        }
+    };
+    graphCommunCA = new Chart(ctx, {
         type: 'bar',
         data: data,
         options: options
