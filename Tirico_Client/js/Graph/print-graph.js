@@ -10,9 +10,12 @@ function Show_Graph() {
     MakeBarVente();
     MakeAraignee();
     MakeCercle();
-    MakeCommun();
-    MakeCommunVente();
-    MakeCommunCA();
+    if (lastFunction !== Data_ForMonthly)
+    {
+        MakeCommun();
+        MakeCommunVente();
+        MakeCommunCA();
+    }
     console.log("on finit de montrer");
 }
 
@@ -305,7 +308,6 @@ function MakeAraignee()
 }
 
 
-
 var graphCommun;
 function MakeCommun() {
     if (graphCommun != null)
@@ -352,11 +354,18 @@ function MakeCommun() {
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: "Graphe Commun",
+            text: "Affluence de tous les magasins",
         },
         animation: {
             duration: 1000,
             easing: 'easeInQuad'
+        },
+        scales : {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
         }
     };
     graphCommun = new Chart(ctx, {
@@ -412,11 +421,18 @@ function MakeCommunVente() {
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: "Graphe Commun Vente",
+            text: "Ventes de tous les magasins",
         },
         animation: {
             duration: 1000,
             easing: 'easeInQuad'
+        },
+        scales : {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
         }
     };
     graphCommunVente = new Chart(ctx, {
@@ -437,7 +453,7 @@ function MakeCommunCA() {
     data = {
         labels: Graphe_Label,
         datasets: [{
-            backgroundColor: '#900C3F',
+            backgroundColor: '#FFC300',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             borderColor: 'rgb(255, 99, 132)',
@@ -445,7 +461,7 @@ function MakeCommunCA() {
             data: datas_magasin[0][2]
         },
         {
-            backgroundColor: '#900C3F',
+            backgroundColor: '#FFC300',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             borderColor: 'rgb(255, 99, 132)',
@@ -453,7 +469,7 @@ function MakeCommunCA() {
             data: datas_magasin[1][2]
         },
         {
-            backgroundColor: '#900C3F',
+            backgroundColor: '#FFC300',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             borderColor: 'rgb(255, 99, 132)',
@@ -472,11 +488,18 @@ function MakeCommunCA() {
             fontStyle:'bold',
             padding: '0',
             lineHeight: '1.5',
-            text: "Graphe Commun CA",
+            text: "Chiffre d'affaires de tous les magasins",
         },
         animation: {
             duration: 1000,
             easing: 'easeInQuad'
+        },
+        scales : {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
         }
     };
     graphCommunCA = new Chart(ctx, {

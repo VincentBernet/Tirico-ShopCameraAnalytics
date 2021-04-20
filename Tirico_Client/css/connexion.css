@@ -11,6 +11,13 @@
 	--bgFormElsFocus: hsl(0, 7%, 20%);
 }
 
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 4%;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -89,8 +96,8 @@ body {
 	border-radius: 3px;
 	border: 5px solid #00abe9;
 	max-width: 808px;
-	margin: 10% auto;
-	padding: 0 1.5rem 1rem;
+	margin: 5% auto;
+	padding: 0 1rem 1rem;
 }
 
 /* FORM ELEMENTS

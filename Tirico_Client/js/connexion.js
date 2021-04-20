@@ -23,7 +23,7 @@ const notification = {
 // Code for the Form
 const checkbox = document.querySelector('.my-form input[type="checkbox"]');
 const btns = document.querySelectorAll(".my-form button");
- 
+
 checkbox.addEventListener("change", function() {
   const checked = this.checked;
   for (const btn of btns) {
@@ -67,7 +67,7 @@ function form_submited() {
     else {
         try {
             result0[0].Name;
-            alert("Connexion Validé");
+            //alert("Connexion Validé");
             var boolean;
             if (result0[0].First_registration==0)
                 {

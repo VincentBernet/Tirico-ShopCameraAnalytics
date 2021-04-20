@@ -9,10 +9,6 @@ var datas_CA = [];
 var lastFunction;
 
 var datas_magasin = new Array(30);
-var data_Together = []; 
-var data_ventesTogether = []; 
-var data_CATogether = [];
-
 
 
 function Button_Time() {
@@ -44,6 +40,7 @@ function Button_Time() {
             colorTitre = '#000000';
         else
             colorTitre = '#fff';
+        
         
         lastFunction();
     })
@@ -200,7 +197,6 @@ function Data_ForWeekly() {
 function Data_ForMonthly() {
     Erase_Datas();
 
-
     SetNow();
     SetBefore(-30);
     lastFunction = Data_ForMonthly;
@@ -279,9 +275,12 @@ function Data_ForMonthly() {
             dernierJour = jour;
         })
         titre[2] = "Moyenne du chiffres d'affaires par mois";
+        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 
-    getAllShops();
+
+    console.log("Pour des questions de performance, les statistiques de magasin croisées sont retirés !");
+    //getAllShops();
 }
 
 function Data_ForSearching() {
