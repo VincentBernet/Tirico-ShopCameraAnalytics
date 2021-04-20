@@ -25,7 +25,14 @@ function ConnectToDatabase() {
     });
 }
 
+function Erase_Datas() {
+    datas = [];
+    Graphe_Label = [];
+    datas_ventes = [];
+    datas_CA = [];
 
+    datas_magasin = [];
+}
 
 function Get_Datas(Data) 
 {
@@ -34,10 +41,31 @@ function Get_Datas(Data)
     datas_ventes = [];
     datas_CA = [];
 
+    datas_magasin = [];
+
     return new Promise(function(resolve, reject) {
         //var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
         console.log(document.getElementById("magasinSelect").selectedIndex);
         var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = " + numId[document.getElementById("magasinSelect").selectedIndex] + " AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
+        //var sql = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '2020-06-29 00:00:00' AND '2020-06-29 10:00:00'";
+        con.query(req, function (err, result) {
+            if (err) return reject(err);
+            else {
+                values = result;
+                resolve(values);
+            }
+        });
+    })
+    
+}
+
+
+function Get_DatasFromShop(Data, idShop) 
+{
+    return new Promise(function(resolve, reject) {
+        //var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
+        console.log(document.getElementById("magasinSelect").selectedIndex);
+        var req = "SELECT " + Data + ", DateTime FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = " + idShop + " AND DateTime BETWEEN '" + Req_Before + "' AND '" + Req_Now + "'";
         //var sql = "SELECT NombreDePassage FROM Stats JOIN StatsToLoc on Stats.ID = StatsToLoc.IDStats WHERE IDLoc = 1 AND DateTime BETWEEN '2020-06-29 00:00:00' AND '2020-06-29 10:00:00'";
         con.query(req, function (err, result) {
             if (err) return reject(err);

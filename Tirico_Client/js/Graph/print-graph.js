@@ -3,12 +3,15 @@ var data;
 var options;
 
 function Show_Graph() {
+    console.log("On montre les graphes");
     Affluence_LineGraph();
     CA_BarGraph();
     MakeVenteLineGraph();
     MakeBarVente();
     MakeAraignee();
     MakeCercle();
+    MakeCommun();
+    console.log("on finit de montrer");
 }
 
 var graph1;
@@ -297,4 +300,66 @@ function MakeAraignee()
         options: options
     });
 
+}
+
+
+
+var graphCommun;
+function MakeCommun() {
+    if (graphCommun != null)
+    {
+        graphCommun.destroy();
+    }
+    ctx = document.getElementById('graphCommun').getContext('2d')
+
+    data = {
+        labels: Graphe_Label,
+        datasets: [{
+            backgroundColor: '#2d9ae0',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: 'Affluence du magasin 0',
+            data: datas_magasin[0][0]
+        },
+        {
+            backgroundColor: '#900C3F',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: 'Affluence du magasin 1',
+            data: datas_magasin[1][0]
+        },
+        {
+            backgroundColor: '#FFC300',
+            hoverBackgroundColor: '#fff',
+            hoverBorderWidth: '#fff',
+            borderColor: 'rgb(255, 99, 132)',
+            label: "Affluence du magasin 2",
+            data: datas_magasin[1][0]
+        }
+    ]
+    };
+    options = {
+        title: {
+            display: true,
+            position: 'top',
+            fontSize: '18',
+            fontFamily: 'Tahoma',
+            fontColor: colorTitre,
+            fontStyle:'bold',
+            padding: '0',
+            lineHeight: '1.5',
+            text: "Graphe Commun",
+        },
+        animation: {
+            duration: 1000,
+            easing: 'easeInQuad'
+        }
+    };
+    graphCommun = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
 }

@@ -8,6 +8,13 @@ var datas_CA = [];
 
 var lastFunction;
 
+var datas_magasin = new Array(30);
+var data_Together = []; 
+var data_ventesTogether = []; 
+var data_CATogether = [];
+
+
+
 function Button_Time() {
     const RefreshBtn = document.getElementById('refresh_button')
     RefreshBtn.addEventListener('click', (event) => {
@@ -53,16 +60,31 @@ function Button_Time() {
     })
 }
 
-
 ConnectToDatabase();
 
+var test = [];
+var test1 = [5,2,1];
+var test2 = [4,2,4,6];
 
+var section = [0,0,0];
+var donneesAff = [];
+var donneesVentes = [];
+var donneesCA = [];
 
+for (var i = 0; i < 20; i++) {
+    test1[i] = test2;
+    test[i] = test1;
+}
+console.log("test : " + test);
+console.log("test1 : " + test1);
+console.log("test2 : " + test2);
 
-
+console.log("tek : " + test[0][0][0]);
 
 function Data_ForToday()
 {
+    Erase_Datas();
+
     SetNow();
     SetBefore(-1);
     lastFunction = Data_ForToday;
@@ -78,11 +100,19 @@ function Data_ForToday()
         titre[0] = "Affluence client par jour";
         titre[1] = "Nombre de produits vendus par jour";
         titre[2] = "Chiffre d'affaires par jour";
-        Show_Graph();
+        //Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
+
+    console.log("lENGFTH" + numId.length);
+    
+    getAllShops();
 }
 
+
+
 function Data_ForWeekly() {
+    Erase_Datas();
+
     SetNow();
     SetBefore(-7);
     lastFunction = Data_ForWeekly;
@@ -92,8 +122,6 @@ function Data_ForWeekly() {
         var moyenne = 0;
         var nb = 0;
         var semaine = [];
-        // Est -ce qu'on doit pas enlever cette ligne ?
-        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
         dat.forEach(function(item, index, array) 
         {
             var jour = item.DateTime.getDate();
@@ -113,7 +141,6 @@ function Data_ForWeekly() {
         })
         Graphe_Label = semaine;
         titre[0] = 'Affluence client par semaine';
-        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("NbVente").then(function(dat) {
@@ -140,7 +167,6 @@ function Data_ForWeekly() {
             dernierJour = jour;
         })
         titre[1] = 'Nombre de produits vendus par semaine';
-        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("CAh").then(function(dat) {
@@ -148,7 +174,6 @@ function Data_ForWeekly() {
         var moyenne = 0;
         var nb = 0;
         var semaine = [];
-        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
         dat.forEach(function(item, index, array) 
         {
             var jour = item.DateTime.getDate();
@@ -167,11 +192,15 @@ function Data_ForWeekly() {
             dernierJour = jour;
         })
         titre[2] = "Moyenne du chiffres d'affaires par mois";
-        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
+
+    getAllShops();
 }
 
 function Data_ForMonthly() {
+    Erase_Datas();
+
+
     SetNow();
     SetBefore(-30);
     lastFunction = Data_ForMonthly;
@@ -181,7 +210,6 @@ function Data_ForMonthly() {
         var moyenne = 0;
         var nb = 0;
         var semaine = [];
-        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
         dat.forEach(function(item, index, array) 
         {
             var jour = item.DateTime.getDate();
@@ -201,7 +229,6 @@ function Data_ForMonthly() {
         })
         Graphe_Label = semaine;
         titre[0] = 'Affluence client par mois';
-        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("NbVente").then(function(dat) {
@@ -209,7 +236,6 @@ function Data_ForMonthly() {
         var moyenne = 0;
         var nb = 0;
         var semaine = [];
-        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
         dat.forEach(function(item, index, array) 
         {
             var jour = item.DateTime.getDate();
@@ -228,7 +254,6 @@ function Data_ForMonthly() {
             dernierJour = jour;
         })
         titre[1] = 'Nombre de produits vendus par mois';
-        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("CAh").then(function(dat) {
@@ -236,7 +261,6 @@ function Data_ForMonthly() {
         var moyenne = 0;
         var nb = 0;
         var semaine = [];
-        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
         dat.forEach(function(item, index, array) 
         {
             var jour = item.DateTime.getDate();
@@ -255,11 +279,15 @@ function Data_ForMonthly() {
             dernierJour = jour;
         })
         titre[2] = "Moyenne du chiffres d'affaires par mois";
-        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
+
+    getAllShops();
 }
 
 function Data_ForSearching() {
+    Erase_Datas();
+
+
     var dateControlStart = document.getElementById('start');
     var dateControlEnd = document.getElementById('end');
     lastFunction = Data_ForSearching;
@@ -285,7 +313,6 @@ function Data_ForSearching() {
         var moyenne = 0;
         var nb = 0;
         var semaine = [];
-        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
         dat.forEach(function(item, index, array) 
         {
             var jour = item.DateTime.getDate();
@@ -305,7 +332,6 @@ function Data_ForSearching() {
         })
         Graphe_Label = semaine;
         titre[0] = 'Affluence client';
-        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 
 
@@ -314,7 +340,6 @@ function Data_ForSearching() {
         var moyenne = 0;
         var nb = 0;
         var semaine = [];
-        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
         dat.forEach(function(item, index, array) 
         {
             var jour = item.DateTime.getDate();
@@ -334,7 +359,6 @@ function Data_ForSearching() {
         })
         Graphe_Label_Vente = semaine;
         titre[1] = 'Nombre de produits vendus';
-        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("CAh").then(function(dat) {
@@ -342,7 +366,6 @@ function Data_ForSearching() {
         var moyenne = 0;
         var nb = 0;
         var semaine = [];
-        //semaine.push(dat[0].DateTime.getDate() + '/' + (dat[0].DateTime.getMonth() + 1))
         dat.forEach(function(item, index, array) 
         {
             var jour = item.DateTime.getDate();
@@ -361,6 +384,56 @@ function Data_ForSearching() {
             dernierJour = jour;
         })
         titre[2] = "Moyenne du chiffres d'affaires";
-        Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
+
+    getAllShops();
+}
+
+
+async function getAllShops() {
+    
+    for (var k = 0; k < numId.length - 1; k++)
+    {
+        console.log("k = " + k);
+        await Get_DatasFromShop("NombreDePassage, NbVente, CAh", numId[k]).then(function(dat) {
+            console.log("attention ça commence pour " + k);
+            donneesAff = [];
+            donneesVentes = [];
+            donneesCA = [];
+            section = [];
+            dat.forEach(function(item, index, array) 
+            {
+                var dernierJour = dat[0].DateTime.getDate();
+                var moyenne = [0, 0, 0];
+                dat.forEach(function(item, index, array) 
+                {
+                    var jour = item.DateTime.getDate();
+                    if (jour == dernierJour)
+                    {
+                        moyenne[0] = moyenne[0] + item.NombreDePassage;
+                        moyenne[1] = moyenne[1] + item.NbVente;
+                        moyenne[2] = moyenne[2] + item.CAh;
+                    }
+                    if (jour != dernierJour)
+                    {
+                        donneesAff.push(moyenne[0] / moyenne[0].length);
+                        donneesVentes.push(moyenne[1] / moyenne[1].length);
+                        donneesCA.push(moyenne[2] / moyenne[2].length);
+                        moyenne = [0 , 0, 0];
+                    }
+                    dernierJour = jour;
+                })
+            })
+            section[0] = donneesAff;
+            section[1] = donneesVentes;
+            section[2] = donneesCA;
+            datas_magasin[k] = section;
+            console.log("tota graph : " + datas_magasin);
+            console.log("curr graph : " + datas_magasin[k]);
+            console.log("opta graph : " + datas_magasin[k][0]);
+            console.log("attention ça finit pour " + k);
+        }).catch((err) => setImmediate(() => { throw err; }));
+        console.log("k : " + k);
+    }
+    Show_Graph();
 }
