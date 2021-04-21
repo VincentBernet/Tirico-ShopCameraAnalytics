@@ -14,7 +14,8 @@ var datas_magasin = new Array(30);
 function Button_Time() {
     const RefreshBtn = document.getElementById('refresh_button')
     RefreshBtn.addEventListener('click', (event) => {
-        Data_ForSearching();
+        //Data_ForSearching();
+        lastFunction();
     })
 
     const go_Btn = document.getElementById('go_datebutton')
@@ -103,8 +104,6 @@ function Data_ForToday()
     
     getAllShopsForToday();
 }
-
-
 
 function Data_ForWeekly() {
     Erase_Datas();
@@ -389,7 +388,7 @@ function Data_ForSearching() {
 
 async function getAllShopsForToday() {
     
-    for (var k = 0; k < numId.length - 1; k++)
+    for (var k = 0; k < numId.length; k++)
     {
         await Get_DatasFromShop("NombreDePassage, NbVente, CAh", numId[k]).then(function(dat) {
             donneesAff = [];
@@ -398,9 +397,6 @@ async function getAllShopsForToday() {
             section = [];
             dat.forEach(function(item, index, array) 
             {
-                var dernierJour = dat[0].DateTime.getDate();
-                var moyenne = [0, 0, 0];
-                
                 dat.forEach(function(item, index, array) 
                 {
                     donneesAff.push(item.NombreDePassage);
@@ -421,7 +417,7 @@ async function getAllShopsForToday() {
 
 async function getAllShops() {
     
-    for (var k = 0; k < numId.length - 1; k++)
+    for (var k = 0; k < numId.length; k++)
     {
         console.log("k = " + k);
         await Get_DatasFromShop("NombreDePassage, NbVente, CAh", numId[k]).then(function(dat) {

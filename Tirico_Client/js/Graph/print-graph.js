@@ -337,7 +337,7 @@ function MakeCommun() {
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             label: magasinNom[2],
-            data: datas_magasin[1][0]
+            data: datas_magasin[2][0]
         }
     ]
     };
@@ -401,7 +401,7 @@ function MakeCommunVente() {
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             label: magasinNom[2],
-            data: datas_magasin[1][1]
+            data: datas_magasin[2][1]
         }
     ]
     };
@@ -467,7 +467,7 @@ function MakeCommunCA() {
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             label: 'CA '+magasinNom[2],
-            data: datas_magasin[1][2]
+            data: datas_magasin[2][2]
         }
     ]
     };

@@ -1,4 +1,5 @@
 // We take back the paramater of the ID, we parse it cleany first
+const { Notification } = require('electron');
 
 const urlDataCounter = window.location.search;
 const urlParamsCounter = new URLSearchParams(urlDataCounter);
@@ -62,7 +63,8 @@ con.query(sql0, function (err0, result0) {
                         document.getElementById("Ccap").innerHTML=''+CompteurAtm+'';
                         document.getElementById("alert").innerHTML='Alerte Covid : Capacité Max Atteinte';
                         document.getElementById("CapRestante").innerHTML=''+CapacityRemaining+'';
-                        console.log("Updating + Alert"); 
+                        console.log("Updating + Alert");
+                        new window.Notification(notificationAlert.title, notificationAlert);
                     }
                     else
                     {
@@ -85,3 +87,11 @@ con.query(sql0, function (err0, result0) {
 });
 
 }
+
+const notificationAlert = {
+    title: 'TIRICO Alert',
+    body: 'Attention ! La limite maximale est atteinte !',
+    icon: "../ressource/image/logo.png"
+}
+
+
