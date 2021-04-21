@@ -40,8 +40,12 @@ function Button_Time() {
             colorTitre = '#000000';
         else
             colorTitre = '#fff';
-        
-        
+        lastFunction();
+    })
+    const CommunSelect = document.getElementById('CommunSelect')
+    CommunSelect.addEventListener('change', (event) => {
+        console.log(CommunSelect.options[CommunSelect.selectedIndex].value);
+        typeOfGraphicsCommun = CommunSelect.options[CommunSelect.selectedIndex].value;
         lastFunction();
     })
 
@@ -99,10 +103,8 @@ function Data_ForToday()
         titre[2] = "Chiffre d'affaires par jour";
         //Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
-
-    console.log("lENGFTH" + numId.length);
     
-    getAllShops();
+    getAllShopsForToday();
 }
 
 
@@ -388,6 +390,37 @@ function Data_ForSearching() {
     getAllShops();
 }
 
+async function getAllShopsForToday() {
+    
+    for (var k = 0; k < numId.length - 1; k++)
+    {
+        await Get_DatasFromShop("NombreDePassage, NbVente, CAh", numId[k]).then(function(dat) {
+            donneesAff = [];
+            donneesVentes = [];
+            donneesCA = [];
+            section = [];
+            dat.forEach(function(item, index, array) 
+            {
+                var dernierJour = dat[0].DateTime.getDate();
+                var moyenne = [0, 0, 0];
+                
+                dat.forEach(function(item, index, array) 
+                {
+                    donneesAff.push(item.NombreDePassage);
+                    donneesVentes.push(item.NbVente);
+                    donneesCA.push(item.CAh);
+                })
+            })
+            section[0] = donneesAff;
+            section[1] = donneesVentes;
+            section[2] = donneesCA;
+            datas_magasin[k] = section;
+            console.log("attention ça finit pour " + k);
+        }).catch((err) => setImmediate(() => { throw err; }));
+        console.log("k : " + k);
+    }
+    Show_Graph();
+}
 
 async function getAllShops() {
     
@@ -395,7 +428,6 @@ async function getAllShops() {
     {
         console.log("k = " + k);
         await Get_DatasFromShop("NombreDePassage, NbVente, CAh", numId[k]).then(function(dat) {
-            console.log("attention ça commence pour " + k);
             donneesAff = [];
             donneesVentes = [];
             donneesCA = [];
@@ -430,9 +462,6 @@ async function getAllShops() {
             section[1] = donneesVentes;
             section[2] = donneesCA;
             datas_magasin[k] = section;
-            console.log("tota graph : " + datas_magasin);
-            console.log("curr graph : " + datas_magasin[k]);
-            console.log("opta graph : " + datas_magasin[k][0]);
             console.log("attention ça finit pour " + k);
         }).catch((err) => setImmediate(() => { throw err; }));
         console.log("k : " + k);

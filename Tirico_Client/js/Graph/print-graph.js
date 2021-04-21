@@ -322,23 +322,20 @@ function MakeCommun() {
             backgroundColor: '#2d9ae0',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            borderColor: 'rgb(255, 99, 132)',
             label: 'Affluence du magasin 0',
             data: datas_magasin[0][0]
         },
         {
-            backgroundColor: '#2d9ae0',
+            backgroundColor: '#267BB1',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            borderColor: 'rgb(255, 99, 132)',
             label: 'Affluence du magasin 1',
             data: datas_magasin[1][0]
         },
         {
-            backgroundColor: '#2d9ae0',
+            backgroundColor: '#175881',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            borderColor: 'rgb(255, 99, 132)',
             label: "Affluence du magasin 2",
             data: datas_magasin[1][0]
         }
@@ -369,7 +366,7 @@ function MakeCommun() {
         }
     };
     graphCommun = new Chart(ctx, {
-        type: 'bar',
+        type: typeOfGraphicsCommun,
         data: data,
         options: options
     });
@@ -386,10 +383,9 @@ function MakeCommunVente() {
     data = {
         labels: Graphe_Label,
         datasets: [{
-            backgroundColor: '#900C3F',
+            backgroundColor: '#C31156',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            borderColor: 'rgb(255, 99, 132)',
             label: 'Vente du magasin 0',
             data: datas_magasin[0][1]
         },
@@ -397,15 +393,13 @@ function MakeCommunVente() {
             backgroundColor: '#900C3F',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            borderColor: 'rgb(255, 99, 132)',
             label: 'Vente du magasin 1',
             data: datas_magasin[1][1]
         },
         {
-            backgroundColor: '#900C3F',
+            backgroundColor: '#630529',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            borderColor: 'rgb(255, 99, 132)',
             label: "Vente du magasin 2",
             data: datas_magasin[1][1]
         }
@@ -436,12 +430,13 @@ function MakeCommunVente() {
         }
     };
     graphCommunVente = new Chart(ctx, {
-        type: 'bar',
+        type: typeOfGraphicsCommun,
         data: data,
         options: options
     });
 }
 
+var typeOfGraphicsCommun = 'bar';
 var graphCommunCA;
 function MakeCommunCA() {
     if (graphCommunCA != null)
@@ -456,23 +451,21 @@ function MakeCommunCA() {
             backgroundColor: '#FFC300',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            borderColor: 'rgb(255, 99, 132)',
             label: 'CA du magasin 0',
             data: datas_magasin[0][2]
         },
         {
-            backgroundColor: '#FFC300',
+            backgroundColor: '#C99A00',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            borderColor: 'rgb(255, 99, 132)',
             label: 'CA du magasin 1',
+            pointRadius: 0.5,
             data: datas_magasin[1][2]
         },
         {
-            backgroundColor: '#FFC300',
+            backgroundColor: '#867200',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            borderColor: 'rgb(255, 99, 132)',
             label: "CA du magasin 2",
             data: datas_magasin[1][2]
         }
@@ -503,7 +496,8 @@ function MakeCommunCA() {
         }
     };
     graphCommunCA = new Chart(ctx, {
-        type: 'bar',
+        type: typeOfGraphicsCommun,
+    
         data: data,
         options: options
     });

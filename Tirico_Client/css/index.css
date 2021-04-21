@@ -159,6 +159,33 @@
 	border: 1px solid #ced4da;
 }
 
+#CommunSelect {
+	width: 100%;
+	height: 100%;
+	color: #555555;
+	cursor: pointer;
+	text-align: center;
+	font-weight: 500;
+	font-size: large;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	appearance: none;
+	outline: 0;
+	border: 0 !important;
+	background: #f9f9f9;
+	background-image: none;
+	box-shadow: none;
+	font-size: 1.2em;
+	padding-left: 15px;
+}
+#selectComm {
+	margin-left: 90px;
+}
+
+#selectComm h3 {
+	color: var(--opposite-color);
+}
+
+
 #magasinSelect {
 	width: 100%;
 	height: 100%;
