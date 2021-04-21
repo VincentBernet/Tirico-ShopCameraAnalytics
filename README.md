@@ -6,17 +6,14 @@ Retails is a dynamic environment, which is highly variable in terms of pricing, 
 
 ## Application
 
-Design du dashboard :
-
-<p align="center"><img src="Tirico_Client/ressource/demo/dash_white.JPG"\></p>
+Retrouvez toutes les données sous forme de graphiques :
 <p align="center"><img src="Tirico_Client/ressource/demo/dash_commwhite.JPG"\></p>
 
-Selection de zone : 
+Sélection de zone de vente : 
 <p align="center"><img src="Tirico_Client/ressource/demo/selection_zone.gif"\></p>
 
 Carte de chaleur des différentes zones en fonction de la popularité : 
 <p align="center"><img src="Tirico_Client/ressource/demo/heatmap.JPG"\></p>
-
 
 ## Demo of the tracker on Persons in the street
 <p align="center"><img src="Tirico_Server/code_python/yolov4-deepsort/data/helpers/demo.gif"\></p>
