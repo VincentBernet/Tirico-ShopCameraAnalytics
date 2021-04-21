@@ -4,12 +4,24 @@
 
 Retails is a dynamic environment, which is highly variable in terms of pricing, branding, shopper behavior and trends. Therefore, continuous testing and optimizing the business decisions are crucial. With Tirico shopper flow analytics, the retailers gain the essential insights to maximize their revenue as well as cutting down redundant expenses. Tirico shopper flow solution is a powerful & popular tool used by retailers and retail researchers for understanding in-store and out-store shopper behavior, in addition to knows more about the affluence of customers. <br/> Tirico is a web app developp on Atome, using TensorFlow for human detection and python for analytics!
 
-<p align="center"><img src="Tirico_Client/ressource/image/interface.JPG"\></p>
+## Application
+
+Design du dashboard :
+
+<p align="center"><img src="Tirico_Client/ressource/demo/dash_white.JPG"\></p>
+<p align="center"><img src="Tirico_Client/ressource/demo/dash_commwhite.JPG"\></p>
+
+Selection de zone : 
+<p align="center"><img src="Tirico_Client/ressource/demo/selection_zone.gif"\></p>
+
+Carte de chaleur des différentes zones en fonction de la popularité : 
+<p align="center"><img src="Tirico_Client/ressource/demo/heatmap.JPG"\></p>
 
 
 ## Demo of the tracker on Persons in the street
 <p align="center"><img src="Tirico_Server/code_python/yolov4-deepsort/data/helpers/demo.gif"\></p>
 ---
+
 
 ## Table of Contents 
 
