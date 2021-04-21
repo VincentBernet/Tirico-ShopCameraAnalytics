@@ -101,7 +101,7 @@ const NotifBtn = document.getElementById('NOTIFICATION')
 
 if (Color_Mode == 0)
     {
-        document.documentElement.style.setProperty('--main-bg-color', '#fff');
+        document.documentElement.style.setProperty('--main-bg-color', '#E3E3E3');
         document.documentElement.style.setProperty('--main-bg-workspacecolor', '#fff');
         document.documentElement.style.setProperty('--textColor', '#000000');
         document.documentElement.style.setProperty('--color-button', '#00abe9');
