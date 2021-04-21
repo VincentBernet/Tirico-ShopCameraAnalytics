@@ -24,12 +24,13 @@
 }
 
 .Workspace hr {
-	margin-left: 3%;
+	margin-left: 0px;
 	height: 60px;
 	color: var(--opposite-color);
 	background-color: var(--opposite-color);
 	border: none;
-	box-shadow: inset 1px 1px 18px #0a0a0a, inset -1px -1px 18px var(--opposite-color);
+	box-shadow: inset 1px 1px 18px #0a0a0a,
+		inset -1px -1px 18px var(--opposite-color);
 }
 
 .Workspace h1 {
@@ -185,7 +186,6 @@
 	color: var(--opposite-color);
 }
 
-
 #magasinSelect {
 	width: 100%;
 	height: 100%;
@@ -208,9 +208,12 @@
 	background: #f9f9f9;
 }
 
+#containerHeat {
+	margin-top: 3%;
+}
 #HeatMap {
-	margin-top: 10%;
-	margin-left: 20%;
+	margin-top: 1%;
+	margin-left: 23%;
 	width: 50%;
 	height: auto;
 }

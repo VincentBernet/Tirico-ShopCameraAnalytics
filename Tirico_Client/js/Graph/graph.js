@@ -76,11 +76,8 @@ for (var i = 0; i < 20; i++) {
     test1[i] = test2;
     test[i] = test1;
 }
-console.log("test : " + test);
-console.log("test1 : " + test1);
-console.log("test2 : " + test2);
 
-console.log("tek : " + test[0][0][0]);
+
 
 function Data_ForToday()
 {
@@ -98,9 +95,9 @@ function Data_ForToday()
             datas_ventes.push(item.NbVente);
             datas_CA.push(item.CAh);
         })
-        titre[0] = "Affluence client par jour";
-        titre[1] = "Nombre de produits vendus par jour";
-        titre[2] = "Chiffre d'affaires par jour";
+        titre[0] = "Affluence Client Journalière";
+        titre[1] = "Nombre de produits Vendus Journalier";
+        titre[2] = "Chiffre d'affaires Journalier";
         //Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
     
@@ -139,7 +136,7 @@ function Data_ForWeekly() {
             dernierJour = jour;
         })
         Graphe_Label = semaine;
-        titre[0] = 'Affluence client par semaine';
+        titre[0] = 'Affluence client Hebdomadaire';
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("NbVente").then(function(dat) {
@@ -165,7 +162,7 @@ function Data_ForWeekly() {
             }
             dernierJour = jour;
         })
-        titre[1] = 'Nombre de produits vendus par semaine';
+        titre[1] = 'Nombre de produits vendus Hebdomadaire';
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("CAh").then(function(dat) {
@@ -190,7 +187,7 @@ function Data_ForWeekly() {
             }
             dernierJour = jour;
         })
-        titre[2] = "Moyenne du chiffres d'affaires par mois";
+        titre[2] = "Moyenne du chiffres d'affaires Mensuel";
     }).catch((err) => setImmediate(() => { throw err; }));
 
     getAllShops();
@@ -226,7 +223,7 @@ function Data_ForMonthly() {
             dernierJour = jour;
         })
         Graphe_Label = semaine;
-        titre[0] = 'Affluence client par mois';
+        titre[0] = 'Affluence client Mensuel';
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("NbVente").then(function(dat) {
@@ -251,7 +248,7 @@ function Data_ForMonthly() {
             }
             dernierJour = jour;
         })
-        titre[1] = 'Nombre de produits vendus par mois';
+        titre[1] = 'Nombre de produits vendus Hebdomadaire';
     }).catch((err) => setImmediate(() => { throw err; }));
 
     Get_Datas("CAh").then(function(dat) {
@@ -276,7 +273,7 @@ function Data_ForMonthly() {
             }
             dernierJour = jour;
         })
-        titre[2] = "Moyenne du chiffres d'affaires par mois";
+        titre[2] = "Moyenne du chiffres d'affaires Mensuel";
         Show_Graph();
     }).catch((err) => setImmediate(() => { throw err; }));
 

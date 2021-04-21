@@ -35,7 +35,7 @@ function Affluence_LineGraph() {
             backgroundColor: '#2d9ae0',
             borderColor: '#2d9ae0',
             data: datas,
-            label: "Personne"
+            label: "Nombre de clients"
         }]
     };
     options = {
@@ -119,7 +119,7 @@ function MakeVenteLineGraph() {
         datasets: [{
             backgroundColor: '#900C3F',
             data: datas_ventes,
-            label: "Vente"
+            label: "Nombre de produits vendus"
         }]
     };
     options = {
@@ -163,7 +163,7 @@ function MakeBarVente()
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
             borderColor: 'rgb(255, 99, 132)',
-            label: 'Nombre de personne',
+            label: 'Nombre de clients',
             data: datas
         },
         {
@@ -270,7 +270,7 @@ function MakeAraignee()
         label: 'Vente',
     labels: Graphe_Label,
     datasets: [{
-        label: titre[0],
+        label: "Nombre de produits vendus",
         backgroundColor: '#900C3F',
         borderColor: '#44061E',
         fill: true,
@@ -322,21 +322,21 @@ function MakeCommun() {
             backgroundColor: '#2d9ae0',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            label: 'Affluence du magasin 0',
+            label: magasinNom[0],
             data: datas_magasin[0][0]
         },
         {
             backgroundColor: '#267BB1',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            label: 'Affluence du magasin 1',
+            label: magasinNom[1],
             data: datas_magasin[1][0]
         },
         {
             backgroundColor: '#175881',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            label: "Affluence du magasin 2",
+            label: magasinNom[2],
             data: datas_magasin[1][0]
         }
     ]
@@ -386,21 +386,21 @@ function MakeCommunVente() {
             backgroundColor: '#C31156',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            label: 'Vente du magasin 0',
+            label: magasinNom[0],
             data: datas_magasin[0][1]
         },
         {
             backgroundColor: '#900C3F',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            label: 'Vente du magasin 1',
+            label: magasinNom[1],
             data: datas_magasin[1][1]
         },
         {
             backgroundColor: '#630529',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            label: "Vente du magasin 2",
+            label: magasinNom[2],
             data: datas_magasin[1][1]
         }
     ]
@@ -451,14 +451,14 @@ function MakeCommunCA() {
             backgroundColor: '#FFC300',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            label: 'CA du magasin 0',
+            label: 'CA '+magasinNom[0],
             data: datas_magasin[0][2]
         },
         {
             backgroundColor: '#C99A00',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            label: 'CA du magasin 1',
+            label: 'CA '+magasinNom[1],
             pointRadius: 0.5,
             data: datas_magasin[1][2]
         },
@@ -466,7 +466,7 @@ function MakeCommunCA() {
             backgroundColor: '#867200',
             hoverBackgroundColor: '#fff',
             hoverBorderWidth: '#fff',
-            label: "CA du magasin 2",
+            label: 'CA '+magasinNom[2],
             data: datas_magasin[1][2]
         }
     ]

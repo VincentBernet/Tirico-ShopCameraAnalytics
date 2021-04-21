@@ -56,16 +56,15 @@
 			</div>
 		</div>
         <div class="Workspace">
-			<div id="time_button"><button id="refresh_button">Refresh</button></div>
+			
+			<div id="time_button"><button id="refresh_button">Actualiser</button></div>
 			<div id="time_button">
 			<br/>
 			<input type="date" id="start" name="trip-start"
 				value="2018-07-22"
 				min="2020-01-01" max="2020-12-31">
-			<input type="date" id="end" name="trip-start"
-				value="2019-07-22"
-				min="2020-01-01" max="2020-12-31">
-			<button id="go_datebutton">Search</button>
+			
+			<button id="go_datebutton">Rechercher</button>
 			</div>
 			<div class="bloc">
 				<button id="whiteblack"></button>
@@ -73,7 +72,16 @@
 					<select id="magasinSelect"></select>
 				</div>
 			</div>
-            <img id="HeatMap" src="../ressource/image/heatmap1.png"/>
+			<div id="containerHeat">
+			<h1>Carte de Chaleur : <script>
+				var today = new Date();
+				var dd = String(today.getDate()).padStart(2, '0');
+				var mm = String(today.getMonth() + 1).padStart(2, '0');
+				var yyyy = today.getFullYear();
+				today = dd + '/' + mm + '/' + yyyy;
+				document.write(today+"");
+			</script><!-- <span id="Magasin"></span>--></h1>
+            <img id="HeatMap" src="../ressource/image/heatmap1.png"/></div>
         </div>
     </div>
 </body>
@@ -81,8 +89,12 @@
 	const magasinBtn = document.getElementById('magasinSelect')
     magasinBtn.addEventListener('change', (event) => {
         var heatmap = document.getElementById("HeatMap");
-		heatmap.src = "../ressource/image/heatmap"+numId[document.getElementById("magasinSelect").selectedIndex]+".PNG"
+		heatmap.src = "../ressource/image/heatmap"+numId[document.getElementById("magasinSelect").selectedIndex]+".PNG";
+		/*var magasinNom = document.getElementById("Magasin");
+		magasinNom.innerHTML=magasinNom[document.getElementById("magasinSelect").selectedIndex];*/
     })
+
+
 </script>
 </html>
 
