@@ -20,8 +20,8 @@ writer = csv.writer(f)
 writer.writerow(['label', 'xmin', 'ymin', 'xmax', 'ymax'])
 
 # select ROIs function
-eg.msgbox("Please select zones with LEFT-CLICK.\nThen press ENTER to define a zone.\nWhen you are done defining zone press ESCAPE.", "Instructions", "OK")
-ROIs = cv2.selectROIs("Select Rois", img_raw)
+eg.msgbox("Sélectionnez les zones en cliquant avec le bouton gauche de la souris.\nEnsuite, appuyez sur la touche ENTER pour définir une zone.\nQuand vous avez fini, appuyez sur ECHAP.", "Instructions", "OK")
+ROIs = cv2.selectROIs("Selection Zone", img_raw)
 
 # print rectangle points of selected roi
 print(ROIs)
@@ -29,7 +29,7 @@ print(ROIs)
 # counter to save image with different name
 crop_number = 0
 
-cv2.destroyWindow("Select Rois")
+cv2.destroyWindow("Selection Zone")
 # loop over every bounding box save in array "ROIs"
 for rect in ROIs:
     x1 = rect[0]
