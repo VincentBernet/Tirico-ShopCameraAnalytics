@@ -17,7 +17,6 @@ function createWindow () {
     },
     icon: "ressource/image/ml.png"
   })
-  win.webContents.openDevTools();
 
   win.loadFile('html/index.html')
 }
