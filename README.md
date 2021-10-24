@@ -59,7 +59,8 @@ pip install plotly                         (pour réaliser les graphes)
 pip install -c plotly plotly-orca          (pour save en png les graphes)
 pip install seaborn                        (pour réaliser la HeatMap)
 ```
-
+Connexion Jeu de données: 
+- Identifiant : vb@gmail.com | Mot de Passe : 123
 ## Licences
 
 ## Features
