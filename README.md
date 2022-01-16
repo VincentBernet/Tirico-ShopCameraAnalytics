@@ -1,4 +1,4 @@
-# Tirico-ShopCameraAnalitics
+# Tirico-ShopCameraAnalytics
 
 ## Presentation Speech 
 
