@@ -2,7 +2,7 @@
 
 ## Speech de Présentation 
 
-<div style="text-align: right; color: red;"> Tirico est une application web d'aide à la décision pour tous les responsables et managers de magasin. Celle-ci permet, à partir de l'analyse d'image caméra, d'obtenir de précieuses informations, statistiques et graphiques sur le comportement client, permettant à vos gérants d'enseigne de prendre les meilleurs décisions sur l'aménagement des rayons. Notament sur le parcours client dans vos rayonnages, via par exemple des cartes de chaleurs, ou encore des graphiques sur le rapport entre le temps passé dans un rayon et l'argent dépensé à la caisse pour les produits de ce même rayon. Toutes nos études ont pour but de mettre en perspective la corrélation entre le comportement client analysé via nos caméra et l'analyse des tickets de caisse. Enfin des conseils générés par nos IA vous aident à mieux décrypter nos graphiques et vous proposes des initiatives possibles. </div>
+<p align="justify"> Tirico est une application web d'aide à la décision pour tous les responsables et managers de magasin. Celle-ci permet, à partir de l'analyse d'image caméra, d'obtenir de précieuses informations, statistiques et graphiques sur le comportement client, permettant à vos gérants d'enseigne de prendre les meilleurs décisions sur l'aménagement des rayons. Notament sur le parcours client dans vos rayonnages, via par exemple des cartes de chaleurs, ou encore des graphiques sur le rapport entre le temps passé dans un rayon et l'argent dépensé à la caisse pour les produits de ce même rayon. Toutes nos études ont pour but de mettre en perspective la corrélation entre le comportement client analysé via nos caméra et l'analyse des tickets de caisse. Enfin des conseils générés par nos IA vous aident à mieux décrypter nos graphiques et vous proposes des initiatives possibles. </p>
 
 Afin de vous permettre de mieux cerner vos clients, et de vous permettre d'optimiser vos ventes !
 
@@ -24,16 +24,16 @@ Solution réalisé avec :
 <a name='application'></a>
 ## Application
 
-Retrouvez toutes les données sous forme de graphiques :
+***Retrouvez toutes les données sous forme de graphiques :***
 <p align="center"><img src="Tirico_Client/ressource/demo/dash_commwhite.JPG"\></p>
 
-Sélection de zone de vente : 
+***Sélectionnez vos zone de vente puis indiquez les types de produits vendus :***
 <p align="center"><img src="Tirico_Client/ressource/demo/selection_zone.gif"\></p>
 
-Carte de chaleur des différentes zones en fonction de la popularité : 
+***Retrouvez vos cartes de chaleurs des différentes zones en fonction de leur popularité :***
 <p align="center"><img src="Tirico_Client/ressource/demo/heatmap.JPG"\></p>
 
-## Demo of the tracker on Persons in the street
+***Démo du système de tracking dans une rue :***
 <p align="center"><img src="Tirico_Server/code_python/yolov4-deepsort/data/helpers/demo.gif"\></p>
 
 ---
