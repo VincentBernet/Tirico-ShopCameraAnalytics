@@ -1,8 +1,14 @@
 # Tirico-ShopCameraAnalytics
 
-## Presentation Speech 
+## Speech de Présentation 
 
-Retails is a dynamic environment, which is highly variable in terms of pricing, branding, shopper behavior and trends. Therefore, continuous testing and optimizing the business decisions are crucial. With Tirico shopper flow analytics, the retailers gain the essential insights to maximize their revenue as well as cutting down redundant expenses. Tirico shopper flow solution is a powerful & popular tool used by retailers and retail researchers for understanding in-store and out-store shopper behavior, in addition to knows more about the affluence of customers. <br/> Tirico is a web app developp on Atome, using TensorFlow for human detection and python for analytics!
+Tirico est une application web d'aide à la décision pour tous les responsables et managers de magasin. Celle-ci permet, à partir de l'analyse d'image caméra, d'obtenir de précieuses informations, statistiques et graphiques sur le comportement client, permettant à vos gérants d'enseigne de prendre les meilleurs décisions sur l'aménagement des rayons. Notament sur le parcours client dans vos rayonnages, via par exemple des cartes de chaleurs, ou encore des graphiques sur le rapport entre le temps passé dans un rayon et l'argent dépensé à la caisse pour les produits de ce même rayon. Toutes nos études ont pour but de mettre en perspective la corrélation entre le comportement client analysé via nos caméra et l'analyse des tickets de caisse. Enfin des conseils générés par nos IA vous aident à mieux décrypter nos graphiques et vous proposes des initiatives possibles.
+
+Afin de vous permettre de mieux cerné vos clients, et de vous permettre d'optimiser vos ventes !
+
+Solution réalisé avec :
+- **Electron** pour la partie applicative (html, css, js)
+- **Tenserflow** pour la partie d'analyse d'image, de machine learning (avec du python en plus pour la partie IA)
 
 ---
 
