@@ -16,8 +16,8 @@ Solution réalisé avec :
 
 - **[Application](#application)**
 - **[Installation](#installation)**
-- **[Features](#features)**
-- **[Team & Contact](#team)**
+- **[Fonctionnalités](#features)**
+- **[Equipe & Contact](#team)**
 - **[Licences](#Licences)**
 
 ---
@@ -59,7 +59,7 @@ Pour lancer l'application :
 npm start
 ```
  
-Pour le python ~~(pas nécessaire actuellement, les graphes sont en locales)~~  
+Pour le python (permettant la génération de carte de chaleur, de conseils généré par l'IA etc.)  
 Installer pip ou anaconda pour installer plus facilement les librairies :
 
 ``` javascript
@@ -73,22 +73,22 @@ Connexion Jeu de données:
 
 ---
 <a name='features'></a>
-## Features
-On this application we implemetended multiples features such as :
- - Login/Register/Logout to acces at your account and your own shops's analytics.
- - Multiple analytics such as heatmap, client flow etc .
+## Fonctionnalités
+Sur cette applications nous avons implémenter de multiples fonctionnalités telles que :
+ - Login/Register/Logout/ForgottenPassword pour accéder à votre compte et à vos différentes analyses d'enseignes.
+ - Plusieurs analytics comme des cartes de chaleurs, des graphiques d'affluences, de conversion d'achat par rapport au temps passé par le client dans chaque rayons, d'analyse de rayon etc . 
  
 ---
 <a name='team'></a>
-## Team & Contact
+## L'Équipe
 
-> This whole application is made by 7 students during their cursus in software Engenering at EFREI PARIS : <br> 
+> L'ensemble de l'application a été réalisé par une équipe de sept étudiants lors de leur cursus d'ingénieur à l'EFREI PARIS : <br> 
 
  - **[Jean Hecke](https://www.linkedin.com/in/jean-hecke-92060015b/)** & **[Louis Gailhac](https://www.linkedin.com/in/gailhac-louis/)** & **[Serge Nicolas Excoffier](https://www.linkedin.com/in/serge-excoffier/)**
  - **[Hélène Boersma](https://www.linkedin.com/in/h%C3%A9l%C3%A8ne-boersma-a0a16b17b/)** & **[Emeline Bagoris](https://www.linkedin.com/in/emeline-bagoris-116905142/)**
  - **[Sébastien Friedberg](https://www.linkedin.com/in/sebastien-friedberg/)** & **[Vincent Bernet](https://www.linkedin.com/in/vincent-bernet/)**
 
-> Don't hesitate to contact us on Github or on Linkedin
+> N'hésitez pas à nous contacter sur Github ou sur Linkedin
 
 ---
 <a name='Licences'></a>
