@@ -27,6 +27,7 @@ Solution realized with :
 
 ***Find all the data in the form of graphs :***
 <p align="center"><img src="Tirico_Client/ressource/demo/dash_commwhite.JPG"\></p>
+<p align="center"><img src="Tirico_Client/ressource/demo/Tirico_Gif.gif"\></p>
 
 ***Select your sales area and indicate the types of products sold :***
 <p align="center"><img src="Tirico_Client/ressource/demo/selection_zone.gif"\></p>
