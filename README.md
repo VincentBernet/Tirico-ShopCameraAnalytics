@@ -76,7 +76,7 @@ Sample login to test Tirico :
 On this application we have implemented multiple features such as :
  - Login/Register/Logout/ForgottenPassword to access your account
  - Define the number of shops you own, to compare their result and have all the diagrams on one board
- - Several analytics such as heat maps, affluence graphs, purchase conversion in relation to the time spent by the customer in each department, department analysis etc. All of those analytics are for each shops, you aswell have combined analytics to compare them directly
+ - Several analytics such as heat maps, affluence graphs, purchase conversion in relation to the time spent by the customer in each department, department analysis etc. All of those analytics are for each shops, you have aswell combined analytics to compare them directly
  
 ---
 <a name='team'></a>
