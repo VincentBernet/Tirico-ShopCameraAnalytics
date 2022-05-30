@@ -35,9 +35,6 @@ Solution realized with :
 ***Find your heat maps of the different zones according to their popularity and the correlation with their specifics sells :***
 <p align="center"><img src="Tirico_Client/ressource/demo/heatmap.JPG"\></p>
 
-***Demo of the tracking system in a street :***
-<p align="center"><img src="Tirico_Server/code_python/yolov4-deepsort/data/helpers/demo.gif"\></p>
-
 ---
 <a name='installation'></a>
 ## Installation
@@ -65,20 +62,21 @@ For the python part (allowing generation of heat map, AI generated tips etc.) :
 Install pip or anaconda to install libraries more easily :
 
 ``` javascript
-pip install pandas                         (pour réaliser les graphes)
-pip install plotly                         (pour réaliser les graphes)
-pip install -c plotly plotly-orca          (pour save en png les graphes)
-pip install seaborn                        (pour réaliser la HeatMap)
+pip install pandas                         (to create graphs)
+pip install plotly                         (to create graphs)
+pip install -c plotly plotly-orca          (to save in .png those graphs)
+pip install seaborn                        (to create HeatMaps)
 ```
-Connection Data set : 
-- Identifiant : vb@gmail.com | Mot de Passe : 123
+Sample login to test Tirico : 
+- Identifiant : **vb@gmail.com** | Mot de Passe : 123
 
 ---
 <a name='features'></a>
 ## Functionalities
 On this application we have implemented multiple features such as :
- - Login/Register/Logout/ForgottenPassword to access your account and your various shop analyses.
- - Several analytics such as heat maps, affluence graphs, purchase conversion in relation to the time spent by the customer in each department, department analysis etc. 
+ - Login/Register/Logout/ForgottenPassword to access your account
+ - Define the number of shops you own, to compare their result and have all the diagrams on one board
+ - Several analytics such as heat maps, affluence graphs, purchase conversion in relation to the time spent by the customer in each department, department analysis etc. All of those analytics are for each shops, you aswell have combined analytics to compare them directly
  
 ---
 <a name='team'></a>
